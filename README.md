@@ -50,5 +50,5 @@ $ rake db:migrate
 
 5. アプリケーションが実行できればたぶんおkです。
 ```
-rails s
+$ rails s
 ```
