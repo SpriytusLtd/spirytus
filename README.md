@@ -51,12 +51,14 @@
   $ rails s
   ```
  - CentOSの場合以下の手順が必要です。
+
    ```
    $ sudo yum install mysql-devel
    $ gem install mysql2 -v '0.3.20'
    $ bundle install
    ```
  - さらに以下のコマンドで実行します。
+
    ```
    $ rails s -b 0.0.0.0
    ```
