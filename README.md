@@ -27,27 +27,23 @@
   1. Ruby 2.2
   2. Ruby on Rails 4.2
   3. MySQL 5.6
-
 2. このリポジトリをクローンし、
 そのクローンしたディレクトリに入ります。
 ```
 $ git clone https://github.com/SpriytusLtd/spirytus.git
 $ cd spirytus
 ```
-
 3. データベースにアクセスするためのユーザ名とパスワードを
 環境変数に登録します。
 ```
 $ export SPIRYTUS_DATABASE_USERNAME=ユーザ名
 $ export SPIRYTUS_DATABASE_PASSWORD=パスワード
 ```
-
 4. データベースを作成し、マイグレートします。
 ```
 $ rake db:create
 $ rake db:migrate
 ```
-
 5. アプリケーションが実行できればたぶんおkです。
 ```
 $ rails s
