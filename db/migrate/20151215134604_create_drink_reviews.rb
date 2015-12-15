@@ -6,10 +6,10 @@ class CreateDrinkReviews < ActiveRecord::Migration
       t.text :body, null: false
       t.integer :param1, null: false
       t.integer :param2, null: false
-      t.integer :param3, null: true
-      t.integer :param4, null: true
-      t.integer :param5, null: true
-      t.integer :param6, null: true
+      t.integer :param3
+      t.integer :param4
+      t.integer :param5
+      t.integer :param6
 
       t.timestamps null: false
     end
