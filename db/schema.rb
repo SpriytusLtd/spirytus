@@ -11,6 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20151215134604) do
+
+  create_table "drink_reviews", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,     null: false
+    t.integer  "drink_id",   limit: 4,     null: false
+    t.text     "body",       limit: 65535, null: false
+    t.integer  "param1",     limit: 4,     null: false
+    t.integer  "param2",     limit: 4,     null: false
+    t.integer  "param3",     limit: 4
+    t.integer  "param4",     limit: 4
+    t.integer  "param5",     limit: 4
+    t.integer  "param6",     limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
 end

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  drink_id: 1
+  body: MyText
+  param1: 1
+  param2: 1
+  param3: 1
+  param4: 1
+  param5: 1
+  param6: 1
+
+two:
+  user_id: 1
+  drink_id: 1
+  body: MyText
+  param1: 1
+  param2: 1
+  param3: 1
+  param4: 1
+  param5: 1
+  param6: 1
