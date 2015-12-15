@@ -11,24 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215142255) do
-
-  create_table "alcoholics", force: :cascade do |t|
-    t.text     "name",       limit: 65535, null: false
-    t.text     "item1",      limit: 65535, null: false
-    t.text     "item2",      limit: 65535, null: false
-    t.text     "item3",      limit: 65535
-    t.text     "item4",      limit: 65535
-    t.text     "item5",      limit: 65535
-    t.text     "item6",      limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "brewers", force: :cascade do |t|
-    t.text     "name",       limit: 65535, null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+ActiveRecord::Schema.define(version: 20151215134740) do
+  create_table "drinks", force: :cascade do |t|
+    t.text     "name",         limit: 65535, null: false
+    t.integer  "alcohol",      limit: 4
+    t.text     "detail",       limit: 65535
+    t.integer  "alcoholic_id", limit: 4
+    t.integer  "brewer_id",    limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
