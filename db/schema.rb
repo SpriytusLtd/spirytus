@@ -12,13 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20151215134740) do
-
-  create_table "brewers", force: :cascade do |t|
-    t.text     "name",       limit: 65535, null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
   create_table "drinks", force: :cascade do |t|
     t.text     "name",         limit: 65535, null: false
     t.integer  "alcohol",      limit: 4
