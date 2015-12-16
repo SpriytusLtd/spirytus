@@ -1,4 +1,4 @@
 class StoreReview < ActiveRecord::Base
-  belongs_to :user_id
-  belongs_to :store_id
+  belongs_to :users, foreign_key: :user_id
+  belongs_to :stores, foreign_key: :store_id
 end
