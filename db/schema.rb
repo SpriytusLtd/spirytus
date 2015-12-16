@@ -11,8 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20151215134604) do
+ActiveRecord::Schema.define(version: 20151216083846) do
+
+  create_table "alcoholics", force: :cascade do |t|
+    t.text     "name",       limit: 65535, null: false
+    t.text     "item1",      limit: 65535, null: false
+    t.text     "item2",      limit: 65535, null: false
+    t.text     "item3",      limit: 65535
+    t.text     "item4",      limit: 65535
+    t.text     "item5",      limit: 65535
+    t.text     "item6",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "brewers", force: :cascade do |t|
+    t.text     "name",       limit: 65535, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.text     "name",         limit: 65535, null: false
+    t.boolean  "local_dishes",               null: false
+    t.text     "detail",       limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "drink_reviews", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,     null: false
@@ -28,6 +53,54 @@ ActiveRecord::Schema.define(version: 20151215134604) do
     t.datetime "updated_at",               null: false
   end
 
-=======
->>>>>>> develop
+  create_table "drinks", force: :cascade do |t|
+    t.text     "name",         limit: 65535, null: false
+    t.integer  "alcohol",      limit: 4
+    t.text     "detail",       limit: 65535
+    t.integer  "alcoholic_id", limit: 4
+    t.integer  "brewer_id",    limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.text     "name",       limit: 65535, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "resorts", force: :cascade do |t|
+    t.text     "name",       limit: 65535, null: false
+    t.text     "address",    limit: 65535
+    t.text     "detail",     limit: 65535, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "store_reviews", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,     null: false
+    t.integer  "store_id",   limit: 4,     null: false
+    t.text     "body",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
 end
