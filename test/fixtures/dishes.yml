@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  local_dishes: false
+  detail: MyText
+
+two:
+  name: MyText
+  local_dishes: false
+  detail: MyText
