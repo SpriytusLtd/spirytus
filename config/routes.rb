@@ -17,10 +17,10 @@ Rails.application.routes.draw do
     resources :favorites, :controller => 'drinks/favorites', only: [ :create, :destroy ]
   end
 
-  namespace :stores do
-    resources :reviews, :controller => 'reviews'
-    resources :favorites, :controller => 'favorites'
-    resources :configurations, :controller => 'configurations'
+  resources :stores, only: [ :index, :show], controller: 'stores/indexes' do
+    resources :reviews, :controller => 'stores/reviews'
+    resources :favorites, :controller => 'stores/favorites'
+    resources :configurations, :controller => 'stores/configurations'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
