@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   }
   root to: 'indexes#index'
 
-  resources :drinks do
+  resources :drinks, :controller => 'drinks/indexes' do
     resources :reviews, :controller => 'drinks/reviews'
   end
 
