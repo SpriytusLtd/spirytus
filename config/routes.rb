@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   }
   root to: 'indexes#index'
 
-  resources :drinks, :controller => 'drinks/indexes' do
-    resources :reviews, :controller => 'drinks/reviews'
-    resources :favorites, :controller => 'drinks/favorites'
+  resources :drinks, :controller => 'drinks/indexes', only: [ :index, :create, :new, :edit, :show ] do
+    resources :reviews, :controller => 'drinks/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
+    resources :favorites, :controller => 'drinks/favorites', only: [ :create, :destroy ]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
