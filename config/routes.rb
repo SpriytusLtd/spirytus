@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :stores, controller: 'stores/indexes', only: [ :index, :show ] do
-    resources :reviews, controller: 'stores/reviews'
-    resources :favorites, controller: 'stores/favorites'
-    resources :configurations, controller: 'stores/configurations'
+    resources :reviews, controller: 'stores/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
+    resources :favorites, controller: 'stores/favorites', only: [ :create, :destroy ]
+    resources :configurations, controller: 'stores/configurations', only: [ :index, :create, :new ]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
