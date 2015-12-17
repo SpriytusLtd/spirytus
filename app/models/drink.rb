@@ -8,5 +8,4 @@ class Drink < ActiveRecord::Base
 
   has_and_belongs_to_many :users_who_likes, class_name: "User"
   has_and_belongs_to_many :stores
-
 end
