@@ -1,0 +1,2 @@
+module Drinks::IndexesHelper
+end
