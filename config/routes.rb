@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   namespace :stores do
     resources :reviews, :controller => 'reviews'
     resources :favorites, :controller => 'favorites'
+    resources :configurations, :controller => 'configurations'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

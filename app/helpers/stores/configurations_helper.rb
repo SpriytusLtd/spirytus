@@ -1,0 +1,2 @@
+module Stores::ConfigurationsHelper
+end
