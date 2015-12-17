@@ -23,6 +23,12 @@ Rails.application.routes.draw do
     resources :configurations, controller: 'stores/configurations', only: [ :index, :create, :new ]
   end
 
+  resources :users, controller: 'users/indexes', only: [ :show ] do
+    resources :reviews, controller: 'users/reviews', only: [ :index, :show, :destroy ]
+    resources :favorites, controller: 'users/favorites', only: [ :index ]
+    resources :configurations, controller: 'users/configurations', only: [ :index, :create, :new, :destroy ]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
