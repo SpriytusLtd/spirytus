@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :drinks, :controller => 'drinks/indexes' do
     resources :reviews, :controller => 'drinks/reviews'
+    resources :favorites, :controller => 'drinks/favorites'
   end
 
   namespace :stores do
