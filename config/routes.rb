@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :drinks, :controller => 'drinks/indexes' do
     resources :reviews, :controller => 'drinks/reviews'
+    resources :favorites, :controller => 'drinks/favorites'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
