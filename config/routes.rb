@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   }
   root to: 'indexes#index'
 
-  resources :drinks, :controller => 'drinks/indexes', only: [ :index, :create, :new, :edit, :show, :update, :destroy ] do
-    resources :reviews, :controller => 'drinks/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
-    resources :favorites, :controller => 'drinks/favorites', only: [ :create, :destroy ]
+  resources :drinks, :controller 'drinks/indexes', only: [ :index, :create, :new, :edit, :show, :update, :destroy ] do
+    resources :reviews, :controller 'drinks/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
+    resources :favorites, :controller 'drinks/favorites', only: [ :create, :destroy ]
   end
 
-  resources :stores, only: [ :index, :show], controller: 'stores/indexes' do
+  resources :stores, controller: 'stores/indexes', only: [ :index, :show ] do
     resources :reviews, :controller => 'stores/reviews'
     resources :favorites, :controller => 'stores/favorites'
     resources :configurations, :controller => 'stores/configurations'
