@@ -6,3 +6,5 @@ machine:
 database:
   override:
     - mv config/database.yml.ci config/database.yml
+    - rake db:create
+    - rake db:migrate
