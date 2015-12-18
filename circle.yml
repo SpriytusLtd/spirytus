@@ -1,0 +1,10 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version: 2.2.3
+database:
+  override:
+    - mv config/database.yml.ci config/database.yml
+    - rake db:create
+    - rake db:migrate
