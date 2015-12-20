@@ -8,3 +8,6 @@ database:
     - mv config/database.yml.ci config/database.yml
     - rake db:create
     - rake db:migrate
+test:
+  pre:
+    - bundle exec rubocop ./ -c .rubocop.yml
