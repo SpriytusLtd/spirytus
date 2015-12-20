@@ -11,8 +11,6 @@ AllCops:
     - 'script/**/*'
     - 'bundle_bin/*'
     - 'bin/*'
-    - !ruby/regexp /old_and_unused\.rb$/
-
 
 # Favor modifier if/unless usage when you have a single-line body.
 IfUnlessModifier:

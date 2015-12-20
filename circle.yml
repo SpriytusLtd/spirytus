@@ -10,4 +10,4 @@ database:
     - rake db:migrate
 test:
   pre:
-    - rubocop -c .rubocop.yml
+    - bundle exec rubocop -c -R .rubocop.yml
