@@ -11,6 +11,7 @@ AllCops:
     - 'script/**/*'
     - 'bundle_bin/*'
     - 'bin/*'
+    - 'vendor/**/*'
 
 # Favor modifier if/unless usage when you have a single-line body.
 IfUnlessModifier:
