@@ -46,3 +46,6 @@ Style/FormatString:
 # Favor modifier while/until usage when you have a single-line body.
 WhileUntilModifier:
   Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
