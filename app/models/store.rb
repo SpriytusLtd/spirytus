@@ -9,5 +9,4 @@ class Store < ActiveRecord::Base
   validates :phone_number, presence: true, length: { maximum: 20 }
   validates :budget, presence: true, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
-
 end
