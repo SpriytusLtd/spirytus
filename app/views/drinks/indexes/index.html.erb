@@ -3,8 +3,7 @@
 <ul>
   <% @drinks.each do |drink| %>
   <li>
-    <%= drink.name %>
-    <%= link_to "詳細情報", %>
+    <%= link_to drink.name, drink_path(drink.id) %>
   </li>
   <% end %>
 </ul>
