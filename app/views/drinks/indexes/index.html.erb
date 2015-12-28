@@ -4,6 +4,7 @@
   <% @drinks.each do |drink| %>
   <li>
     <%= link_to drink.name, drink_path(drink.id) %>
+    <%= link_to "編集", edit_drink_path(drink.id) %>
   </li>
   <% end %>
 </ul>
