@@ -49,3 +49,6 @@ WhileUntilModifier:
 
 Rails/HasAndBelongsToMany:
   Enabled: false
+
+Style/BlockComments:
+  Enabled: false
