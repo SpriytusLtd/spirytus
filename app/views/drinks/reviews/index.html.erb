@@ -1,0 +1,25 @@
+<p>index </p>
+<%= link_to 'New', new_drink_review_path %>
+<table>
+
+
+  <% @drink.reviews.each do |review| %>
+  <tr>
+    <td>
+      <%= review.body %>
+    </td>
+    <td><%= review.param1 %></td>
+    <td><%= review.param2 %></td>
+    <td><%= review.id %></td>
+
+    <td>
+    <%= link_to 'show', drink_review_path(id: review) %>
+    <%= link_to 'edit', edit_drink_review_path(id: review) %>
+    <%= link_to 'delete', drink_review_path(id: review), method: :delete %>
+    </td>
+    </tr>
+
+
+    <% end %>
+
+</table>

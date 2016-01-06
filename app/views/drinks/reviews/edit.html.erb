@@ -1,0 +1,17 @@
+<p> edit form </p>
+
+<%= form_for @review ,url: drink_review_path(id: @review) do |f| %>
+
+<p> body </p>
+  <%= f.text_area :body %>
+<p> param1 </p>
+  <%= f.text_area :param1 %>
+<p> param2 </p>
+  <%= f.text_area :param2 %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
