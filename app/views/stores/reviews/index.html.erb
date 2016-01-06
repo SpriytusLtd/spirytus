@@ -1,0 +1,31 @@
+<h1>お店レビュー</h1>
+
+<table>
+ <thead> 
+  <tr>
+   <th>Store</th>
+   <th>Review record</th>
+   <th>Memo</th>
+   <th></th>
+   <th></th>
+   <th></th>
+  </tr>
+ </thead>
+
+<tbody> 
+ <% @reviews.store_reviews.each do |review| %>
+  <tr>
+    <td><%= review.stores %></td>
+    <td><%= review.review_record %></td>
+    <td><%= review.memo %></td>
+    <td><%= link_to 'Show', store_review_path(review.stores, review) %></td>
+    <td><%= link_to 'Edit', edit_store_review_path(review.stores, review) %></td>
+    <td><%= link_to 'Destroy', store_review_path(review.stores,review),method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+ </tbody> 
+</table>
+
+<br>
+
+<%= link_to `New Review`, new_review_path %>

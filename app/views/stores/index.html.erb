@@ -1,0 +1,43 @@
+<h1>お店レビュー</h1>
+        <table>
+<tr>
+<th>Store</th>
+    <t.each do |review| %>
+  <tr>
+    <td><%= reviews.stores %></td>
+    <td><%= reviews.review_record %></td>
+    <td><%= reviews.memo %></td>
+    <td><%= link_to 'Show', store_review_path(reviews.stores, reviews) %></td>
+    <td><%= link_to 'Edit', edit_store_review_path(reviews.stores, reviews) %></td>
+    <td><%= link_to 'Destroy', store_review_path(reviews.stores, reviews),method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+"index.html.erb" 26L, 684Creview</th>
+    <th>Memo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+<h1>お店レビュー</h1>
+        <table>
+<tr>
+<th>Store</th>
+    <t.each do |review| %>
+  <tr>
+    <td><%= reviews.stores %></td>
+    <td><%= reviews.review_record %></td>
+    <td><%= reviews.memo %></td>
+    <td><%= link_to 'Show', store_review_path(reviews.stores, rev
+iews) %></td>
+    <td><%= link_to 'Edit', edit_store_review_path(reviews.stores
+, reviews) %></td>
+    <td><%= link_to 'Destroy', store_review_path(reviews.stores,
+reviews),method: :delete, data: { confirm: 'Are you sure?' } %></
+td>
+  </tr>
+<% end %>
+"index.html.erb" 26L, 684Creview</th>
+    <th>Memo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>  </tr>
