@@ -1,0 +1,34 @@
+<h1>お酒新規登録画面</h1>
+
+<%= form_for @drinks do |f| %>
+
+<p>
+  <%= f.label :名前 %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :アルコール度数 %><br>
+  <%= f.text_field :alcohol %>
+</p>
+
+<p>
+  <%= f.label :詳細 %><br>
+  <%= f.text_field :detail %>
+</p>
+
+<p>
+  <%= f.label :種類 %><br>
+  <%= f.collection_select :alcoholic_id, Alcoholic.all, :id, :name %>
+</p>
+
+<p>
+  <%= f.label :酒造 %><br>
+  <%= f.collection_select :brewer_id, Brewer.all, :id, :name %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>

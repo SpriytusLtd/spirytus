@@ -1,0 +1,13 @@
+<h1>お酒検索結果一覧</h1>
+
+<ul>
+  <% @drinks.each do |drink| %>
+  <li>
+    <%= link_to drink.name, drink_path(drink.id) %>
+    <%= link_to "編集", edit_drink_path(drink.id) %>
+    <%= link_to "削除", drink_path(drink.id), method: :delete, data: {confirm: "削除してよろしいでしょうか？" } %>
+  </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "新規追加", new_drink_path %></p>
