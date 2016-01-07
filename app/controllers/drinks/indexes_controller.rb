@@ -36,6 +36,7 @@ class Drinks::IndexesController < ApplicationController
   def destroy
     @drinks = Drink.find(params[:id])
     @drinks.destroy
+    redirect_to drinks_path
   end
 
   private
