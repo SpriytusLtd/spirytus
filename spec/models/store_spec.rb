@@ -10,6 +10,8 @@ RSpec.describe Store, type: :model do
     # 2.
     # cannot substitute phone_number
     # caused by string type?
+    # 3.
+    # long long line
     let(:params) { { email: 'true_store@example.com', password: '01234567', name: 'true store', address: '高知県香美市土佐山田町宮ノ口185', phone_number: `0120-00-0000`, budget: '3000', detail: 'This store is true.' } }
     shared_examples 'not be valid' do
       it { expect(store).not_to be_valid }
