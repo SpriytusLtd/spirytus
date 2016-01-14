@@ -1,16 +1,13 @@
 <h1>お店レビュー</h1>
 <%= link_to 'New', new_store_review_path %>
 <table>
-<% @store = ["1"] %>
 
 
- <% @store.each do |review| %>
+ <% @store.reviews.each do |review| %>
  <tr>
    <td>
      <%= review.body %>
    </td>
-   <td><%= review.param1 %></td>
-   <td><%= review.param2 %></td>
    <td><%= review.id %></td>
 
    <td><%= link_to 'show', store_review_path(id: review) %>
