@@ -7,6 +7,7 @@ class Drink < ActiveRecord::Base
   belongs_to :brewer, foreign_key: :brewer_id
   belongs_to :alcoholic, foreign_key: :alcoholic_id
 
-  #has_and_belongs_to_many :users_who_likes, class_name: 'User'
-  #has_and_belongs_to_many :stores
+  def self.search
+    print("hello")
+  end
 end
