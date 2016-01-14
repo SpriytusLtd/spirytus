@@ -3,22 +3,22 @@ require 'rails_helper'
 RSpec.describe Store, type: :model do
   describe 'with validation' do
     let(:store) { Store.new(params) }
-    # WIP
-    # 1.
-    # budget is integer type
-    # but now value is string type
-    # 2.
-    # cannot substitute phone_number
-    # caused by string type?
-    # 3.
-    # long long line
-    let(:params) { { email: 'true_store@example.com', password: '01234567', name: 'true store', address: '高知県香美市土佐山田町宮ノ口185', phone_number: `0120-00-0000`, budget: '3000', detail: 'This store is true.' } }
+    let(:params) do
+      hash = {}
+      hash[:email] = 'true_store@example.com'
+      hash[:password] = '01234567'
+      hash[:name] = 'true store'
+      hash[:address] = '高知県香美市土佐山田町宮ノ口185'
+      hash[:phone_number] = '0120-00-0000'
+      hash[:budget] = 3000
+      hash[:detail] = 'This store is true.'
+      hash
+    end
     shared_examples 'not be valid' do
       it { expect(store).not_to be_valid }
     end
     context 'when true case' do
       it 'be valid' do
-        store.phone_number = '1234-56-7890'
         expect(store).to be_valid
       end
     end
@@ -78,7 +78,7 @@ RSpec.describe Store, type: :model do
       end
       context 'when budget is not present' do
         before do
-          digit11 = 1 * 11
+          digit11 = 10**10
           store.budget = digit11
         end
         it_behaves_like 'not be valid'
