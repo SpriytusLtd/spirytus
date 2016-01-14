@@ -1,10 +1,11 @@
 class Drinks::IndexesController < ApplicationController
   def index
+    Drink.search
     @drinks = Drink.all
   end
 
   def create
-    @drinks = Drink.new(drinks_params)
+    @drinks = Drink.new(drink_param)
     if @drinks.save
       redirect_to drinks_path
     else
@@ -19,14 +20,14 @@ class Drinks::IndexesController < ApplicationController
   def edit
     @drinks = Drink.find(params[:id])
   end
- 
+
   def show
     @drinks = Drink.find(params[:id])
   end
 
   def update
     @drinks = Drink.find(params[:id])
-    if @drinks.update(drinks_params)
+    if @drinks.update(drink_param)
       redirect_to drinks_path
     else
       render 'edit'
@@ -40,7 +41,8 @@ class Drinks::IndexesController < ApplicationController
   end
 
   private
-    def drinks_params
-      params[:drink].permit(:name, :alcohol, :detail)
-    end
+
+  def drink_param
+    params[:drink].permit(:name, :alcohol, :detail)
+  end
 end

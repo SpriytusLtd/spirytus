@@ -8,6 +8,6 @@ class Drink < ActiveRecord::Base
   belongs_to :alcoholic, foreign_key: :alcoholic_id
 
   def self.search
-    print("hello")
+    logger('hello')
   end
 end
