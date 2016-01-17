@@ -1,0 +1,15 @@
+<h1>Editing review</h1>
+
+<%= form_for @review ,url: store_review_path(id: @review) do |f| %>
+
+<p> body </p>
+  <%= f.text_area :body %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<%= link_to 'Back', store_reviews_path %>
+
+<% end %>

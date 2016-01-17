@@ -4,6 +4,15 @@ class Store < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :reviews, class_name:  'StoreReview', foreign_key: :store_id, dependent: :destroy
+  has_many :users_who_reviews, class_name: 'User', through: :reviews
+
+  belongs_to :brewer, foreign_key: :brewer_id
+  belongs_to :alcoholic, foreign_key: :alcoholic_id
+
+  has_and_belongs_to_many :users_who_likes, class_name: 'User'
+  has_and_belongs_to_many :drinks
+
   validates :name, presence: true, length: { maximum: 50 }
   validates :address, presence: true, length: { maximum: 200 }
   validates :phone_number, presence: true, length: { maximum: 20 }
