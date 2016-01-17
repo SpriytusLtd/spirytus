@@ -26,7 +26,7 @@ RSpec.describe Store, type: :model do
       end
       context 'when budget is not present' do
         before do
-          store.budget = ''
+          store.budget = nil
         end
         it_behaves_like 'be valid'
       end
@@ -34,25 +34,25 @@ RSpec.describe Store, type: :model do
     describe 'with present' do
       context 'when name is not present' do
         before do
-          store.name = ''
+          store.name = nil
         end
         it_behaves_like 'not be valid'
       end
       context 'when address is not present' do
         before do
-          store.address = ''
+          store.address = nil
         end
         it_behaves_like 'not be valid'
       end
       context 'when phone_number is not present' do
         before do
-          store.phone_number = ''
+          store.phone_number = nil
         end
         it_behaves_like 'not be valid'
       end
       context 'when detail is not present' do
         before do
-          store.detail = ''
+          store.detail = nil
         end
         it_behaves_like 'not be valid'
       end
@@ -60,8 +60,8 @@ RSpec.describe Store, type: :model do
     describe 'with maximum length' do
       context 'when name is over limit' do
         before do
-          str51 = 'n' * 101
-          store.name = str51
+          str101 = 'n' * 101
+          store.name = str101
         end
         it_behaves_like 'not be valid'
       end
