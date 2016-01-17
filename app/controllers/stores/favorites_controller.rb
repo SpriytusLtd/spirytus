@@ -6,10 +6,10 @@ class Stores::FavoritesController < ApplicationController
       store = Store.find(params[:store_id])
     rescue
       redirect_to '/'
-      return
     end
+    redirect_to status: :bad_request if store.users_who_likes.include?(current_user)
+
     store.users_who_likes << current_user
-    # current_user.favorite_stores << store
     redirect_to status: :created
   end
 
@@ -19,9 +19,7 @@ class Stores::FavoritesController < ApplicationController
     rescue
       redirect_to '/'
     end
-    store.users_who_likes.delete_if do |u|
-      u.id == current_user.id
-    end
-    redirect_to :store
+    store.users_who_likes.delete(current_user)
+    redirect_to status: :created
   end
 end

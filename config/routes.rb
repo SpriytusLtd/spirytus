@@ -19,7 +19,8 @@ Rails.application.routes.draw do
 
   resources :stores, controller: 'stores/indexes', only: [ :index, :show ] do
     resources :reviews, controller: 'stores/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
-    resources :favorites, controller: 'stores/favorites', only: [ :create, :destroy ]
+    resources :favorites, controller: 'stores/favorites', only: [ :create ]
+    delete 'favorites' => 'stores/favorites#destroy'
     resources :configurations, controller: 'stores/configurations', only: [ :index, :create, :new ]
   end
 
