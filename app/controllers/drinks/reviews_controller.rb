@@ -2,8 +2,8 @@ class Drinks::ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     @drink = Drink.find(params[:drink_id])
+    @review = DrinkReview.new
   end
 
   def new
@@ -21,7 +21,6 @@ class Drinks::ReviewsController < ApplicationController
 
   def edit
     @review = DrinkReview.find(params[:id])
-
   end
 
   def show
@@ -37,7 +36,6 @@ class Drinks::ReviewsController < ApplicationController
   def destroy
     @reviews = DrinkReview.find(params[:id])
     @reviews.destroy
-
     redirect_to drink_reviews_path
   end
 

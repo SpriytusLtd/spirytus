@@ -1,0 +1,32 @@
+<head><!-- レビューの数値を星として表示 -->
+<script type="text/javascript" src="assets/drinks/jquery-1.11.3.min.js"></script>
+<script type="application/javascript" src="/assets/drinks/jquery.raty.js"></script>
+
+</head>
+<%= form_for @review do |f| %>
+
+<p>  お酒レビュー投稿画面　</p>
+<p>  <%= f.text_area :body, size: "110×30" %> </p>
+
+<script type="text/javascript">
+  $(function(){
+    $.fn.raty.defaults.path = "/assets/";
+    $('#star1').raty({ score: 5 });
+    $('#star2').raty({ score: 5, readOnly: true });
+    $('#star3').raty({ score: 2, readOnly: true });
+  });
+</script>
+
+<!--
+<p> param1 </p>
+  <%= f.text_area :param1 %>
+<p> param2 </p>
+  <%= f.text_area :param2 %>
+</p>
+-->
+
+<p>
+  <%= f.submit "投稿"%>
+</p>
+
+<% end %>

@@ -1,25 +1,127 @@
-<p>index </p>
-<%= link_to 'New', new_drink_review_path %>
-<table>
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>お酒のレビュー</title>
+<link rel="stylesheet" type="text/css" href="/assets/application.css">
+<!-- レビューの数値を星として表示 -->
+<script type="text/javascript" src="assets/drinks/jquery-1.11.3.min.js"></script>
+<script type="application/javascript" src="/assets/drinks/jquery.raty.js"></script>
+<!-- レーダーチャートを表示 -->
+<script type="text/javascript" src="/asset/drinks/radar.js"></script>
 
+</head>
+
+<body background="/assets/img1.jpg">
+  <!--<div id="wrapper">
+    <header>
+      <h2>瀧嵐</h2>
+    </header>
+  -->
+<!--お酒の情報-->
+  <div id="info">
+    <img src="/assets/osake.jpg" width="500" height="350" align="right">
+    <p aligin="left">
+      <center>
+      <br><br>
+
+      <h2> <%= @drink.name %> </h2>
+      <p> <%= @drink.detail %> </p>
+
+      <!--
+      <h4>瀧嵐</h4>
+        四国でも良質の水が流れる川として上位に格付けされている <br>
+        「仁淀川」の水を使用した、<br>
+        透明感のあるキレのあるお酒です。<br>
+        <h4>瀧嵐 このうま酒を 酌むときの 恋にかも似る 酔心かな</h4>
+        歌人 吉井勇 が詠い愛した高知のお酒。<br><br>
+
+      -->
+      <hr class="line">
+      HP：<a href="http://wrs.search.yahoo.co.jp/FOR=AM3uMcVV3iiYrRBTs9VVRcIA.juXp_mhiEmPeOWE.LBZWz2AzMvZ7Al7yr_hTX2gvQg7ctBBhzeKHEfDaikspZ0.H1WorLaqZ4hqx.iMlpqjUdikLdRuGO_6cjHqD.DJ2l5yuZo8iZMmdJgfDHsAMsk7fUZKM05LTWispV96QZceQ7zkSTfSN9HHYcaaMaXa.BXP9QG.EQ--/_ylt=A2RA0kg76H9Ww1QAntKDTwx.;_ylu=X3oDMTEyZHZtZjhzBHBvcwMxBHNlYwNzcgRzbGsDdGl0bGUEdnRpZANqcGMwMDE-/SIG=11achak8g/EXP=1451323899/**http%3A//kochi-sake.com/" target="blank">高知酒造株式会社</a> <br> <br>
+      </center>
+
+      <!-- レーダーチャート -->
+      <!--
+      <div><canvas width="400" height="300" id="sample"></canvas></div>
+
+      <script type="text/javascript">
+      window.onload = function(){
+      var rc = new html5jp.graph.radar("sample");
+      if(!rc){return;}
+      var items = [
+      ["瀧嵐", 5, 3, 2, 5]
+      ];
+      var params = {
+      aCap: ["甘さ", "濃い", "辛さ", "薄い"],
+      backgroundColor: "rgba(255,255,255,0.6)",
+      legend: false
+      };
+      rc.draw(items, params)
+      };
+      </script>
+
+    </p>
+  </div>
+-->
+
+  <div id="img1"></div>
+
+
+<!--投稿フォーム-->
+  <div class="text-area">
+    <center>
+    <%= render 'form' %>
+  </div>
+   <!--
+     <div class="text-area">
+     <center>
+      <p>
+      <script type="text/javascript">
+        $(function(){
+          $.fn.raty.defaults.path = "/assets/";
+        	$('#star1').raty({ score: 5 });
+        	$('#star2').raty({ score: 5, readOnly: true });
+        	$('#star3').raty({ score: 2, readOnly: true });
+        });
+      </script>
+
+      <div id="star1"></div>
+  　
+      <textarea name="example1" cols="110" rows="15"></textarea>
+      <input type="submit" value="送信する">
+      </p>
+  </div>
+-->
+
+<!--お酒のレビュー-->
 
   <% @drink.reviews.each do |review| %>
-  <tr>
-    <td>
-      <%= review.body %>
-    </td>
-    <td><%= review.param1 %></td>
-    <td><%= review.param2 %></td>
-    <td><%= review.id %></td>
+    <div id = "review">
+      <p><%= review.body %><br></p>
+      <%= link_to '詳細を表示', drink_review_path(id: review) %> <br>
+      <%= link_to 'レビューを編集', edit_drink_review_path(id: review) %> <br>
+      <%= link_to 'レビューを削除', drink_review_path(id: review), method: :delete %>
+    </div>
+  <% end %>
+    <!--
+      <p>
+        spirytus（氏名）
+        <div id="star2"></div>
+        すごくおいしくて、飲みやすかったです！！<br>
+        値段はすこし高い気もしましたが、すっきりとした味わいが絶妙でした！<br>
+      </p>
+    </div>
 
-    <td>
-    <%= link_to 'show', drink_review_path(id: review) %>
-    <%= link_to 'edit', edit_drink_review_path(id: review) %>
-    <%= link_to 'delete', drink_review_path(id: review), method: :delete %>
-    </td>
-    </tr>
+    <div id="review2">
+        <p>
+          spirytus（氏名）
+          <div id="star3"></div>
+          すごくおいしくて、飲みやすかったです！！<br>
+          値段はすこし高い気もしましたが、すっきりとした味わいが絶妙でした！<br>
+        </p>
+    </div>-->
 
-
-    <% end %>
-
-</table>
+  </div>
+</body>
+</html>
