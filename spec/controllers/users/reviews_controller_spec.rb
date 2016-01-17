@@ -26,6 +26,33 @@ RSpec.describe Users::ReviewsController, type: :controller do
       expect(response).to redirect_to('/users/sign_in')
     end
   end
-  describe 'POST #create'
-  describe 'DELETE #destroy'
+  describe 'GET #show' do
+    it 'render show template' do
+      user1 = FactoryGirl.create(:user1)
+      store1 = FactoryGirl.create(:store1)
+      review1 = StoreReview.create!(user_id: user1.id, store_id: store1.id, body: 'hey')
+      sign_in :user, user1
+      get :show, user_id: user1.id, id: review1.id
+      expect(response).to render_template('show')
+      expect(assigns(:store_review)).to eq(review1)
+    end
+    it 'redirect to / if user account is different' do
+      user1 = FactoryGirl.create(:user1)
+      user2 = FactoryGirl.create(:user2)
+      store1 = FactoryGirl.create(:store1)
+      review1 = StoreReview.create!(user_id: user1.id, store_id: store1.id, body: 'hey')
+      sign_in :user, user1
+      get :show, user_id: user2, id:  review1.id
+      expect(response).to redirect_to(:user_reviews)
+    end
+    it 'redirect to /users/sign_in if user have not logged in yet' do
+      user1 = FactoryGirl.create(:user1)
+      store1 = FactoryGirl.create(:store1)
+      review1 = StoreReview.create!(user_id: user1.id, store_id: store1.id, body: 'hey')
+      get :show, user_id: user1.id, id: review1.id
+      expect(response).to redirect_to('/users/sign_in')
+    end
+  end
+  describe 'DELETE #destroy' do
+  end
 end
