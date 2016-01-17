@@ -52,3 +52,7 @@ Rails/HasAndBelongsToMany:
 
 Style/BlockComments:
   Enabled: false
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 20
