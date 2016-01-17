@@ -24,25 +24,25 @@ RSpec.describe Alcoholic, type: :model do
       context 'when all present' do
         it_behaves_like 'be valid'
       end
-      context 'whrn item3 is not present' do
+      context 'when item3 is not present' do
         before do
           alcoholic.item3 = nil
         end
         it_behaves_like 'be valid'
       end
-      context 'whrn item4 is not present' do
+      context 'when item4 is not present' do
         before do
           alcoholic.item4 = nil
         end
         it_behaves_like 'be valid'
       end
-      context 'whrn item5 is not present' do
+      context 'when item5 is not present' do
         before do
           alcoholic.item5 = nil
         end
         it_behaves_like 'be valid'
       end
-      context 'whrn item6 is not present' do
+      context 'when item6 is not present' do
         before do
           alcoholic.item6 = nil
         end
