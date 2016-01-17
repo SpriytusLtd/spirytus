@@ -1,6 +1,11 @@
 class Drinks::IndexesController < ApplicationController
   def index
+    #@name = nil
+    #@alcohol = nil
+    #@alcoholic = nil
+    #@brewer = nil
     @drinks = Drink.search(params[:search])
+    print(@name)
   end
 
   def create

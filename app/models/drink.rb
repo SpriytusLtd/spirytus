@@ -9,11 +9,13 @@ class Drink < ActiveRecord::Base
 
   def self.search(params)
     if params
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       Drink.where(name: params.name)
         .where(alcohol: params.alcohol)
         .where(alcoholic: params.alcoholic)
         .where(brewer: params.brewer)
     else
+      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
       Drink.all
     end
   end
