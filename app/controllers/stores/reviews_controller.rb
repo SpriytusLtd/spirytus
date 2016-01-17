@@ -1,6 +1,6 @@
 class Stores::ReviewsController < ApplicationController
   before_action :authenticate_user!
-  protect_from_forgery except: [:index, :review_params, :new, :create, :show, :edit, :update, :destroy, :body]
+  # protect_from_forgery except: [:index, :review_params, :new, :create, :show, :edit, :update, :destroy, :body]
 
   def index
     @store = Store.find_by(params[:store_id])
