@@ -10,14 +10,17 @@ class Drink < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 100 }
   validates :alcoholic, presence: true, length: { maximum: 100 }
   validates :detail, presence: true, length: { maximum: 1000 }
-  if params
-    pirint("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    Drink.where(name: params.name)
-      .where(alcohol: params.alcohol)
-      .where(alcoholic: params.alcoholic)
-      .where(brewer: params.brewer)
-  else
-    print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
-    Drink.all
+
+  def self.search(params)
+    if params
+      pirint("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      Drink.where(name: params.name)
+        .where(alcohol: params.alcohol)
+        .where(alcoholic: params.alcoholic)
+        .where(brewer: params.brewer)
+    else
+      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+      Drink.all
+    end
   end
 end
