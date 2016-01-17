@@ -9,6 +9,6 @@ class Drink < ActiveRecord::Base
   has_and_belongs_to_many :stores
 
   validates :name, presence: true, length: { maximum: 100 }
-  validates :alcoholic, presence: true, length: { maximum: 100 }
+  validates :alcohol, presence: true, length: { maximum: 100 }
   validates :detail, presence: true, length: { maximum: 1000 }
 end
