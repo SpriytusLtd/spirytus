@@ -4,5 +4,5 @@ class Dish < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 100 }
   validates :local_dishes, presence: true
-  validates :dishes, length: { maximum: 1000 }
+  validates :detail, length: { maximum: 1000 }
 end
