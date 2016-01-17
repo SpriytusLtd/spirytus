@@ -20,17 +20,21 @@ RSpec.describe Brewer, type: :model do
       end
     end
     describe 'with present' do
-      before do
-        brewer.name = nil
+      context 'when name is not present' do
+        before do
+          brewer.name = nil
+        end
+        it_behaves_like 'not be valid'
       end
-      it_behaves_like 'not be valid'
     end
     describe 'with maximum length' do
-      before do
-        str101 = 'n' * 101
-        brewer.name = str101
+      context 'when name is over limit' do
+        before do
+          str101 = 'n' * 101
+          brewer.name = str101
+        end
+        it_behaves_like 'not be valid'
       end
-      it_behaves_like 'not be valid'
     end
   end
 end
