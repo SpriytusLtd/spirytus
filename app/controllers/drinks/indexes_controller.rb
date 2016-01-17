@@ -1,7 +1,6 @@
 class Drinks::IndexesController < ApplicationController
   def index
-    Drink.search
-    @drinks = Drink.all
+    @drinks = Drink.search(params[:search])
   end
 
   def create
@@ -43,6 +42,10 @@ class Drinks::IndexesController < ApplicationController
   private
 
   def drink_param
-    params[:drink].permit(:name, :alcohol, :detail)
+    params[:drink].permit(:name, :alcohol, :detail, :alcoholic, :brewer)
+  end
+
+  def search_param
+    params[:drink].permit(:name, :alcohol, :alcoholic, :brewer)
   end
 end

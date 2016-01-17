@@ -10,4 +10,33 @@
   <% end %>
 </ul>
 
+<%= form_for @drinks do |f| %>
+
+<p>
+  <%= f.label :名前 %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :アルコール度数 %><br>
+  <%= f.text_field :alcohol %>
+</p>
+
+<p>
+  <%= f.label :種類 %><br>
+  <%= f.text_field :alcoholic %>
+</p>
+
+<p>
+  <%= f.label :酒造 %><br>
+  <%= f.text_field :brewer %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
+
+
 <p><%= link_to "新規追加", new_drink_path %></p>
