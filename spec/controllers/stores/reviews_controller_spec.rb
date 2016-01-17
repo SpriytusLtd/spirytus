@@ -40,7 +40,7 @@ RSpec.describe Stores::ReviewsController, type: :controller do
       store1 = Store.create! email: 'store1@email.com', password: 'test1pass', name: 'test1', address: 'kut-1-1-1', phone_number: '090-1111-1111', budget: 900, detail: 'yeah'
       user1 = User.create! email: 'user1@email.com', password: 'user1pass'
       sign_in :user, user1
-      post :create, { store_id: store1.id, store_review: { body: 'abc' } }
+      post :create, store_id: store1.id, store_review: { body: 'abc' }
       saved_review = StoreReview.find_by(user_id: user1.id)
       expect(saved_review.body).to eq('abc')
       expect(saved_review.store_id).to eq(store1.id)
