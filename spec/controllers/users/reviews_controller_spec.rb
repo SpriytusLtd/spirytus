@@ -36,7 +36,7 @@ RSpec.describe Users::ReviewsController, type: :controller do
       expect(response).to render_template('show')
       expect(assigns(:store_review)).to eq(review1)
     end
-    it 'redirect to / if user account is different' do
+    it 'redirect to :index if user account is different' do
       user1 = FactoryGirl.create(:user1)
       user2 = FactoryGirl.create(:user2)
       store1 = FactoryGirl.create(:store1)
@@ -54,5 +54,8 @@ RSpec.describe Users::ReviewsController, type: :controller do
     end
   end
   describe 'DELETE #destroy' do
+    it 'redirect to :index if review successfully destroyed'
+    it 'redirect to :index if review is not exist'
+    it 'redirect to /users/sign_in if user have not logged in yet'
   end
 end
