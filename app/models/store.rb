@@ -13,9 +13,9 @@ class Store < ActiveRecord::Base
   has_and_belongs_to_many :users_who_likes, class_name: 'User'
   has_and_belongs_to_many :drinks
 
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 100 }
   validates :address, presence: true, length: { maximum: 200 }
   validates :phone_number, presence: true, length: { maximum: 20 }
-  validates :budget, presence: true, length: { maximum: 10 }
+  validates :budget, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
 end
