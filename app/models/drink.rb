@@ -8,18 +8,16 @@ class Drink < ActiveRecord::Base
   belongs_to :alcoholic, foreign_key: :alcoholic_id
 
   validates :name, presence: true, length: { maximum: 100 }
-  validates :alcoholic, presence: true, length: { maximum: 100 }
+  validates :alcohol, presence: true, length: { maximum: 100 }
   validates :detail, presence: true, length: { maximum: 1000 }
 
   def self.search(params)
     if params
-      pirint("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-      Drink.where(name: params.name)
-        .where(alcohol: params.alcohol)
-        .where(alcoholic: params.alcoholic)
-        .where(brewer: params.brewer)
+      Drink.where("name = params")
+        .where("alcohol = params")
+        .where("alcoholic = params")
+        .where("brewer = params")
     else
-      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
       Drink.all
     end
   end
