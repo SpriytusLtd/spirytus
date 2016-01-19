@@ -1,1 +1,44 @@
 <h1> stores/configurations/index </h1>
+
+<p id="notice"> <%= notice %> </p>
+
+<p>
+  <strong> Email: </strong>
+  <%= @store.email %>
+</p>
+
+<p>
+  <strong> Name: </strong>
+  <%= @store.name %>
+</p>
+
+<p>
+  <strong> Address: </strong>
+  <%= @store.address %>
+</p>
+
+<p>
+  <strong> Phone Number: </strong>
+  <%= @store.phone_number %>
+</p>
+
+<p>
+  <strong> Budget: </strong>
+  <%= @store.budget %>
+</p>
+
+<p>
+  <strong> Detail: </strong>
+  <%= @store.detail %>
+</p>
+
+<p>
+  <% if @store.image? %>
+    <strong> Image: </strong>
+    <div class="store-image">
+      <%= image_tag @store.image.url %>
+    </div>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', new_store_configuration_path %>

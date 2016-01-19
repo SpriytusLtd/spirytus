@@ -121,3 +121,6 @@ tramp
 
 # cask packages
 .cask/
+
+# upload directory
+/public/uploads

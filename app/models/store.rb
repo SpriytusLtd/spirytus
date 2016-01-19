@@ -18,4 +18,6 @@ class Store < ActiveRecord::Base
   validates :phone_number, presence: true, length: { maximum: 20 }
   validates :budget, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
+
+  mount_uploader :image, ImageUploader
 end
