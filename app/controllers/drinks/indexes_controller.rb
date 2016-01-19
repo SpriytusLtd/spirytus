@@ -1,11 +1,12 @@
 class Drinks::IndexesController < ApplicationController
   def index
-    #@name = nil
-    #@alcohol = nil
-    #@alcoholic = nil
-    #@brewer = nil
-    @drinks = Drink.search(params[:search])
-    print(@name)
+    print("cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc")
+    print(params[:name])
+    print(params[:alcohol])
+    print(params[:alcoholic])
+    print(params[:brewer])
+    print("dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
+    @drinks = Drink.search(params[:name], params[:alcohol], params[:alcoholic], params[:brewer])
   end
 
   def create
@@ -50,7 +51,4 @@ class Drinks::IndexesController < ApplicationController
     params[:drink].permit(:name, :alcohol, :detail, :alcoholic, :brewer)
   end
 
-  def search_param
-    params[:drink].permit(:name, :alcohol, :alcoholic, :brewer)
-  end
 end

@@ -11,13 +11,24 @@ class Drink < ActiveRecord::Base
   validates :alcohol, presence: true, length: { maximum: 100 }
   validates :detail, presence: true, length: { maximum: 1000 }
 
-  def self.search(params)
-    if params
-      Drink.where("name = params")
-        .where("alcohol = params")
-        .where("alcoholic = params")
-        .where("brewer = params")
+  def self.search(name, alcohol, alcoholic, brewer)
+    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      print(name)
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      print(alcohol)
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      print(alcoholic)
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      print(brewer)
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+if name || alcohol || alcoholic || brewer
+            Drink.where("name = name")
+        .where("alcohol = alochol")
+        .where("alcoholic = alcoholic")
+        .where("brewer = brewer")
     else
+      print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+      print("ヒットしませんでした")
       Drink.all
     end
   end
