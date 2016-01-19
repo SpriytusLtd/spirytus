@@ -32,13 +32,13 @@
   <%= @store.detail %>
 </p>
 
-<!--
 <p>
-  <strong> Image: </strong>
-  <div class="store-image">
+  <% if @store.image? %>
+    <strong> Image: </strong>
+    <div class="store-image">
       <%= image_tag @store.image.url %>
-  </div>
+    </div>
+  <% end %>
 </p>
--->
 
 <%= link_to 'Edit', new_store_configuration_path %>
