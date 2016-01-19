@@ -1,0 +1,2 @@
+module Users::ConfigurationssHelper
+end
