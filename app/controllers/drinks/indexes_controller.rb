@@ -49,5 +49,4 @@ class Drinks::IndexesController < ApplicationController
   def drink_param
     params[:drink].permit(:name, :alcohol, :detail, :alcoholic, :brewer)
   end
-
 end

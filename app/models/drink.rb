@@ -13,18 +13,10 @@ class Drink < ActiveRecord::Base
 
   def self.search(name, alcohol, alcoholic_id, brewer_id)
     @drinks = Drink.all
-    if name.present?
-      @drinks = @drinks.where(name: name)
-    end
-    if alcohol.present?
-      @drinks = @drinks.where(alcohol: alcohol)
-    end
-    if alcoholic_id.present?
-      @drinks = @drinks.where(alcoholic_id: alcoholic_id)
-    end
-    if brewer_id.present?
-      @drinks = @drinks.where(brewer_id: brewer_id)
-    end
-    return @drinks
+    @drinks = @drinks.where(name: name) if name.present?
+    @drinks = @drinks.where(alcohol: alcohol) if alcohol.present?
+    @drinks = @drinks.where(alcoholic_id: alcoholic_id) if alcoholic_id.present?
+    @drinks = @drinks.where(brewer_id: brewer_id) if brewer_id.present?
+    @drinks
   end
 end
