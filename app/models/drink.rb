@@ -12,9 +12,19 @@ class Drink < ActiveRecord::Base
   validates :detail, presence: true, length: { maximum: 1000 }
 
   def self.search(name, alcohol, alcoholic_id, brewer_id)
-    Drink.where("name = 'name'")
-      .where("alcohol = 'alcohol'")
-      .where("alcoholic_id = 'alcoholic_id'")
-      .where("brewer_id = 'brewer_id'")
+    @drinks = Drink.all
+    if name.present?
+      @drinks = @drinks.where(name: name)
+    end
+    if alcohol.present?
+      @drinks = @drinks.where(alcohol: alcohol)
+    end
+    if alcoholic_id.present?
+      @drinks = @drinks.where(alcoholic_id: alcoholic_id)
+    end
+    if brewer_id.present?
+      @drinks = @drinks.where(brewer_id: brewer_id)
+    end
+    return @drinks
   end
 end
