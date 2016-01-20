@@ -1,12 +1,11 @@
 class Drinks::IndexesController < ApplicationController
   def index
-    print("cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc")
-    print(params[:name])
-    print(params[:alcohol])
-    print(params[:alcoholic])
-    print(params[:brewer])
-    print("dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
-    @drinks = Drink.search(params[:name], params[:alcohol], params[:alcoholic], params[:brewer])
+    info = params[:search]
+    if info
+      @drinks = Drink.search(info['name'], info['alcohol'], info['alcoholic'], info['brewer'])
+    else
+      @drinks = Drink.all
+    end
   end
 
   def create
