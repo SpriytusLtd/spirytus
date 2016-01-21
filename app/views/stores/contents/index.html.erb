@@ -1,1 +1,23 @@
 <h1> stores/contents/index.html.erb </h1>
+
+<%= link_to('新しい画像を追加する', :new_store_content) %>
+
+<% @contents.each do |c| %>
+  <% if c.image? %>
+    <div>
+      <%= image_tag c.image.url %>
+    </div>
+  <% end %>
+  <div>
+    <p>
+      <%= c.description %>
+    </p>
+  </div>
+  <div>
+    <% if c.top? %>
+      メイン
+    <% else %>
+      サブ
+    <% end %>
+  </div>
+<% end %>

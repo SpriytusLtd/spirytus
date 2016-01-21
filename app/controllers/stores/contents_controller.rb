@@ -10,7 +10,7 @@ class Stores::ContentsController < ApplicationController
     content = StoreContent.new(create_params)
     content.store_id = current_store.id
     if content.save
-      redirect_to :show, content
+      redirect_to :index
     else
       redirect_to :index
     end
@@ -33,6 +33,6 @@ class Stores::ContentsController < ApplicationController
   private
 
   def create_params
-    params.require(:content).permit(:image, :description, :top)
+    params.require(:store_content).permit(:image, :description, :top)
   end
 end
