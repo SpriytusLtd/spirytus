@@ -10,9 +10,9 @@ class Stores::ContentsController < ApplicationController
     content = StoreContent.new(create_params)
     content.store_id = current_store.id
     if content.save
-      redirect_to :index
+      redirect_to action: :index
     else
-      redirect_to :index
+      redirect_to action: :index
     end
   end
 
@@ -27,7 +27,7 @@ class Stores::ContentsController < ApplicationController
   def destroy
     content = StoreContent.find(params[:id])
     content.destroy
-    redirect_to :index
+    redirect_to action: :index
   end
 
   private

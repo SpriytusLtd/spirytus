@@ -1,6 +1,6 @@
 <h1> stores/contents/index.html.erb </h1>
 
-<%= link_to('新しい画像を追加する', :new_store_content) %>
+<%= link_to('新しい画像を追加する', action: :new) %>
 
 <% @contents.each do |c| %>
   <% if c.image? %>
@@ -20,4 +20,5 @@
       サブ
     <% end %>
   </div>
+  <%= button_to '削除', { action: :destroy, id: c.id }, confirm: '本当に削除しますか？', method: :delete %>
 <% end %>
