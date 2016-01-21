@@ -46,20 +46,12 @@ RSpec.describe Store, type: :model do
       end
       context 'when phone_number is not present' do
         before do
-          store.phone_number = ''
-        end
-        it_behaves_like 'not be valid'
-      end
-      context 'when budget is not present' do
-        before do
-          store.budget = ''
           store.phone_number = nil
         end
         it_behaves_like 'not be valid'
       end
       context 'when detail is not present' do
         before do
-          store.detail = ''
           store.detail = nil
         end
         it_behaves_like 'not be valid'
