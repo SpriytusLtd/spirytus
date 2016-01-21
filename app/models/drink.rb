@@ -8,8 +8,8 @@ class Drink < ActiveRecord::Base
   belongs_to :alcoholic, foreign_key: :alcoholic_id
 
   validates :name, presence: true, length: { maximum: 100 }
-  validates :alcohol, presence: true, length: { maximum: 100 }
-  validates :detail, presence: true, length: { maximum: 1000 }
+  validates :alcohol, length: { maximum: 3 }
+  validates :detail, length: { maximum: 1000 }
 
   def self.search(name, alcohol, alcoholic_id, brewer_id)
     @drinks = Drink.all

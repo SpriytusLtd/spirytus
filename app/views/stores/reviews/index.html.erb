@@ -1,0 +1,22 @@
+<h1>お店レビュー</h1>
+<%= link_to 'New', new_store_review_path %>
+<table>
+
+
+ <% @store.reviews.each do |review| %>
+ <tr>
+   <td>
+     <%= review.body %>
+   </td>
+   <td><%= review.id %></td>
+
+   <td><%= link_to 'show', store_review_path(id: review) %>
+   <%= link_to 'edit', edit_store_review_path(id: review) %>
+   <%= link_to 'delete', store_review_path(id: review), method: :delete %>
+   </td>
+   </tr>
+
+
+   <% end %>
+
+</table>
