@@ -19,5 +19,6 @@ class Store < ActiveRecord::Base
   validates :budget, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
 
-  mount_uploader :image, ImageUploader
+  belongs_to :store_content, foreign_key: :store_content_id
+  has_many :contents, class_name: 'StoreContent'
 end
