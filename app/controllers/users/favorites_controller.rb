@@ -1,8 +1,6 @@
 class Users::FavoritesController < ApplicationController
   def index
-    @users = User.find(params[:id])
-      User.favorite(users)
-    @stores = Store.find(params[:id])
-      Store.favorite(stores)
+    @user = User.find(params[:user_id])
+    @favorite_stores = @user.favorite_stores
   end
 end
