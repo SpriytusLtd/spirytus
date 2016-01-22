@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :favorites, controller: 'stores/favorites', only: [ :create ]
     delete 'favorites' => 'stores/favorites#destroy'
     resources :configurations, controller: 'stores/configurations', only: [ :index, :create, :new ]
+    resources :contents, controller: 'stores/contents', only: [ :index, :create, :show, :new, :destroy ]
   end
 
   resources :users, controller: 'users/indexes', only: [ :show ] do
