@@ -13,12 +13,20 @@ class Store < ActiveRecord::Base
   has_and_belongs_to_many :users_who_likes, class_name: 'User'
   has_and_belongs_to_many :drinks
 
+  belongs_to :store_content, foreign_key: :store_content_id
+  has_many :contents, class_name: 'StoreContent'
+
   validates :name, presence: true, length: { maximum: 100 }
   validates :address, presence: true, length: { maximum: 200 }
   validates :phone_number, presence: true, length: { maximum: 20 }
   validates :budget, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
 
-  belongs_to :store_content, foreign_key: :store_content_id
-  has_many :contents, class_name: 'StoreContent'
+  mount_uploader :image, ImageUploader
+
+  def self.search(store_id)
+    @store = Store.all
+    @store = @store.where(store_id: store_id) if store_id.present?
+    @store
+  end
 end
