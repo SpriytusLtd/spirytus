@@ -13,6 +13,9 @@ class Store < ActiveRecord::Base
   has_and_belongs_to_many :users_who_likes, class_name: 'User'
   has_and_belongs_to_many :drinks
 
+  belongs_to :store_content, foreign_key: :store_content_id
+  has_many :contents, class_name: 'StoreContent'
+
   validates :name, presence: true, length: { maximum: 100 }
   validates :address, presence: true, length: { maximum: 200 }
   validates :phone_number, presence: true, length: { maximum: 20 }

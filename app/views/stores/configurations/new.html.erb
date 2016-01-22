@@ -2,35 +2,59 @@
 
 <%= form_for(@store, url: :store_configurations, html: { method: 'post' }) do |f| %>
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label(:name, '店舗名') %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %>
+    <%= f.label(:address, '住所') %>
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :phone_number %>
+    <%= f.label(:phone_number, '電話番号') %>
     <%= f.text_field :phone_number %>
   </div>
   <div class="field">
-    <%= f.label :budget %>
+    <%= f.label(:budget, '平均予算額') %>
     <%= f.text_field :budget %>
   </div>
   <div class="field">
-    <%= f.label :detail %>
+    <%= f.label(:detail, '詳細説明') %>
     <%= f.text_field :detail %>
   </div>
   <div class="field">
-    <% if @store.image? %>
-      <div class="store-image">
-        <%= image_tag @store.image.url %>
-      </div>
-    <% end %>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.label(:business_day, '営業日') %>
+    <%= f.text_field :business_day %>
+  </div>
+  <div class="field">
+    <%= f.label(:business_time, '営業時間') %>
+    <%= f.text_field :business_time %>
+  </div>
+  <div class="field">
+    <%= f.label(:transportation, 'アクセス') %>
+    <%= f.text_field :transportation %>
+  </div>
+  <div class="field">
+    <%= f.label(:seat, '座席数') %>
+    <%= f.text_field :seat %>
+  </div>
+  <div class="field">
+    <%= f.label(:room, '個室数') %>
+    <%= f.text_field :room %>
+  </div>
+  <div class="field">
+    <%= f.label(:banquet_hall_capacity, '最大収容人数') %>
+    <%= f.text_field :banquet_hall_capacity %>
+  </div>
+  <div class="field">
+    <%= f.label(:smoking, '喫煙席数') %>
+    <%= f.text_field :smoking %>
+  </div>
+  <div class="field">
+    <%= f.label(:hp, 'ホームページ URL') %>
+    <%= f.text_field :hp %>
   </div>
   <div>
-    <%= f.submit %>
+    <%= link_to('前のページに戻る', :back) %>
+    <%= f.submit('変更を登録') %>
   </div>
 <% end %>
