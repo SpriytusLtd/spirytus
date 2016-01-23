@@ -2,5 +2,7 @@
 <p>Find me in app/views/users/favorites/index.html.erb</p>
   <% @favorite_stores.each do |favorite_store| %>
     <p><%= favorite_store.name %></p>
-    <%= link_to '削除する', store_favorites_path(store_id: favorite_store.id), method: :delete %>
+    <% if current_user.id == @user.id %>
+      <%= link_to '削除する', store_favorites_path(store_id: favorite_store.id), method: :delete %>
+    <% end %>
   <% end %>
