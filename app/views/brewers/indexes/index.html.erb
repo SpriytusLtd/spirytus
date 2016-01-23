@@ -1,0 +1,11 @@
+<h1>Brewers::Indexes#index</h1>
+<p>Find me in app/views/brewers/indexes/index.html.erb</p>
+
+<%= link_to '新規登録する', new_brewer_path %>
+<ul>
+  <% @brewers.each do |b| %>
+    <li>
+      <%= b.name %>
+    </li>
+  <% end %>
+</ul>

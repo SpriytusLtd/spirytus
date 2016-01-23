@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :brewers do
+  get 'indexes/index'
+  end
+
+  namespace :brewers do
+  get 'indexes/new'
+  end
+
+  namespace :brewers do
+  get 'indexes/create'
+  end
+
   devise_for :stores, controllers: {
     sessions:      'stores/sessions',
     passwords:     'stores/passwords',
