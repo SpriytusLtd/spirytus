@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :contents, controller: 'stores/contents', only: [ :index, :create, :show, :new, :destroy ]
   end
 
-  resources :users, controller: 'users/indexes', only: [ :show ] do
+  resources :users, controller: 'users/indexes', only: [ :show, :edit, :update ] do
     resources :reviews, controller: 'users/reviews', only: [ :index, :show, :destroy ]
     resources :favorites, controller: 'users/favorites', only: [ :index ]
     resources :configurations, controller: 'users/configurations', only: [ :index, :create, :new, :destroy ]

@@ -3,6 +3,12 @@
   <p>プロフィール</p>
   <%= @user.name %><br />
   <%= @user.email %><br />
+  <% if @user.thumbnail? %>
+    <div>
+      <%= image_tag @user.thumbnail.url %>
+    </div>
+  <% end %>
+  <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
 </div>
 <div id="fovorite_drinks">
   <p>お気に入りのお酒</p>
