@@ -51,4 +51,27 @@ RSpec.describe StoreReview, type: :model do
       end
     end
   end
+  describe 'with method' do
+    describe 'with search method' do
+      context 'when true case' do
+        it 'search by user_id ' do
+          store_review1_1 = FactoryGirl.create(:store_review1_1)
+          expect(StoreReview.search(store_review1_1.user_id, nil).first).to eq(store_review1_1)
+        end
+        it 'search by store_id ' do
+          store_review1_1 = FactoryGirl.create(:store_review1_1)
+          expect(StoreReview.search(nil, store_review1_1.store_id).first).to eq(store_review1_1)
+        end
+        it 'search by user_id & store_id ' do
+          store_review1_1 = FactoryGirl.create(:store_review1_1)
+          expect(StoreReview.search(store_review1_1.user_id, store_review1_1.store_id).first).to eq(store_review1_1)
+        end
+      end
+      context 'when false case' do
+        it 'store_review is not exist ' do
+          expect(StoreReview.search(1, 1).first).to be_nil
+        end
+      end
+    end
+  end
 end

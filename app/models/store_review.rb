@@ -5,4 +5,11 @@ class StoreReview < ActiveRecord::Base
   validates :user_id, presence: true
   validates :store_id, presence: true
   validates :body, length: { maximum: 1000 }
+
+  def self.search(user_id, store_id)
+    @store_reviews = StoreReview.all
+    @store_reviews = @store_reviews.where(user_id: user_id) if user_id.present?
+    @store_reviews = @store_reviews.where(store_id: store_id) if store_id.present?
+    @store_reviews
+  end
 end

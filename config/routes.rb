@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :brewers do
+  get 'indexes/index'
+  end
+
+  namespace :brewers do
+  get 'indexes/new'
+  end
+
+  namespace :brewers do
+  get 'indexes/create'
+  end
+
   devise_for :stores, controllers: {
     sessions:      'stores/sessions',
     passwords:     'stores/passwords',
@@ -22,13 +34,17 @@ Rails.application.routes.draw do
     resources :favorites, controller: 'stores/favorites', only: [ :create ]
     delete 'favorites' => 'stores/favorites#destroy'
     resources :configurations, controller: 'stores/configurations', only: [ :index, :create, :new ]
+    resources :contents, controller: 'stores/contents', only: [ :index, :create, :show, :new, :destroy ]
   end
 
-  resources :users, controller: 'users/indexes', only: [ :show ] do
+  resources :users, controller: 'users/indexes', only: [ :show, :edit, :update ] do
     resources :reviews, controller: 'users/reviews', only: [ :index, :show, :destroy ]
     resources :favorites, controller: 'users/favorites', only: [ :index ]
     resources :configurations, controller: 'users/configurations', only: [ :index, :create, :new, :destroy ]
   end
+
+  resources :alcoholics, controller: 'alcoholics/indexes', only: [ :index, :create, :new, :destroy ]
+  resources :brewers, controller: 'brewers/indexes', only: [ :index, :create, :new, :destroy ]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

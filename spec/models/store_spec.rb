@@ -95,4 +95,18 @@ RSpec.describe Store, type: :model do
       end
     end
   end
+  describe 'with method' do
+    describe 'with search method' do
+      context 'when true case' do
+        it 'search by param ' do
+          skip
+        end
+      end
+      context 'when false case' do
+        it 'store is not exist ' do
+          skip
+        end
+      end
+    end
+  end
 end

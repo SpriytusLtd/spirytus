@@ -55,4 +55,8 @@ Style/BlockComments:
 
 Metrics/AbcSize:
   Enabled: true
+  Max: 30
+
+Metrics/MethodLength:
+  Enabled: true
   Max: 20

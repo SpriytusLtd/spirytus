@@ -1,0 +1,2 @@
+module Brewers::IndexesHelper
+end
