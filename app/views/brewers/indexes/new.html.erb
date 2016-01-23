@@ -1,0 +1,8 @@
+<h1>Brewers::Indexes#new</h1>
+<p>Find me in app/views/brewers/indexes/new.html.erb</p>
+
+<%= form_for @brewer do |b| %>
+  <%= b.label :name, '酒造' %>
+  <%= b.text_field :name %>
+  <%= b.submit '登録する' %>
+<% end %>
