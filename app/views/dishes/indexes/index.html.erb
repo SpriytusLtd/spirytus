@@ -1,0 +1,9 @@
+<%= link_to '新規登録する', new_dish_path %>
+<% @dishes.each do |d| %>
+  <p>
+    <%= link_to d.name, dish_path(d.id) %>
+  </p>
+  <p>
+    <%= d.detail %>
+  </p>
+<% end %>
