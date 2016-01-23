@@ -11,14 +11,14 @@
   <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
 </div>
 <div id="favorite_drinks">
-  <%= link_to 'お気に入りのお酒', user_favorites_path(user_id: @user.id) %>
+  <%= link_to 'お気に入りのお酒', user_drink_favorites_path(user_id: @user.id) %>
   <% @user.favorite_drinks.each do |f| %>
     <%= link_to f.name, drink_path(f) %><br />
   <% end %>
 </div>
 <br />
 <div id="favorite_stores">
-  <%= link_to 'お気に入りの店舗', user_favorites_path(user_id: @user.id) %>
+  <%= link_to 'お気に入りの店舗', user_store_favorites_path(user_id: @user.id) %>
   <% @user.favorite_stores.each do |f| %>
     <%= link_to f.name, store_path(f) %><br />
   <% end %>

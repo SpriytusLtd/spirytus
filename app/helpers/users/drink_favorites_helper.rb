@@ -1,0 +1,2 @@
+module Users::DrinkFavoritesHelper
+end
