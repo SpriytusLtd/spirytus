@@ -3,7 +3,7 @@
 <table>
 
 
- <% @store.reviews.each do |review| %>
+ <% @reviews.each do |review| %>
  <tr>
    <td>
      <%= review.body %>
@@ -15,8 +15,7 @@
    <%= link_to 'delete', store_review_path(id: review), method: :delete %>
    </td>
    </tr>
-
-
    <% end %>
-
 </table>
+
+<%= will_paginate @reviews, previous_label: '<前ページ', next_label: '次ページ>' %>
