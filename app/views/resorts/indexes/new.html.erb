@@ -14,5 +14,9 @@
     <%= r.label :detail, '詳細' %>
     <%= r.text_field :detail %>
   </p>
+  <p>
+    <%= r.label :image, 'イメージ画像' %>
+    <%= r.file_field :image %>
+  </p>
     <%= r.submit '登録する' %>
 <% end %>

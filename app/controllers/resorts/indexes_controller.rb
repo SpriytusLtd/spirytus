@@ -27,6 +27,6 @@ class Resorts::IndexesController < ApplicationController
   private
 
   def create_param
-    params.require(:resort).permit(:name, :address, :detail)
+    params.require(:resort).permit(:name, :address, :detail, :image)
   end
 end

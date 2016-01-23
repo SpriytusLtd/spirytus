@@ -1,5 +1,11 @@
 <h1><%= @resort.name %></h1>
 
+<% if @resort.image? %>
+  <div>
+    <%= image_tag @resort.image.url %>
+  </div>
+<% end %>
+
 <p>
   所在地：<br>
   <%= @resort.address %>
