@@ -22,8 +22,6 @@ class Store < ActiveRecord::Base
   validates :budget, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
 
-  mount_uploader :image, ImageUploader
-
   def self.search(id)
     @store = Store.all
     @store = @store.where(id: id) if id.present?
