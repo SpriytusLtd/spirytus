@@ -93,4 +93,27 @@ RSpec.describe DrinkReview, type: :model do
       end
     end
   end
+  describe 'with method' do
+    describe 'with search method' do
+      context 'when true case' do
+        it 'search by user_id ' do
+          drink_review1_1 = FactoryGirl.create(:drink_review1_1)
+          expect(DrinkReview.search(drink_review1_1.user_id, nil).first).to eq(drink_review1_1)
+        end
+        it 'search by drink_id ' do
+          drink_review1_1 = FactoryGirl.create(:drink_review1_1)
+          expect(DrinkReview.search(nil, drink_review1_1.drink_id).first).to eq(drink_review1_1)
+        end
+        it 'search by user_id & drink_id ' do
+          drink_review1_1 = FactoryGirl.create(:drink_review1_1)
+          expect(DrinkReview.search(drink_review1_1.user_id, drink_review1_1.drink_id).first).to eq(drink_review1_1)
+        end
+      end
+      context 'when false case' do
+        it 'drink_review is not exist ' do
+          expect(DrinkReview.search(1, 1).first).to be_nil
+        end
+      end
+    end
+  end
 end
