@@ -1,29 +1,65 @@
-<head><!-- レビューの数値を星として表示 -->
-<script type="text/javascript" src="assets/drinks/jquery-1.11.3.min.js"></script>
-<script type="application/javascript" src="/assets/drinks/jquery.raty.js"></script>
 
-</head>
 <%= form_for @review do |f| %>
 
 <p>  お酒レビュー投稿画面　</p>
 <p>  <%= f.text_area :body, size: "110×30" %> </p>
 
 <script type="text/javascript">
-  $(function(){
-    $.fn.raty.defaults.path = "/assets/";
-    $('#star1').raty({ score: 5 });
-    $('#star2').raty({ score: 5, readOnly: true });
-    $('#star3').raty({ score: 2, readOnly: true });
+$(function(){
+  $.fn.raty.defaults.path = "/assets/";
+  $('#total').raty({
+    click: function(score, evt) {
+      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+      $("#total_score").val(score);
+    }
   });
+  $('#sweet').raty({
+    click: function(score, evt) {
+      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+      $("#sweet_score").val(score);
+    }
+  });
+  $('#dry').raty({
+    click: function(score, evt) {
+      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+      $("#dry_score").val(score);
+    }
+  });
+  $('#acerbity').raty({
+    click: function(score, evt) {
+      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+      $("#acerbity_score").val(score);
+    }
+  });
+  $('#thickness').raty({
+    click: function(score, evt) {
+      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+      $("#thickness_score").val(score);
+    }
+  });
+
+});
 </script>
 
-<!--
-<p> param1 </p>
-  <%= f.text_area :param1 %>
-<p> param2 </p>
-  <%= f.text_area :param2 %>
-</p>
--->
+<p> 総合評価 </p>
+<div id="total"></div>
+<%= f.hidden_field :param1 ,id: :total_score%>
+
+<p> 甘さ </p>
+<div id="sweet"></div>
+<%= f.hidden_field :param2, id: :sweet_score %>
+
+<p> 辛さ </p>
+<div id="dry"></div>
+<%= f.hidden_field :param3 ,id: :dry_score%>
+
+<p> 渋さ </p>
+<div id="acerbity"></div>
+<%= f.hidden_field :param4 ,id: :acerbity_score%>
+
+<p> 濃さ </p>
+<div id="thickness"></div>
+<%= f.hidden_field :param5 ,id: :thickness_score%>
 
 <p>
   <%= f.submit "投稿"%>

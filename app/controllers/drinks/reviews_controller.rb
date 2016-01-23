@@ -18,7 +18,6 @@ class Drinks::ReviewsController < ApplicationController
     redirect_to drink_reviews_path
   end
 
-
   def edit
     @review = DrinkReview.find(params[:id])
   end
@@ -39,15 +38,7 @@ class Drinks::ReviewsController < ApplicationController
     redirect_to drink_reviews_path
   end
 
-  #private
-  #  def drink_id
-  #   params.permit(:drink_id)
-  #  end
-
-
-    def review_params
-      params.require(:drink_review).permit(:id,:drink_id,:user_id,:body ,:param1,:param2,:param3,:param4,:param5,:param6,:created_at,:updated_at)
-
-    end
-
+  def review_params
+    params.require(:drink_review).permit(:id, :drink_id, :user_id, :body, :param1, :param2, :param3, :param4, :param5, :param6, :created_at, :updated_at)
+  end
 end
