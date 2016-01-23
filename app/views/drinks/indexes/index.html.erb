@@ -1,0 +1,41 @@
+<h1>お酒検索結果一覧</h1>
+
+<ul>
+  <% @drinks.each do |drink| %>
+  <li>
+    <%= link_to drink.name, drink_path(drink.id) %>
+    <%= link_to "編集", edit_drink_path(drink.id) %>
+    <%= link_to "削除", drink_path(drink.id), method: :delete, data: { confirm: "削除してよろしいでしょうか？" } %>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_for :search, method: "get" do |f| %>
+<p>
+  <%= f.label :name, '名前' %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :alcohol, 'アルコール度数' %><br>
+  <%= f.text_field :alcohol %>
+</p>
+
+<p>
+  <%= f.label :alcoholic, '種類' %><br>
+  <%= f.text_field :alcoholic %>
+</p>
+
+<p>
+  <%= f.label :brewer, '酒造' %><br>
+  <%= f.text_field :brewer %>
+</p>
+
+<p>
+  <%= submit_tag "検索" %>
+</p>
+
+<% end %>
+
+
+<p><%= link_to "新規追加", new_drink_path %></p>
