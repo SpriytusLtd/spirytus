@@ -23,9 +23,6 @@
 
     <div class="review_total" data-score = <%= review.param1 %>> </div>
     <p><%= review.body %></p>
-    <p><%= link_to "詳細を表示", drink_review_path(id:review) %> </p>
-    <p><%= link_to "レビューを編集", edit_drink_review_path(id:review) %> </p>
-    <p><%= link_to "レビューを削除", drink_review_path(id:review), method: :delete %></p>
     <% end %>
 </body>
 </html>
