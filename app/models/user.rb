@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :favorite_drinks, class_name: 'Drink'
 
   validates :name, presence: true, length: { maximum: 20 }
+
+  # User.thumbnail.url is url of user thumbnail image
+  mount_uploader :thumbnail, ImageUploader
 end
