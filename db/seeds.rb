@@ -35,3 +35,6 @@ a_kajitsu = Alcoholic.create({ name: '果実酒', item1: '香り', item2: '甘�
 d_tosazuru = Drink.create({ name: '土佐鶴', alcohol: 15, detail: '金賞', alcoholic: a_nihon, brewer: b_tosazuru })
 d_keigetsu = Drink.create({ name: '桂月', alcohol: 15, detail: '微妙', alcoholic: a_nihon, brewer: b_tosa })
 d_minami   = Drink.create({ name: '南', alcohol: 15, detail: 'すばらしい', alcoholic: a_nihon, brewer: b_minami })
+d_kurokiri = Drink.create({ name: '黒霧島', alcohol: 20, detail: 'あじわいいい', alcoholic: a_syochu })
+d_kasiore  = Drink.create({ name: 'カシスオレンジ', alcohol: 8, detail: 'すっきりした甘み', alcoholic: a_cactel })
+d_makaihe  = Drink.create({ name: '魔界への誘い', alcohol: 37, detail: '味わい深い', alcoholic: a_syochu })

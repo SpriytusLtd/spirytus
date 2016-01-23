@@ -2,9 +2,9 @@ class Drinks::IndexesController < ApplicationController
   def index
     info = params[:search]
     if info
-      @drinks = Drink.search(info['name'], info['alcohol'], info['alcoholic'], info['brewer'])
+      @drinks = Drink.search(info['name'], info['alcohol'], info['alcoholic'], info['brewer']).paginate(page: params[:page], per_page: 5)
     else
-      @drinks = Drink.all
+      @drinks = Drink.all.paginate(page: params[:page], per_page: 5)
     end
   end
 

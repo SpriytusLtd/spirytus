@@ -3,7 +3,7 @@ class Stores::ReviewsController < ApplicationController
   # protect_from_forgery except: [:index, :review_params, :new, :create, :show, :edit, :update, :destroy, :body]
 
   def index
-    @store = Store.find_by(params[:store_id])
+    @reviews = Store.find_by(params[:store_id]).reviews.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -43,9 +43,6 @@ class Stores::ReviewsController < ApplicationController
   end
 
   private
-
-  def body
-  end
 
   def review_params
     params.require(:store_review).permit(:id, :store_id, :user_id, :body, :created_at, :updated_at)

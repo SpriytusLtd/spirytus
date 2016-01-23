@@ -6,3 +6,4 @@
       <%= link_to '削除する', store_favorites_path(store_id: favorite_store.id), method: :delete %>
     <% end %>
   <% end %>
+  <%= will_paginate @favorite_stores, previous_label: '<前ページ', next_label: '次ページ>' %>
