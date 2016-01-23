@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
   resources :drinks, controller: 'drinks/indexes', only: [ :index, :create, :new, :edit, :show, :update, :destroy ] do
     resources :reviews, controller: 'drinks/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
-    resources :favorites, controller: 'drinks/favorites', only: [ :create, :destroy ]
+    resources :favorites, controller: 'drinks/favorites', only: [ :create ]
+    delete 'favorites' => 'drinks/favorites#destroy'
   end
 
   resources :stores, controller: 'stores/indexes', only: [ :index, :show ] do
@@ -39,7 +40,8 @@ Rails.application.routes.draw do
 
   resources :users, controller: 'users/indexes', only: [ :show, :edit, :update ] do
     resources :reviews, controller: 'users/reviews', only: [ :index, :show, :destroy ]
-    resources :favorites, controller: 'users/favorites', only: [ :index ]
+    resources :store_favorites, controller: 'users/store_favorites', only: [ :index ]
+    resources :drink_favorites, controller: 'users/drink_favorites', only: [ :index ]
     resources :configurations, controller: 'users/configurations', only: [ :index, :create, :new, :destroy ]
   end
 
