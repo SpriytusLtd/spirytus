@@ -1,5 +1,5 @@
 class Dishes::IndexesController < ApplicationController
-  #before_action :authenticate_store!
+  before_action :authenticate_store!
   def index
     @dishes = Dish.all
   end
