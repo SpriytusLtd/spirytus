@@ -1,6 +1,18 @@
 AllCops:
   RunRailsCops: true
 
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bundle_bin/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+
 # Favor modifier if/unless usage when you have a single-line body.
 IfUnlessModifier:
   Enabled: false
@@ -33,4 +45,10 @@ Style/FormatString:
 
 # Favor modifier while/until usage when you have a single-line body.
 WhileUntilModifier:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Style/BlockComments:
   Enabled: false

@@ -1,4 +1,5 @@
 # spirytus 呑兵衛土佐巡
+[![Circle CI](https://circleci.com/gh/SpriytusLtd/spirytus.svg?style=svg)](https://circleci.com/gh/SpriytusLtd/spirytus)
 
 ## 説明
   ソフトウェア工学のチーム「Spirytus」が開発するWebアプリケーション、
