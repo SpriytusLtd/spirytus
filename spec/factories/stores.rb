@@ -3,6 +3,7 @@ FactoryGirl.define do
     email 'store1@email.com'
     password 'store1pass'
     name 'store1'
+    municipality_id 1
     address 'kut-1-1-1'
     phone_number '090-1111-1111'
     budget 901
@@ -12,6 +13,7 @@ FactoryGirl.define do
     email 'store2@email.com'
     password 'store2pass'
     name 'store2'
+    municipality_id 1
     address 'kut-1-1-2'
     phone_number '090-1111-1112'
     budget 902
