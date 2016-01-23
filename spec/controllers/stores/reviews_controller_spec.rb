@@ -14,7 +14,7 @@ RSpec.describe Stores::ReviewsController, type: :controller do
       StoreReview.create! user_id: user1.id, store_id: store1.id
       sign_in :user, user1
       get :index, store_id: store1.id
-      expect(assigns :store).to eq store1
+      expect(assigns :reviews).to match_array(store1.reviews)
       expect(response).to have_http_status(200)
       expect(response).to render_template('index')
     end

@@ -1,0 +1,22 @@
+<h1>Resorts::Indexes#new</h1>
+<p>Find me in app/views/resorts/indexes/new.html.erb</p>
+
+<%= form_for @resort do |r| %>
+  <p>
+    <%= r.label :name, '名称' %>
+    <%= r.text_field :name %>
+  </p>
+  <p>
+    <%= r.label :address, '所在地' %>
+    <%= r.text_field :address %>
+  </p>
+  <p>
+    <%= r.label :detail, '詳細' %>
+    <%= r.text_field :detail %>
+  </p>
+  <p>
+    <%= r.label :image, 'イメージ画像' %>
+    <%= r.file_field :image %>
+  </p>
+    <%= r.submit '登録する' %>
+<% end %>
