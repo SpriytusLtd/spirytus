@@ -9,8 +9,8 @@ class Drinks::IndexesController < ApplicationController
   end
 
   def create
-    @drinks = Drink.new(drink_param)
-    if @drinks.save
+    @drink = Drink.new(drink_param)
+    if @drink.save
       redirect_to drinks_path
     else
       render 'create'
@@ -18,20 +18,20 @@ class Drinks::IndexesController < ApplicationController
   end
 
   def new
-    @drinks = Drink.new
+    @drink = Drink.new
   end
 
   def edit
-    @drinks = Drink.find(params[:id])
+    @drink = Drink.find(params[:id])
   end
 
   def show
-    @drinks = Drink.find(params[:id])
+    @drink = Drink.find(params[:id])
   end
 
   def update
-    @drinks = Drink.find(params[:id])
-    if @drinks.update(drink_param)
+    @drink = Drink.find(params[:id])
+    if @drink.update_attributes(drink_param)
       redirect_to drinks_path
     else
       render 'edit'
@@ -39,14 +39,14 @@ class Drinks::IndexesController < ApplicationController
   end
 
   def destroy
-    @drinks = Drink.find(params[:id])
-    @drinks.destroy
+    @drink = Drink.find(params[:id])
+    @drink.destroy
     redirect_to drinks_path
   end
 
   private
 
   def drink_param
-    params[:drink].permit(:name, :alcohol, :detail, :alcoholic, :brewer)
+    params.require(:drink).permit(:name, :alcohol, :detail, :alcoholic_id, :brewer_id)
   end
 end

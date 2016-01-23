@@ -5,30 +5,30 @@
   <li>
     <%= link_to drink.name, drink_path(drink.id) %>
     <%= link_to "編集", edit_drink_path(drink.id) %>
-    <%= link_to "削除", drink_path(drink.id), method: :delete, data: {confirm: "削除してよろしいでしょうか？" } %>
+    <%= link_to "削除", drink_path(drink.id), method: :delete, data: { confirm: "削除してよろしいでしょうか？" } %>
   </li>
   <% end %>
 </ul>
 
-<%= form_for :search, {:method => "get"} do |f|%>
+<%= form_for :search, method: "get" do |f| %>
 <p>
-  <%= f.label :名前 %><br>
-  <%= f.text_field :name%>
+  <%= f.label :name, '名前' %><br>
+  <%= f.text_field :name %>
 </p>
 
 <p>
-  <%= f.label :アルコール度数 %><br>
-  <%= f.text_field :alcohol%>
+  <%= f.label :alcohol, 'アルコール度数' %><br>
+  <%= f.text_field :alcohol %>
 </p>
 
 <p>
-  <%= f.label :種類 %><br>
-  <%= f.text_field :alcoholic%>
+  <%= f.label :alcoholic, '種類' %><br>
+  <%= f.text_field :alcoholic %>
 </p>
 
 <p>
-  <%= f.label :酒造 %><br>
-  <%= f.text_field :brewer%>
+  <%= f.label :brewer, '酒造' %><br>
+  <%= f.text_field :brewer %>
 </p>
 
 <p>
