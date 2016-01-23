@@ -21,10 +21,4 @@ class Store < ActiveRecord::Base
   validates :phone_number, presence: true, length: { maximum: 20 }
   validates :budget, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
-
-  def self.search(id)
-    @store = Store.all
-    @store = @store.where(id: id) if id.present?
-    @store
-  end
 end
