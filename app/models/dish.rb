@@ -3,4 +3,6 @@ class Dish < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 100 }
   validates :detail, length: { maximum: 1000 }
+
+  mount_uploader :image, ImageUploader
 end

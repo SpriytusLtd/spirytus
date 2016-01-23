@@ -1,5 +1,5 @@
 class Dishes::IndexesController < ApplicationController
-  before_action :authenticate_store!
+  #before_action :authenticate_store!
   def index
     @dishes = Dish.all
   end
@@ -27,6 +27,6 @@ class Dishes::IndexesController < ApplicationController
   private
 
   def create_param
-    params.require(:dish).permit(:name, :detail)
+    params.require(:dish).permit(:name, :detail, :image)
   end
 end
