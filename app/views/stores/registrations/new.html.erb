@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :municipality_id %><br />
+    <%= f.collection_select :municipality_id, Municipality.all, :id, :name %>
+  </div>
+
+  <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
