@@ -1,0 +1,2 @@
+module Alcoholics::IndexesHelper
+end
