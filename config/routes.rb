@@ -48,6 +48,8 @@ Rails.application.routes.draw do
   resources :alcoholics, controller: 'alcoholics/indexes', only: [ :index, :create, :new, :destroy ]
   resources :brewers, controller: 'brewers/indexes', only: [ :index, :create, :new, :destroy ]
   resources :municipalities, controller: 'municipalities/indexes', only: [ :index, :create, :new, :destroy ]
+  resources :dishes, controller: 'dishes/indexes', only: [ :index, :create, :new, :show, :destroy ]
+  resources :resorts, controller: 'resorts/indexes', only: [ :index, :create, :new, :show, :destroy ]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

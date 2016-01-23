@@ -1,0 +1,2 @@
+module Dishes::IndexesHelper
+end

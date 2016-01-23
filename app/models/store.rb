@@ -10,7 +10,9 @@ class Store < ActiveRecord::Base
   belongs_to :municipality, foreign_key: :municipality_id
 
   has_and_belongs_to_many :users_who_likes, class_name: 'User'
-  has_and_belongs_to_many :drinks
+  has_and_belongs_to_many :drinks, class_name: 'Drink'
+  has_and_belongs_to_many :local_dishes, class_name: 'Dish'
+  has_and_belongs_to_many :resorts_near_place, class_name: 'Resort'
 
   belongs_to :store_content, foreign_key: :store_content_id
   has_many :contents, class_name: 'StoreContent'
