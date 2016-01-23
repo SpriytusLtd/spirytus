@@ -16,7 +16,7 @@ class Store < ActiveRecord::Base
   has_many :contents, class_name: 'StoreContent'
 
   validates :name, presence: true, length: { maximum: 100 }
-  validates :municipality, presence: true
+  validates :municipality_id, presence: true
   validates :address, presence: true, length: { maximum: 200 }
   validates :phone_number, presence: true, length: { maximum: 20 }
   validates :budget, length: { maximum: 10 }
