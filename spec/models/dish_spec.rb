@@ -6,7 +6,6 @@ RSpec.describe Dish, type: :model do
     let(:params) do
       hash = {}
       hash[:name] = 'レタス炒め'
-      hash[:local_dishes] = true
       hash[:detail] = 'うまい'
       hash
     end
@@ -31,12 +30,6 @@ RSpec.describe Dish, type: :model do
       context 'when name is not present' do
         before do
           dish.name = nil
-        end
-        it_behaves_like 'not be valid'
-      end
-      context 'when local_dishes is not present' do
-        before do
-          dish.local_dishes = nil
         end
         it_behaves_like 'not be valid'
       end
