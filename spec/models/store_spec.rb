@@ -8,7 +8,8 @@ RSpec.describe Store, type: :model do
       hash[:email] = 'true_store@example.com'
       hash[:password] = '01234567'
       hash[:name] = 'true store'
-      hash[:address] = '高知県香美市土佐山田町宮ノ口185'
+      hash[:municipality] = '香美市土佐山田町'
+      hash[:address] = '宮ノ口185'
       hash[:phone_number] = '0120-00-0000'
       hash[:budget] = 3000
       hash[:detail] = 'This store is true.'
@@ -35,6 +36,12 @@ RSpec.describe Store, type: :model do
       context 'when name is not present' do
         before do
           store.name = nil
+        end
+        it_behaves_like 'not be valid'
+      end
+      context 'when municipality is not present' do
+        before do
+          store.municipality = nil
         end
         it_behaves_like 'not be valid'
       end
