@@ -1,0 +1,15 @@
+<h1>Resorts::Indexes#index</h1>
+<p>Find me in app/views/resorts/indexes/index.html.erb</p>
+
+<%= link_to '新規登録する', new_resort_path %>
+<% @resorts.each do |r| %>
+  <p>
+    <%= link_to r.name, resort_path(r.id) %>
+  </p>
+  <p>
+    <%= r.address %>
+  </p>
+  <p>
+    <%= r.detail %>
+  </p>
+<% end %>
