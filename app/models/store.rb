@@ -22,11 +22,9 @@ class Store < ActiveRecord::Base
   validates :budget, length: { maximum: 10 }
   validates :detail, presence: true, length: { maximum: 2000 }
 
-  mount_uploader :image, ImageUploader
-
-  def self.search(store_id)
+  def self.search(id)
     @store = Store.all
-    @store = @store.where(store_id: store_id) if store_id.present?
+    @store = @store.where(id: id) if id.present?
     @store
   end
 end

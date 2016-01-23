@@ -95,4 +95,19 @@ RSpec.describe Store, type: :model do
       end
     end
   end
+  describe 'with method' do
+    describe 'with search method' do
+      context 'when true case' do
+        it 'search by id ' do
+          store1 = FactoryGirl.create(:store1)
+          expect(Store.search(store1.id).first).to eq(store1)
+        end
+      end
+      context 'when false case' do
+        it 'store is not exist ' do
+          expect(Store.search(1).first).to be_nil
+        end
+      end
+    end
+  end
 end

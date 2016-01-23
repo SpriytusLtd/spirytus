@@ -1,9 +1,14 @@
 <h1> user/indexes/show </h1>
 <div id="profile">
   <p>プロフィール</p>
-  <p>ユーザ名 : <%= @user.name %></p>
-  <p>メールアドレス : <%= @user.email %></p>
-  <p><%= link_to 'ユーザ設定', new_user_configuration_path(user_id: @user.id) %></p>
+  <%= @user.name %><br />
+  <%= @user.email %><br />
+  <% if @user.thumbnail? %>
+    <div>
+      <%= image_tag @user.thumbnail.url %>
+    </div>
+  <% end %>
+  <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
 </div>
 <div id="favorite_drinks">
   <%= link_to 'お気に入りのお酒', user_favorites_path(user_id: @user.id) %>
