@@ -1,24 +1,28 @@
 <h1> user/indexes/show </h1>
 <div id="profile">
   <p>プロフィール</p>
-  <%= @user.name %><br />
-  <%= @user.email %><br />
+  <p>ユーザ名 : <%= @user.name %></p>
+  <p>メールアドレス : <%= @user.email %></p>
+  <p><%= link_to 'ユーザ設定', new_user_configuration_path(user_id: @user.id) %></p>
 </div>
-<div id="fovorite_drinks">
-  <p>お気に入りのお酒</p>
+<div id="favorite_drinks">
+  <%= link_to 'お気に入りのお酒', user_favorites_path(user_id: @user.id) %>
   <% @user.favorite_drinks.each do |f| %>
-    <%= f.name %><br />
+    <%= link_to f.name, drink_path(f) %><br />
   <% end %>
 </div>
+<br />
 <div id="favorite_stores">
-  <p>お気に入りの店舗</p>
+  <%= link_to 'お気に入りの店舗', user_favorites_path(user_id: @user.id) %>
   <% @user.favorite_stores.each do |f| %>
-    <%= f.name %><br />
+    <%= link_to f.name, store_path(f) %><br />
   <% end %>
 </div>
+<br />
 <div id="dinks_reviews">
-  <p>お酒のレビュー</p>
+  <%= link_to 'お酒のレビュー', user_reviews_path(user_id: @user.id)  %>
   <% @drink_reviews.each do |r| %>
+    <%= link_to r.name, drink_reviews_path(r) %>
     <%= r.body %><br />
     <%= r.param1 %><br />
     <%= r.param2 %><br />
@@ -28,9 +32,11 @@
     <%= r.param6 %><br />
   <% end %>
 </div>
+<br />
 <div id="store_reviews">
-  <p>店舗のレビュー</p>
+  <%= link_to '店舗のレビュー', user_reviews_path(user_id: @user.id)  %>
   <% @store_reviews.each do |r| %>
+    <%= link_to r.name, store_reviews_path(r) %>
     <%= r.body %><br />
   <% end %>
 </div>
