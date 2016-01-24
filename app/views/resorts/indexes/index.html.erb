@@ -14,4 +14,7 @@
   <p>
     <%= r.detail %>
   </p>
+  <p>
+    <%= link_to "削除", resort_path(r.id), method: :delete, data: { confirm: "削除してよろしいでしょうか？" } %>
+  </p>
 <% end %>
