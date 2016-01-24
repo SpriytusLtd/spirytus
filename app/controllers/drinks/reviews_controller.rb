@@ -3,7 +3,8 @@ class Drinks::ReviewsController < ApplicationController
 
   def index
     @reviews = Drink.find(params[:drink_id]).reviews
-    @review = DrinkReview.new
+    @new_review = DrinkReview.new
+    @new_review.drink_id = params[:drink_id]
   end
 
   def new
@@ -12,8 +13,8 @@ class Drinks::ReviewsController < ApplicationController
 
   def create
     @review = DrinkReview.new(review_params)
-    @review.drink_id = params[:drink_id]
     @review.user_id = current_user.id
+    @review.drink_id = params[:drink_id]
     @review.save
     redirect_to drink_reviews_path
   end
@@ -39,6 +40,6 @@ class Drinks::ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:drink_review).permit(:id, :drink_id, :user_id, :body, :param1, :param2, :param3, :param4, :param5, :param6, :created_at, :updated_at)
+    params.require(:drink_review).permit(:id,:drink_id, :user_id, :body, :param1, :param2, :param3, :param4, :param5, :param6)
   end
 end

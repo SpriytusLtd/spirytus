@@ -1,65 +1,75 @@
-
-<%= form_for @review do |f| %>
+<%= form_for @new_review do |f| %>
 
 <p>  お酒レビュー投稿画面　</p>
-<p>  <%= f.text_area :body, size: "110×30" %> </p>
+<p>  <%= f.text_area :body, size: '110×30' %> </p>
 
-<script type="text/javascript">
+<script type='text/javascript'>
 $(function(){
-  $.fn.raty.defaults.path = "/assets/";
-  $('#total').raty({
+  $.fn.raty.defaults.path = '/assets/';
+  $('#param1').raty({
     click: function(score, evt) {
-      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-      $("#total_score").val(score);
+      $('#param1_score').val(score);
     }
   });
-  $('#sweet').raty({
+  $('#param2').raty({
     click: function(score, evt) {
-      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-      $("#sweet_score").val(score);
+      $('#param2_score').val(score);
     }
   });
-  $('#dry').raty({
+  $('#param3').raty({
     click: function(score, evt) {
-      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-      $("#dry_score").val(score);
+      $('#param3_score').val(score);
     }
   });
-  $('#acerbity').raty({
+  $('#param4').raty({
     click: function(score, evt) {
-      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-      $("#acerbity_score").val(score);
+      $('#param4_score').val(score);
     }
   });
-  $('#thickness').raty({
+  $('#param5').raty({
     click: function(score, evt) {
-      //alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-      $("#thickness_score").val(score);
+      $('#param5_score').val(score);
     }
   });
-
+  $('#param6').raty({
+    click: function(score, evt) {
+      $('#param6_score').val(score);
+    }
+  });
 });
 </script>
 
-<p> 総合評価 </p>
-<div id="total"></div>
-<%= f.hidden_field :param1 ,id: :total_score%>
+<p> <%= @new_review.drink.alcoholic.item1 %></p>
+<div id='param1'></div>
+<%= f.hidden_field :param1 ,id: :param1_score%>
 
-<p> 甘さ </p>
-<div id="sweet"></div>
-<%= f.hidden_field :param2, id: :sweet_score %>
+<p> <%= @new_review.drink.alcoholic.item2 %> </p>
+<div id='param2'></div>
+<%= f.hidden_field :param2, id: :param2_score %>
 
-<p> 辛さ </p>
-<div id="dry"></div>
-<%= f.hidden_field :param3 ,id: :dry_score%>
+<% if @new_review.drink.alcoholic.item3 %>
+<p> <%= @new_review.drink.alcoholic.item3 %> </p>
+<div id='param3'></div>
+<%= f.hidden_field :param3 ,id: :param3_score%>
+<% end %>
 
-<p> 渋さ </p>
-<div id="acerbity"></div>
-<%= f.hidden_field :param4 ,id: :acerbity_score%>
+<% if @new_review.drink.alcoholic.item4? %>
+<p> <%= @new_review.drink.alcoholic.item4 %> </p>
+<div id='param4'></div>
+<%= f.hidden_field :param4 ,id: :param4_score%>
+<% end %>
 
-<p> 濃さ </p>
-<div id="thickness"></div>
-<%= f.hidden_field :param5 ,id: :thickness_score%>
+<% if @new_review.drink.alcoholic.item5? %>
+<p> <%= @new_review.drink.alcoholic.item5 %> </p>
+<div id='param5'></div>
+<%= f.hidden_field :param5 ,id: :param5_score%>
+<% end %>
+
+<% if @new_review.drink.alcoholic.item6? %>
+<p> <%= @new_review.drink.alcoholic.item6 %> </p>
+<div id='param6'></div>
+<%= f.hidden_field :param6 ,id: :param6_score%>
+<% end %>
 
 <p>
   <%= f.submit "投稿"%>
