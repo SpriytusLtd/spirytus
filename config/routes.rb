@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :favorites, controller: 'drinks/favorites', only: [ :create, :destroy ]
   end
 
-  resources :stores, controller: 'stores/indexes', only: [ :index, :show ] do
+  resources :stores, controller: 'stores/indexes', only: [ :show, :edit, :update ] do
     resources :reviews, controller: 'stores/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
     resources :favorites, controller: 'stores/favorites', only: [ :create ]
     delete 'favorites' => 'stores/favorites#destroy'
