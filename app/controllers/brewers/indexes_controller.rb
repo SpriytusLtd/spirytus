@@ -11,13 +11,13 @@ class Brewers::IndexesController < ApplicationController
   def create
     brewer = Brewer.new(create_param)
     brewer.save
-    redirect_to action: :index
+    redirect_to brewers_path
   end
 
   def destroy
     brewer = Brewer.find(params[:id])
     brewer.destroy
-    redirect_to action: :index
+    redirect_to brewers_path
   end
 
   private
