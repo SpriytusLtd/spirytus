@@ -1,4 +1,4 @@
-class Users::ReviewsController < ApplicationController
+class Users::StoreReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
@@ -11,7 +11,7 @@ class Users::ReviewsController < ApplicationController
 
   def show
     if current_user.id != params[:user_id].to_i
-      redirect_to :user_reviews
+      redirect_to controller: 'indexes', action: :show, id: current_user.id
     else
       @store_review = StoreReview.find(params[:id])
     end
