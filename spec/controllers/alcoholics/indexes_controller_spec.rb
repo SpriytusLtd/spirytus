@@ -84,4 +84,25 @@ RSpec.describe Alcoholics::IndexesController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    context 'when store_user is signed in' do
+      before do
+        store1 = FactoryGirl.create(:store1)
+        sign_in :store, store1
+      end
+      it '@alcoholic is new object of Alcoholic model' do
+        alcoholic = FactoryGirl.create(:alcoholic)
+        delete :destroy, id: alcoholic
+        expect(response).to redirect_to('/alcoholics')
+      end
+    end
+    context 'when store_user is not signed in' do
+      it 'redirect to sign in page of store' do
+        alcoholic = FactoryGirl.create(:alcoholic)
+        delete :destroy, id: alcoholic
+        expect(response).to redirect_to('/stores/sign_in')
+      end
+    end
+  end
 end
