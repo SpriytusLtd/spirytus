@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Users::ReviewsController, type: :controller do
+RSpec.describe Users::StoreReviewsController, type: :controller do
   describe 'GET #index' do
     it 'render index template' do
       user1 = FactoryGirl.create(:user1)
@@ -43,7 +43,7 @@ RSpec.describe Users::ReviewsController, type: :controller do
       review1 = StoreReview.create!(user_id: user1.id, store_id: store1.id, body: 'hey')
       sign_in :user, user1
       get :show, user_id: user2, id:  review1.id
-      expect(response).to redirect_to(:user_reviews)
+      expect(response).to redirect_to(user_path(user1))
     end
     it 'redirect to /users/sign_in if user have not logged in yet' do
       user1 = FactoryGirl.create(:user1)

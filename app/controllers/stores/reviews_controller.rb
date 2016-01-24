@@ -11,10 +11,10 @@ class Stores::ReviewsController < ApplicationController
   end
 
   def create
-    @reviews = StoreReview.new(review_params)
-    @reviews.store_id = params[:store_id]
-    @reviews.user_id = current_user.id
-    if @reviews.save
+    @review = StoreReview.new(review_params)
+    @review.store_id = params[:store_id]
+    @review.user_id = current_user.id
+    if @review.save
       redirect_to action: 'index', notice: 'Store review was successfully created.'
     else
       redirect_to action: 'index', notice: 'failed'
@@ -22,7 +22,7 @@ class Stores::ReviewsController < ApplicationController
   end
 
   def show
-    @reviews = StoreReview.find_by(params[:id])
+    @review = StoreReview.find_by(params[:id])
   end
 
   def edit

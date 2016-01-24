@@ -25,7 +25,7 @@
 </div>
 <br />
 <div id="dinks_reviews">
-  <%= link_to 'お酒のレビュー', user_reviews_path(user_id: @user.id)  %>
+  <%= link_to 'お酒のレビュー', user_drink_reviews_path(user_id: @user.id)  %>
   <% @drink_reviews.each do |r| %>
     <%= link_to r.name, drink_reviews_path(r) %>
     <%= r.body %><br />
@@ -39,7 +39,7 @@
 </div>
 <br />
 <div id="store_reviews">
-  <%= link_to '店舗のレビュー', user_reviews_path(user_id: @user.id)  %>
+  <%= link_to '店舗のレビュー', user_store_reviews_path(user_id: @user.id)  %>
   <% @store_reviews.each do |r| %>
     <%= link_to r.name, store_reviews_path(r) %>
     <%= r.body %><br />
