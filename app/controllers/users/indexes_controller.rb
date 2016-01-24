@@ -6,8 +6,8 @@ class Users::IndexesController < ApplicationController
       redirect_to '/'
     else
       @user = User.find(params[:id])
-      @drink_reviews = DrinkReview.search(params['id'], nil)
-      @store_reviews = StoreReview.search(params['id'], nil)
+      @drink_reviews = DrinkReview.search(params[:id], nil)
+      @store_reviews = StoreReview.search(params[:id], nil)
     end
   end
 

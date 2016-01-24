@@ -1,0 +1,36 @@
+<h1>stores/indexes/show</h1>
+<div id="information">
+  <%= @store.name %><br />
+  <%= @store.email %><br />
+  <% if @store.image? %>
+    <div>
+      <%= image_tag @store.image.url %>
+    </div>
+  <% end %>
+  <%= @municipality.name %><br />
+  <%= @store.address %><br />
+  <%= @store.phone_number %><br />
+  <%= @store.budget %><br />
+  <%= @store.detail %><br />
+  <%= @store.business_day %><br />
+  <%= @store.business_time %><br />
+  <%= @store.transportation %><br />
+  <%= @store.seat %><br />
+  <%= @store.room %><br />
+  <%= @store.banquet_hall %><br />
+  <%= @store.banquet_hall_capacity %><br />
+  <%= @store.smoking %><br />
+  <%= @store.hp %><br />
+</div>
+
+<div id="store_reviews">
+  <%= link_to 'レビュー', store_reviews_path(store_id: @store.id)  %>
+  <% @store_reviews.each do |r| %>
+    <%= link_to r.name, store_reviews_path(r) %>
+    <%= r.body %><br />
+  <% end %>
+</div>
+
+<% if store_signed_in? %>
+  <%= link_to '登録情報を編集する', edit_store_path(@store) %>
+<% end %>
