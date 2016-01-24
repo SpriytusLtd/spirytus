@@ -1,4 +1,6 @@
 class Drinks::IndexesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+
   def index
     info = params[:search]
     if info
