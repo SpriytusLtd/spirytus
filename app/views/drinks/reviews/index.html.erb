@@ -5,10 +5,8 @@
 </head>
 <body>
   <%= render "form" %>
-  <% @drink.reviews.each do |review| %>
-    <%= javascript_tag do %>
-    window.total_score = <%= review.param1 %>;
-    <% end %>
+  <% @reviews.each do |review| %>
+    
     <script type="text/javascript">
     $(function(){
       $.fn.raty.defaults.path = "/assets/";

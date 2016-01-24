@@ -2,7 +2,7 @@ class Drinks::ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @drink = Drink.find(params[:drink_id])
+    @reviews = Drink.find(params[:drink_id]).reviews
     @review = DrinkReview.new
   end
 
@@ -11,10 +11,10 @@ class Drinks::ReviewsController < ApplicationController
   end
 
   def create
-    @reviews = DrinkReview.new(review_params)
-    @reviews.drink_id = params[:drink_id]
-    @reviews.user_id = current_user.id
-    @reviews.save
+    @review = DrinkReview.new(review_params)
+    @review.drink_id = params[:drink_id]
+    @review.user_id = current_user.id
+    @review.save
     redirect_to drink_reviews_path
   end
 
@@ -23,18 +23,18 @@ class Drinks::ReviewsController < ApplicationController
   end
 
   def show
-    @reviews = DrinkReview.find(params[:id])
+    @review = DrinkReview.find(params[:id])
   end
 
   def update
-    @reviews = DrinkReview.find(params[:id])
-    @reviews.update(review_params)
+    @review = DrinkReview.find(params[:id])
+    @review.update(review_params)
     redirect_to drink_reviews_path
   end
 
   def destroy
-    @reviews = DrinkReview.find(params[:id])
-    @reviews.destroy
+    @review = DrinkReview.find(params[:id])
+    @review.destroy
     redirect_to drink_reviews_path
   end
 
