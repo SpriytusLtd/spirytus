@@ -1,3 +1,3 @@
 class Alcoholic < ActiveRecord::Base
-  has_many :drinks
+  has_many :drink
 end
