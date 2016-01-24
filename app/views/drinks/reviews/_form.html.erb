@@ -47,32 +47,32 @@ $(function(){
 <div id='param2'></div>
 <%= f.hidden_field :param2, id: :param2_score %>
 
-<% if @new_review.drink.alcoholic.item3 %>
+<% if @new_review.drink.alcoholic.item3? %>
 <p> <%= @new_review.drink.alcoholic.item3 %> </p>
 <div id='param3'></div>
-<%= f.hidden_field :param3 ,id: :param3_score%>
+<%= f.hidden_field :param3 ,id: :param3_score %>
 <% end %>
 
 <% if @new_review.drink.alcoholic.item4? %>
 <p> <%= @new_review.drink.alcoholic.item4 %> </p>
 <div id='param4'></div>
-<%= f.hidden_field :param4 ,id: :param4_score%>
+<%= f.hidden_field :param4 ,id: :param4_score %>
 <% end %>
 
 <% if @new_review.drink.alcoholic.item5? %>
 <p> <%= @new_review.drink.alcoholic.item5 %> </p>
 <div id='param5'></div>
-<%= f.hidden_field :param5 ,id: :param5_score%>
+<%= f.hidden_field :param5 ,id: :param5_score %>
 <% end %>
 
 <% if @new_review.drink.alcoholic.item6? %>
 <p> <%= @new_review.drink.alcoholic.item6 %> </p>
 <div id='param6'></div>
-<%= f.hidden_field :param6 ,id: :param6_score%>
+<%= f.hidden_field :param6 ,id: :param6_score %>
 <% end %>
 
 <p>
-  <%= f.submit "投稿"%>
+  <%= f.submit '投稿' %>
 </p>
 
 <% end %>
