@@ -40,6 +40,6 @@ class Drinks::ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:drink_review).permit(:id,:drink_id, :user_id, :body, :param1, :param2, :param3, :param4, :param5, :param6)
+    params.require(:drink_review).permit(:id, :drink_id, :user_id, :body, :param1, :param2, :param3, :param4, :param5, :param6)
   end
 end
