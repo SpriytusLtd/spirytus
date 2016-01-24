@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   root to: 'indexes#index'
 
   resources :drinks, controller: 'drinks/indexes', only: [ :index, :create, :new, :edit, :show, :update, :destroy ] do
-    resources :reviews, controller: 'drinks/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
+    resources :reviews, controller: 'drinks/reviews', only: [ :index, :create, :update, :destroy ]
     resources :favorites, controller: 'drinks/favorites', only: [ :create ]
     delete 'favorites' => 'drinks/favorites#destroy'
   end
