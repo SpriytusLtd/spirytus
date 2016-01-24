@@ -1,0 +1,47 @@
+<h1> user/indexes/show </h1>
+<div id="profile">
+  <p>プロフィール</p>
+  <%= @user.name %><br />
+  <%= @user.email %><br />
+  <% if @user.thumbnail? %>
+    <div>
+      <%= image_tag @user.thumbnail.url %>
+    </div>
+  <% end %>
+  <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
+</div>
+<div id="favorite_drinks">
+  <%= link_to 'お気に入りのお酒', user_drink_favorites_path(user_id: @user.id) %>
+  <% @user.favorite_drinks.each do |f| %>
+    <%= link_to f.name, drink_path(f) %><br />
+  <% end %>
+</div>
+<br />
+<div id="favorite_stores">
+  <%= link_to 'お気に入りの店舗', user_store_favorites_path(user_id: @user.id) %>
+  <% @user.favorite_stores.each do |f| %>
+    <%= link_to f.name, store_path(f) %><br />
+  <% end %>
+</div>
+<br />
+<div id="dinks_reviews">
+  <%= link_to 'お酒のレビュー', user_drink_reviews_path(user_id: @user.id)  %>
+  <% @drink_reviews.each do |r| %>
+    <%= link_to r.name, drink_reviews_path(r) %>
+    <%= r.body %><br />
+    <%= r.param1 %><br />
+    <%= r.param2 %><br />
+    <%= r.param3 %><br />
+    <%= r.param4 %><br />
+    <%= r.param5 %><br />
+    <%= r.param6 %><br />
+  <% end %>
+</div>
+<br />
+<div id="store_reviews">
+  <%= link_to '店舗のレビュー', user_store_reviews_path(user_id: @user.id)  %>
+  <% @store_reviews.each do |r| %>
+    <%= link_to r.name, store_reviews_path(r) %>
+    <%= r.body %><br />
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<h1> users/indexes/edit </h1>
+<%= form_for(@user) do |f| %>
+  <%= f.label :name, 'ユーザ名' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :thumbnail, 'サムネイル画像' %>
+  <%= f.file_field :thumbnail %>
+
+  <%= f.submit '変更を適用する' %>
+<% end %>

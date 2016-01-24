@@ -1,0 +1,67 @@
+<h1> stores/configurations/index </h1>
+
+<p id="notice"> <%= notice %> </p>
+
+<p>
+  <strong> メールアドレス: </strong>
+  <%= @store.email %>
+</p>
+
+<p>
+  <strong> 店舗名: </strong>
+  <%= @store.name %>
+</p>
+
+<p>
+  <strong> 住所: </strong>
+  <%= @store.address %>
+</p>
+
+<p>
+  <strong> 電話番号: </strong>
+  <%= @store.phone_number %>
+</p>
+
+<p>
+  <strong> 予算: </strong>
+  <%= @store.budget %>
+</p>
+
+<p>
+  <strong> 詳細説明: </strong>
+  <%= @store.detail %>
+</p>
+
+<p>
+  <strong> 営業日: </strong>
+  <%= @store.business_day %>
+</p>
+
+<p>
+  <strong> 営業時間: </strong>
+  <%= @store.business_time %>
+</p>
+
+<p>
+  <strong> アクセス: </strong>
+  <%= @store.transportation %>
+</p>
+
+<p>
+  <strong> 座席数: </strong>
+  <%= @store.seat %>
+</p>
+
+<p>
+  <strong> 個室数: </strong>
+  <%= @store.seat %>
+</p>
+
+<p>
+  <strong> 宴会場の収容人数: </strong>
+  <%= @store.banquet_hall_capacity %>
+</p>
+
+<%= link_to '設定を編集', new_store_configuration_path %>
+<br>
+<%= link_to 'コンテンツ', store_contents_path %>

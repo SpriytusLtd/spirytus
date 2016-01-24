@@ -38,6 +38,13 @@ class Stores::RegistrationsController < Devise::RegistrationsController
 
   # protected
 
+  def sign_up_params
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:email, :password, :name, :municipality_id, :address, :phone_number, :budget, :detail)
+    end
+    super
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.for(:sign_up) << :attribute

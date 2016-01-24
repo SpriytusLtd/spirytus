@@ -1,0 +1,2 @@
+module Resorts::IndexesHelper
+end

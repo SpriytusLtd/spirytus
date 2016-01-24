@@ -1,0 +1,12 @@
+<h1><%= @dish.name %></h1>
+
+<% if @dish.image? %>
+  <div>
+    <%= image_tag @dish.image.url %>
+  </div>
+<% end %>
+
+<p>
+  詳細：<br>
+  <%= @dish.detail %>
+</p>

@@ -1,0 +1,8 @@
+<h1>Municipalities::Indexes#new</h1>
+<p>Find me in app/views/municipalities/indexes/new.html.erb</p>
+
+<%= form_for @municipality do |m| %>
+  <%= m.label :name, '市区町村' %>
+  <%= m.text_field :name %>
+  <%= m.submit '登録する' %>
+<% end %>
