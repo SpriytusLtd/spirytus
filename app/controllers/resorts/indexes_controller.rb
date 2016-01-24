@@ -1,5 +1,5 @@
 class Resorts::IndexesController < ApplicationController
-  before_action :authenticate_store!
+  before_action :authenticate_store!, only: [:new, :create, :destroy]
   def index
     @resorts = Resort.all
   end

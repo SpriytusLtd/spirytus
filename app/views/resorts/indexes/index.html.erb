@@ -1,7 +1,9 @@
 <h1>Resorts::Indexes#index</h1>
 <p>Find me in app/views/resorts/indexes/index.html.erb</p>
 
-<%= link_to '新規登録する', new_resort_path %>
+<% if store_signed_in? %>
+  <%= link_to '新規登録する', new_resort_path %>
+<% end %>
 <% @resorts.each do |r| %>
   <p>
     <%= link_to r.name, resort_path(r.id) %>
@@ -11,5 +13,8 @@
   </p>
   <p>
     <%= r.detail %>
+  </p>
+  <p>
+    <%= link_to "削除", resort_path(r.id), method: :delete, data: { confirm: "削除してよろしいでしょうか？" } %>
   </p>
 <% end %>
