@@ -10,7 +10,7 @@ class Store < ActiveRecord::Base
   belongs_to :municipality, foreign_key: :municipality_id
 
   has_and_belongs_to_many :users_who_likes, class_name: 'User'
-  has_and_belongs_to_many :drinks, class_name: 'Drink'
+  has_and_belongs_to_many :have_drinks, class_name: 'Drink'
   has_and_belongs_to_many :local_dishes, class_name: 'Dish'
   has_and_belongs_to_many :resorts_near_place, class_name: 'Resort'
 
@@ -25,4 +25,6 @@ class Store < ActiveRecord::Base
   validates :detail, presence: true, length: { maximum: 2000 }
 
   mount_uploader :image, ImageUploader
+
+  accepts_nested_attributes_for :have_drinks, allow_destroy: true
 end

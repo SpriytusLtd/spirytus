@@ -44,6 +44,9 @@ gem 'carrierwave'
 # Paging
 gem 'will_paginate'
 
+# Active forn
+gem 'nested_form_fields'
+
 # Heroku
 gem 'rails_12factor', group: :production
 
