@@ -1,0 +1,9 @@
+<h1>Users::StoreFavorites#index</h1>
+<p>Find me in app/views/users/store_favorites/index.html.erb</p>
+  <% @favorite_stores.each do |favorite_store| %>
+    <p><%= favorite_store.name %></p>
+    <% if current_user.id == @user.id %>
+      <%= link_to '削除する', store_favorites_path(store_id: favorite_store.id), method: :delete %>
+    <% end %>
+  <% end %>
+  <%= will_paginate @favorite_stores, previous_label: '<前ページ', next_label: '次ページ>' %>

@@ -1,0 +1,2 @@
+module Drinks::ReviewsHelper
+end

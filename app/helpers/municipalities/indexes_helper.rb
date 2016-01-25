@@ -1,0 +1,2 @@
+module Municipalities::IndexesHelper
+end

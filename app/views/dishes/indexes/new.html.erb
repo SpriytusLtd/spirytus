@@ -1,0 +1,15 @@
+<%= form_for @dish do |d| %>
+  <p>
+    <%= d.label :name, '名称' %>
+    <%= d.text_field :name %>
+  </p>
+  <p>
+    <%= d.label :detail, '詳細' %>
+    <%= d.text_field :detail %>
+  </p>
+  <p>
+    <%= d.label :image, 'イメージ画像' %>
+    <%= d.file_field :image %>
+  </p>
+    <%= d.submit '登録する' %>
+<% end %>

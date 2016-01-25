@@ -1,0 +1,2 @@
+module Users::IndexesHelper
+end

@@ -1,0 +1,28 @@
+<h1> alcoholic/indexes/index.html.erb </h1>
+<%= link_to '新規登録する', new_alcoholic_path %>
+<div>
+  <% @alcoholics.each do |a| %>
+    <%= a.name %> <br>
+    <%= a.item1 %> <br>
+    <%= a.item2 %> <br>
+    <%= a.item3 %> <br>
+    <% if a.item4? %>
+      <%= a.item4 %>
+    <% else %>
+      -
+    <% end %>
+    <br>
+    <% if a.item5? %>
+      <%= a.item5 %>
+    <% else %>
+      -
+    <% end %>
+    <br>
+    <% if a.item6? %>
+      <%= a.item6 %>
+    <% else %>
+      -
+    <% end %>
+    <%= button_to '削除', { action: :destroy, id: a.id }, method: :delete %>
+  <% end %>
+</div>

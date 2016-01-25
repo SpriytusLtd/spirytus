@@ -1,0 +1,9 @@
+<h1>Users::DrinkFavorites#index</h1>
+<p>Find me in app/views/users/drink_favorites/index.html.erb</p>
+  <% @favorite_drinks.each do |favorite_drink| %>
+    <p><%= favorite_drinks.name %></p>
+    <% if current_user.id == @user.id %>
+      <%= link_to '削除する', drink_favorites_path(drink_id: favorite_drink.id), method: :delete %>
+    <% end %>
+  <% end %>
+  <%= will_paginate @favorite_drinks, previous_label: '<前ページ', next_label: '次ページ>' %>

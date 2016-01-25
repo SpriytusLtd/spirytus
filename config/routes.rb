@@ -1,4 +1,57 @@
 Rails.application.routes.draw do
+
+  namespace :brewers do
+  get 'indexes/index'
+  end
+
+  namespace :brewers do
+  get 'indexes/new'
+  end
+
+  namespace :brewers do
+  get 'indexes/create'
+  end
+
+  devise_for :stores, controllers: {
+    sessions:      'stores/sessions',
+    passwords:     'stores/passwords',
+    registrations: 'stores/registrations'
+  }
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+  root to: 'indexes#index'
+
+  resources :drinks, controller: 'drinks/indexes', only: [ :index, :create, :new, :edit, :show, :update, :destroy ] do
+    resources :reviews, controller: 'drinks/reviews', only: [ :index, :create, :update, :destroy ]
+    resources :favorites, controller: 'drinks/favorites', only: [ :create ]
+    delete 'favorites' => 'drinks/favorites#destroy'
+  end
+
+  resources :stores, controller: 'stores/indexes', only: [ :show, :edit, :update ] do
+    resources :reviews, controller: 'stores/reviews', only: [ :index, :create, :new, :edit, :show, :update, :destroy ]
+    resources :favorites, controller: 'stores/favorites', only: [ :create ]
+    delete 'favorites' => 'stores/favorites#destroy'
+    resources :configurations, controller: 'stores/configurations', only: [ :index, :create, :new ]
+    resources :contents, controller: 'stores/contents', only: [ :index, :create, :show, :new, :destroy ]
+  end
+
+  resources :users, controller: 'users/indexes', only: [ :show, :edit, :update ] do
+    resources :store_reviews, controller: 'users/store_reviews', only: [ :index, :show, :destroy ]
+    resources :store_favorites, controller: 'users/store_favorites', only: [ :index ]
+    resources :drink_reviews, controller: 'users/drink_reviews', only: [ :index, :show, :destroy ]
+    resources :drink_favorites, controller: 'users/drink_favorites', only: [ :index ]
+    resources :configurations, controller: 'users/configurations', only: [ :index, :create, :new, :destroy ]
+  end
+
+  resources :alcoholics, controller: 'alcoholics/indexes', only: [ :index, :create, :new, :destroy ]
+  resources :brewers, controller: 'brewers/indexes', only: [ :index, :create, :new, :destroy ]
+  resources :municipalities, controller: 'municipalities/indexes', only: [ :index, :create, :new, :destroy ]
+  resources :dishes, controller: 'dishes/indexes', only: [ :index, :create, :new, :show, :destroy ]
+  resources :resorts, controller: 'resorts/indexes', only: [ :index, :create, :new, :show, :destroy ]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

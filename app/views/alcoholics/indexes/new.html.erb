@@ -1,0 +1,32 @@
+<h1> alcoholics/indexes/new.html.erb </h1>
+<%= form_for @alcoholic do |a| %>
+  <div>
+    <%= a.label :name, '酒の種類の名前' %>
+    <%= a.text_field :name %>
+  </div>
+  <div>
+    <%= a.label :item1, '評価項目1の名前' %>
+    <%= a.text_field :item1 %>
+  </div>
+  <div>
+    <%= a.label :item2, '評価項目2の名前' %>
+    <%= a.text_field :item2 %>
+  </div>
+  <div>
+    <%= a.label :item3, '評価項目3の名前' %>
+    <%= a.text_field :item3 %>
+  </div>
+  <div>
+    <%= a.label :item4, '評価項目4の名前' %>
+    <%= a.text_field :item4 %>
+  </div>
+  <div>
+    <%= a.label :item5, '評価項目5の名前' %>
+    <%= a.text_field :item5 %>
+  </div>
+  <div>
+    <%= a.label :item6, '評価項目6の名前' %>
+    <%= a.text_field :item6 %>
+  </div>
+  <%= a.submit '登録する' %>
+<% end %>
