@@ -7,4 +7,10 @@
   <%= f.file_field :thumbnail %>
 
   <%= f.submit '変更を適用する' %>
+
+  <%= @user.email %>
+ 
+  <%= link_to "退会", user_path(current_user), method: :DELETE, data: { confirm: '本当にこのメンバーを削除' } %>
+
+
 <% end %>
