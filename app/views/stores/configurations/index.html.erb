@@ -62,6 +62,11 @@
   <%= @store.banquet_hall_capacity %>
 </p>
 
+<p>
+  <strong> ホームページ: </strong>
+  <%= link_to @store.hp, @store.hp %>
+</p>
+
 <%= link_to '設定を編集', new_store_configuration_path %>
 <br>
 <%= link_to 'コンテンツ', store_contents_path %>

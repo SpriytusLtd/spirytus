@@ -38,3 +38,44 @@ d_minami   = Drink.create({ name: '南', alcohol: 15, detail: 'すばらしい',
 d_kurokiri = Drink.create({ name: '黒霧島', alcohol: 20, detail: 'あじわいいい', alcoholic: a_syochu })
 d_kasiore  = Drink.create({ name: 'カシスオレンジ', alcohol: 8, detail: 'すっきりした甘み', alcoholic: a_cactel })
 d_makaihe  = Drink.create({ name: '魔界への誘い', alcohol: 37, detail: '味わい深い', alcoholic: a_syochu })
+
+s_ippu     = Store.create({
+  name: '土佐の一風',
+  address: '高知県高知市はりまや町1-6-1',
+  email: 'ippu@example.com',
+  password: 'ippupass',
+  phone_number: '088-855-9640',
+  budget: 3500,
+  detail: '高知県の旬な料理を提供します',
+  business_day: '不定休',
+  business_time: '17:00〜23:00（ラストオーダー/22:00)',
+  transportation: 'お車でJR高知駅から5分',
+  seat: 20,
+  room: 10,
+  banquet_hall: false,
+  banquet_hall_capacity: 0,
+  smoking: 5,
+  hp: 'http://www.ipphu.com/access/'
+})
+
+s_bunzo   = Store.create({
+  name: '文蔵',
+  address: '高知県香美市土佐山田町西本町1-4-32',
+  email: 'bunzo@example.com',
+  password: 'bunzopass',
+  phone_number: '0887-53-3055',
+  budget: 4500,
+  detail: '高知県の旬な料理を提供します',
+  business_day: '無休',
+  business_time: '11:00～14:30(L.O.14:00)、17:00～23:00(L.O.22:00)',
+  transportation: '土佐山田駅から113m',
+  seat: 20,
+  room: 10,
+  banquet_hall: false,
+  banquet_hall_capacity: 0,
+  smoking: 5,
+  hp: 'https://www.facebook.com/bunzo.bunkajin'
+})
+
+u_testuser1 = User.create({ name: 'tester1', email: 'tester1@email.com', password: 'tester1pass' })
+u_testuser2 = User.create({ name: 'tester2', email: 'tester2@email.com', password: 'tester2pass' })
