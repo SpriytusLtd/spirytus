@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :contents, controller: 'stores/contents', only: [ :index, :create, :show, :new, :destroy ]
   end
 
-  resources :users, controller: 'users/indexes', only: [ :show, :edit, :update ] do
+  resources :users, controller: 'users/indexes', only: [ :show, :edit, :update, :destroy] do
     resources :store_reviews, controller: 'users/store_reviews', only: [ :index, :show, :destroy ]
     resources :store_favorites, controller: 'users/store_favorites', only: [ :index ]
     resources :drink_reviews, controller: 'users/drink_reviews', only: [ :index, :show, :destroy ]
