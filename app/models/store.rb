@@ -6,13 +6,16 @@ class Store < ActiveRecord::Base
 
   has_many :reviews, class_name:  'StoreReview', foreign_key: :store_id, dependent: :destroy
   has_many :users_who_reviews, class_name: 'User', through: :reviews
+  has_many :store_drinks, class_name: 'StoreDrink', foreign_key: :store_id, dependent: :destroy
+  has_many :have_drinks, class_name: 'Drink', through: :store_drinks
+  has_many :store_dishes, class_name: 'StoreDish', foreign_key: :store_id, dependent: :destroy
+  has_many :have_dishes, class_name: 'Dish', through: :store_dishes
+  has_many :resort_stores, class_name: 'ResortStore', foreign_key: :store_id, dependent: :destroy
+  has_many :close_resorts, class_name: 'Resort', through: :resort_stores
 
   belongs_to :municipality, foreign_key: :municipality_id
 
   has_and_belongs_to_many :users_who_likes, class_name: 'User'
-  has_and_belongs_to_many :have_drinks, class_name: 'Drink'
-  has_and_belongs_to_many :local_dishes, class_name: 'Dish'
-  has_and_belongs_to_many :resorts_near_place, class_name: 'Resort'
 
   belongs_to :store_content, foreign_key: :store_content_id
   has_many :contents, class_name: 'StoreContent'
@@ -26,7 +29,7 @@ class Store < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  accepts_nested_attributes_for :have_drinks, allow_destroy: true
-  accepts_nested_attributes_for :local_dishes, allow_destroy: true
-  accepts_nested_attributes_for :resorts_near_place, allow_destroy: true
+  accepts_nested_attributes_for :store_drinks, allow_destroy: true
+  accepts_nested_attributes_for :store_dishes, allow_destroy: true
+  accepts_nested_attributes_for :resort_stores, allow_destroy: true
 end
