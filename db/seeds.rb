@@ -76,3 +76,6 @@ s_bunzo   = Store.create({
   smoking: 5,
   hp: 'https://www.facebook.com/bunzo.bunkajin'
 })
+
+u_testuser1 = User.create({ name: 'tester1', email: 'tester1@email.com', password: 'tester1pass' })
+u_testuser2 = User.create({ name: 'tester2', email: 'tester2@email.com', password: 'tester2pass' })
