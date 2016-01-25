@@ -27,4 +27,6 @@ class Store < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   accepts_nested_attributes_for :have_drinks, allow_destroy: true
+  accepts_nested_attributes_for :local_dishes, allow_destroy: true
+  accepts_nested_attributes_for :resorts_near_place, allow_destroy: true
 end
