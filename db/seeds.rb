@@ -38,3 +38,22 @@ d_minami   = Drink.create({ name: '南', alcohol: 15, detail: 'すばらしい',
 d_kurokiri = Drink.create({ name: '黒霧島', alcohol: 20, detail: 'あじわいいい', alcoholic: a_syochu })
 d_kasiore  = Drink.create({ name: 'カシスオレンジ', alcohol: 8, detail: 'すっきりした甘み', alcoholic: a_cactel })
 d_makaihe  = Drink.create({ name: '魔界への誘い', alcohol: 37, detail: '味わい深い', alcoholic: a_syochu })
+
+s_ippu     = Store.create({
+  name: '土佐の一風',
+  address: '高知県高知市はりまや町1-6-1',
+  email: 'ippu@example.com',
+  password: 'ippupass',
+  phone_number: '088-855-9640',
+  budget: 3500,
+  detail: '高知県の旬な料理を提供します',
+  business_day: '不定休',
+  business_time: '17:00〜23:00（ラストオーダー/22:00)',
+  transportation: 'お車でJR高知駅から5分',
+  seat: 20,
+  room: 10,
+  banquet_hall: false,
+  banquet_hall_capacity: 0,
+  smoking: 5,
+  hp: 'http://www.ipphu.com/access/'
+})
