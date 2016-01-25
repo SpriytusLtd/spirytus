@@ -1,52 +1,63 @@
 <h1> stores/indexes/edit </h1>
 <%= form_for(@store) do |f| %>
-  <%= f.label :name, 'ユーザ名' %>
-  <%= f.text_field :name %>
-  <br />
-  <%= f.label :municipality_id, '市区町村' %><br />
-  <%= f.collection_select :municipality_id, Municipality.all, :id, :name %>
-  <br />
-  <%= f.label :address, '住所'%>
-  <%= f.text_field :address %>
-  <br />
-  <%= f.label :phone_number, '電話番号' %>
-  <%= f.text_field :phone_number %>
-  <br />
-  <%= f.label :budget, '平均予算' %>
-  <%= f.text_field :budget %>
-  <br />
-  <%= f.label :detail, '詳細' %>
-  <%= f.text_field :detail %>
-  <br />
-  <%= f.label :business_day, '営業日' %>
-  <%= f.text_field :business_day %>
-  <br />
-  <%= f.label :business_time, '営業時間' %>
-  <%= f.text_field :business_time %>
-  <br />
-  <%= f.label :transportation, 'アクセス' %>
-  <%= f.text_field :transportation%>
-  <br />
-  <%= f.label :seat, '席数' %>
-  <%= f.text_field :seat %>
-  <br />
-  <%= f.label :room, '部屋数' %>
-  <%= f.text_field :room %>
-  <br />
-  <%= f.label :banquet_hall, '宴会可否' %>
-  <%= f.text_field :banquet_hall %>
-  <br />
-  <%= f.label :banquet_hall_capacity, '宴会席最大収容人数' %>
-  <%= f.text_field :banquet_hall_capacity %>
-  <br />
-  <%= f.label :smoking, '喫煙可否' %>
-  <%= f.text_field :smoking %>
-  <br />
-  <%= f.label :hp, 'ホームページ' %>
-  <%= f.text_field :hp %>
-  <br />
-  <%= f.label :image, 'サムネイル画像' %>
-  <%= f.file_field :image %>
-  <br />
-  <%= f.submit '変更を適用する' %>
+  <div class="field">
+    <%= f.label(:name, '店舗名') %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label(:address, '住所') %>
+    <%= f.collection_select :municipality_id, Municipality.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label(:address, '住所') %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label(:phone_number, '電話番号') %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label(:budget, '平均予算額') %>
+    <%= f.text_field :budget %>
+  </div>
+  <div class="field">
+    <%= f.label(:detail, '詳細説明') %>
+    <%= f.text_field :detail %>
+  </div>
+  <div class="field">
+    <%= f.label(:business_day, '営業日') %>
+    <%= f.text_field :business_day %>
+  </div>
+  <div class="field">
+    <%= f.label(:business_time, '営業時間') %>
+    <%= f.text_field :business_time %>
+  </div>
+  <div class="field">
+    <%= f.label(:transportation, 'アクセス') %>
+    <%= f.text_field :transportation %>
+  </div>
+  <div class="field">
+    <%= f.label(:seat, '座席数') %>
+    <%= f.text_field :seat %>
+  </div>
+  <div class="field">
+    <%= f.label(:room, '個室数') %>
+    <%= f.text_field :room %>
+  </div>
+  <div class="field">
+    <%= f.label(:banquet_hall_capacity, '最大収容人数') %>
+    <%= f.text_field :banquet_hall_capacity %>
+  </div>
+  <div class="field">
+    <%= f.label(:smoking, '喫煙席数') %>
+    <%= f.text_field :smoking %>
+  </div>
+  <div class="field">
+    <%= f.label(:hp, 'ホームページ URL') %>
+    <%= f.text_field :hp %>
+  </div>
+  <div>
+    <%= link_to('前のページに戻る', :back) %>
+    <%= f.submit('変更を登録') %>
+  </div>
 <% end %>

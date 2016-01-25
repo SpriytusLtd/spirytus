@@ -79,3 +79,6 @@ s_bunzo   = Store.create({
 
 u_testuser1 = User.create({ name: 'tester1', email: 'tester1@email.com', password: 'tester1pass' })
 u_testuser2 = User.create({ name: 'tester2', email: 'tester2@email.com', password: 'tester2pass' })
+
+m_kami_tosayamada = Municipality.create({ name: '香美市土佐山田町' })
+m_kami_tosayamada = Municipality.create({ name: '四万十市' })
