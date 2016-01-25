@@ -18,7 +18,7 @@ class Stores::IndexesController < ApplicationController
     if @store.update_attributes(store_params)
       redirect_to action: :show
     else
-      render action: :edit
+      redirect_to action: :edit
     end
   end
 
