@@ -1,60 +1,20 @@
 <h1> stores/configurations/new </h1>
 
-<%= form_for(@store, url: :store_configurations, html: { method: 'post' }) do |f| %>
-  <div class="field">
-    <%= f.label(:name, '店舗名') %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label(:address, '住所') %>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label(:phone_number, '電話番号') %>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label(:budget, '平均予算額') %>
-    <%= f.text_field :budget %>
-  </div>
-  <div class="field">
-    <%= f.label(:detail, '詳細説明') %>
-    <%= f.text_field :detail %>
-  </div>
-  <div class="field">
-    <%= f.label(:business_day, '営業日') %>
-    <%= f.text_field :business_day %>
-  </div>
-  <div class="field">
-    <%= f.label(:business_time, '営業時間') %>
-    <%= f.text_field :business_time %>
-  </div>
-  <div class="field">
-    <%= f.label(:transportation, 'アクセス') %>
-    <%= f.text_field :transportation %>
-  </div>
-  <div class="field">
-    <%= f.label(:seat, '座席数') %>
-    <%= f.text_field :seat %>
-  </div>
-  <div class="field">
-    <%= f.label(:room, '個室数') %>
-    <%= f.text_field :room %>
-  </div>
-  <div class="field">
-    <%= f.label(:banquet_hall_capacity, '最大収容人数') %>
-    <%= f.text_field :banquet_hall_capacity %>
-  </div>
-  <div class="field">
-    <%= f.label(:smoking, '喫煙席数') %>
-    <%= f.text_field :smoking %>
-  </div>
-  <div class="field">
-    <%= f.label(:hp, 'ホームページ URL') %>
-    <%= f.text_field :hp %>
-  </div>
+<%= nested_form_for @store do |f| %>
+  <p>
+    <strong> 取り扱っているお酒: </strong>
+  </p>
+  <%= f.fields_for :store_drinks do |drink| %>
+    <%= drink.hidden_field :id %>
+    <%= drink.collection_select(:drink_id, Drink.all, :id, :name, {include_blank: 'お酒を選んでください'}) %>
+    <%= drink.link_to_remove '削除' %>
+  <% end %>
+  <p>
+  <%= f.link_to_add "新規追加", :store_drinks %>
+  </p>
+  <br />
   <div>
-    <%= link_to('前のページに戻る', :back) %>
+    <%= link_to('前のページに戻る', :back) %><br />
     <%= f.submit('変更を登録') %>
   </div>
 <% end %>

@@ -1,71 +1,26 @@
 <h1> stores/configurations/index </h1>
 
 <p id="notice"> <%= notice %> </p>
+<p>
+  <strong> 取り扱っているお酒: </strong>
+</p>
+<% @have_drinks.each do |drink| %>
+  <p><%= drink.name %></p>
+<% end %>
 
 <p>
-  <strong> メールアドレス: </strong>
-  <%= @store.email %>
+  <strong> 取り扱っている郷土料理: </strong>
 </p>
+<% @have_dishes.each do |dish| %>
+  <p><%= dish.name %></p>
+<% end %>
 
 <p>
-  <strong> 店舗名: </strong>
-  <%= @store.name %>
+  <strong> 近くの観光地: </strong>
 </p>
-
-<p>
-  <strong> 住所: </strong>
-  <%= @store.address %>
-</p>
-
-<p>
-  <strong> 電話番号: </strong>
-  <%= @store.phone_number %>
-</p>
-
-<p>
-  <strong> 予算: </strong>
-  <%= @store.budget %>
-</p>
-
-<p>
-  <strong> 詳細説明: </strong>
-  <%= @store.detail %>
-</p>
-
-<p>
-  <strong> 営業日: </strong>
-  <%= @store.business_day %>
-</p>
-
-<p>
-  <strong> 営業時間: </strong>
-  <%= @store.business_time %>
-</p>
-
-<p>
-  <strong> アクセス: </strong>
-  <%= @store.transportation %>
-</p>
-
-<p>
-  <strong> 座席数: </strong>
-  <%= @store.seat %>
-</p>
-
-<p>
-  <strong> 個室数: </strong>
-  <%= @store.seat %>
-</p>
-
-<p>
-  <strong> 宴会場の収容人数: </strong>
-  <%= @store.banquet_hall_capacity %>
-</p>
-
-<p>
-  <strong> ホームページ: </strong>
-  <%= link_to @store.hp, @store.hp %>
-</p>
+<% @close_resorts.each do |resort| %>
+  <p><%= resort.name %></p>
+<% end %>
 
 <%= link_to '設定を編集', new_store_configuration_path %>
 <br>
