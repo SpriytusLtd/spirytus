@@ -57,3 +57,22 @@ s_ippu     = Store.create({
   smoking: 5,
   hp: 'http://www.ipphu.com/access/'
 })
+
+s_bunzo   = Store.create({
+  name: '文蔵',
+  address: '高知県香美市土佐山田町西本町1-4-32',
+  email: 'bunzo@example.com',
+  password: 'bunzopass',
+  phone_number: '0887-53-3055',
+  budget: 4500,
+  detail: '高知県の旬な料理を提供します',
+  business_day: '無休',
+  business_time: '11:00～14:30(L.O.14:00)、17:00～23:00(L.O.22:00)',
+  transportation: '土佐山田駅から113m',
+  seat: 20,
+  room: 10,
+  banquet_hall: false,
+  banquet_hall_capacity: 0,
+  smoking: 5,
+  hp: 'https://www.facebook.com/bunzo.bunkajin'
+})
