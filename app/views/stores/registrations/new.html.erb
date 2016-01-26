@@ -1,5 +1,50 @@
 <h2>Sign up</h2>
+<body>
 
+	<header>
+	 <div class="container">
+		 <div class="header-left">
+			 <img class="logo1" src="./../img/のんべえ2.png">
+		 </div>
+		 <div class="header-left">
+			 <img class="logo2" src="./../img/rogo3.png">
+		 </div>
+	 </div>
+ </header>
+
+<div id="site-box">
+
+<p class="title_name">
+店舗登録申請フォーム
+<br>
+</p>
+
+<%= form_tag do %>
+<p class="text10">
+E-mailアドレス:<input type="e-mail" name="email" /> <br>
+<br>
+<% end %>
+
+<a href="S_register_complete.html">
+<input type="submit" value="登録申請" />
+</a>
+</p>
+
+<p class="kotira">
+既に登録されている方は<a href="S_login.html">こちら</a> <br>
+</p>
+
+
+<footer>
+  <HR style="margin: 1em 0 ;">
+  <div class="Copyright">
+    Copyright (C) 2016 Spirytus. All Rights Reserved.
+  </div>
+</footer>
+
+
+</div>
+</body>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 

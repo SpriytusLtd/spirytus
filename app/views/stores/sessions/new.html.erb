@@ -1,4 +1,52 @@
 <h2>Log in</h2>
+<body>
+
+	<header>
+	 <div class="container">
+		 <div class="header-left">
+			 <img class="logo1" src="./../img/のんべえ2.png">
+		 </div>
+		 <div class="header-left">
+			 <img class="logo2" src="./../img/rogo3.png">
+		 </div>
+	 </div>
+ </header>
+
+<div id="site-box">
+
+<p class="title_name">
+店舗ログイン画面
+<br>
+</p>
+
+<%= form_tag do %>
+<p class="text10">
+E-mailアドレス<input type="email" name="email" /> <br>
+<br>
+パスワード:<input type="password" name="password" />
+<br>
+<br>
+<a href="S_mypage.html">
+<input type="submit" value="ログイン" />
+</a>
+</p>
+<% end %>
+
+
+<p class="kotira">
+新規登録の方は<a href="S_register.html">こちら</a> <br>
+パスワードを忘れた方は<a href="S_password.html">こちら</a>
+</p>
+
+
+<footer>
+  <HR style="margin: 1em 0 ;">
+  <div class="Copyright">
+    Copyright (C) 2016 Spirytus. All Rights Reserved.
+  </div>
+</footer>
+
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -24,3 +72,4 @@
 <% end %>
 
 <%= render "stores/shared/links" %>
+</body>
