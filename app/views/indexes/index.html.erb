@@ -1,25 +1,4 @@
-<header>
-  <%= image_tag 'rogo.png', class: 'header-log' %>
-  <div class="header-login">
-    <% unless store_signed_in? %>
-      <% if user_signed_in? %>
-        <%= button_tag class: 'btn btn-default' do %>
-          <%= link_to 'User Page', user_path(current_user) %>
-        <% end %>
-        <%= button_tag class: 'btn btn-default' do %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-        <% end %>
-      <% else %>
-        <%= button_tag class: 'btn btn-default' do %>
-          <%= link_to 'Sign Up', new_user_registration_path %>
-        <% end %>
-        <%= button_tag class: 'btn btn-default' do %>
-          <%= link_to 'Sign In', new_user_session_path %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-</header>
+<%= render 'layouts/header' %>
 
 <nav>
   <ul class="nav nav-tabs">
@@ -78,22 +57,61 @@
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         <% end %>
+
       </div>
     </div>
+
+
+    <!-- <form role="search" action="<%= drinks_path %>" method="get"> -->
+    <%= form_tag drinks_path, method: :get do %>
+
+      <div class="center">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">お酒の種類</h3>
+          </div>
+          <% @alcoholics.each do |a| %>
+            <label>
+              <%= check_box_tag 'condition[alcoholics][]', a.id %>
+              <%= a.name %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">お酒の種類</h3>
+          </div>
+          <% @alcoholics.each do |a| %>
+            <label>
+              <%= a.name %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">アルコール度数</h3>
+          </div>
+          <% @alcohol.each do |a| %>
+            <label>
+              <%= check_box_tag 'condition[alcohol][]', a[:number] %>
+              <%= a[:text] %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+      <div id="sake_bottan">
+        <%= submit_tag '検索', class: 'btn btn-default' %>
+      </div>
+    <% end %>
+      <!-- <input type="submit" value="検索"> -->
+    <!-- </form> -->
   </div>
 </div>
 
-
-
-
-<div>
-  <% unless user_signed_in? %>
-    <% if store_signed_in? %>
-      <%= link_to '店アカウントの専用ページ', store_configurations_path(current_store) %>
-      <%= link_to '店アカウント用ログアウト', destroy_store_session_path, method: :delete %>
-    <% else %>
-      <%= link_to '店アカウント作成申請', new_store_registration_path %>
-      <%= link_to '店アカウント用ログイン', new_store_session_path %>
-    <% end %>
-  <% end %>
-</div>
+<%= render 'layouts/footer' %>
