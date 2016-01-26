@@ -114,12 +114,14 @@
 
   <div class="tab-pane" id="about">
     <div class="tab_bottom_form">
-      <form class="navbar-form navbar-left" role="search" action="<%= dishes_path %>" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索">
-        </div>
-        <%= submit_tag '検索', class: 'btn btn-default' %>
-      </form>
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: dishes_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: '料理の名前' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
 
 
