@@ -13,9 +13,9 @@ class Stores::ConfigurationsController < ApplicationController
     redirect_to '/' if current_store.id != params[:store_id].to_i
     @store = Store.find(current_store.id)
     if @store.update_attributes(create_params)
-      redirect_to @store, notice: 'successfully created.'
+      redirect_to store_configurations_path, notice: 'successfully created.'
     else
-      redirect_to @store, notice: 'failed'
+      redirect_to store_configurations_path, notice: 'failed'
     end
   end
 
