@@ -1,20 +1,21 @@
 <h1> stores/configurations/new </h1>
 
-<%= nested_form_for @store do |f| %>
+<%= form_for @store, url: store_configurations_path, html: { method: 'post' } do |f| %>
   <p>
     <strong> 取り扱っているお酒: </strong>
   </p>
-  <%= f.fields_for :store_drinks do |drink| %>
-    <%= drink.hidden_field :id %>
-    <%= drink.collection_select(:drink_id, Drink.all, :id, :name, {include_blank: 'お酒を選んでください'}) %>
-    <%= drink.link_to_remove '削除' %>
+  <%= f.nested_fields_for :store_drinks do |ff| %>
+    <%= ff.hidden_field :id %>
+    <%= ff.collection_select(:drink_id, Drink.all, :id, :name, {include_blank: 'お酒を選んでください'}) %>
+    <%= ff.remove_nested_fields_link '削除' %>
   <% end %>
   <p>
-  <%= f.link_to_add "新規追加", :store_drinks %>
+    <%= f.add_nested_fields_link :store_drinks, '追加する' %>
   </p>
   <br />
   <div>
-    <%= link_to('前のページに戻る', :back) %><br />
     <%= f.submit('変更を登録') %>
   </div>
 <% end %>
+
+<%= link_to('前のページに戻る', :back) %><br />

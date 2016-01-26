@@ -4,8 +4,11 @@
 <p>
   <strong> 取り扱っているお酒: </strong>
 </p>
+<% @store.store_drinks.each do |r| %>
+  <%= r.drink.name %>
+<% end %>
 <% @have_drinks.each do |drink| %>
-  <p><%= drink.name %></p>
+  <p>  </p>
 <% end %>
 
 <p>

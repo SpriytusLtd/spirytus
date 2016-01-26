@@ -11,8 +11,8 @@ class Stores::ConfigurationsController < ApplicationController
 
   def create
     redirect_to '/' if current_store.id != params[:store_id].to_i
-    @drink = StoreDrink.new(store_drinks_params)
-    if @drink.save
+    @store = Store.find(current_store.id)
+    if @store.update_attributes(store_drinks_params)
       redirect_to @store, notice: 'successfully created.'
     else
       redirect_to @store, notice: 'failed'
@@ -22,9 +22,6 @@ class Stores::ConfigurationsController < ApplicationController
   def new
     redirect_to '/' if current_store.id != params[:store_id].to_i
     @store = Store.find(params[:store_id])
-    @store.store_drinks.build
-    @store.dishes.build
-    @store.resorts.build
   end
 
   private
@@ -32,9 +29,11 @@ class Stores::ConfigurationsController < ApplicationController
   def store_drinks_params
     params.require(:store).permit(store_drinks_attributes: [:id, :drink_id, :store_id, :_destroy])
   end
+
   def store_dishes_params
     params.require(:store).permit(dishes_attributes: [:id, :dish_id, :store_id, :_destroy])
   end
+
   def resort_store_params
     params.require(:store).permit(resorts_attributes: [:id, :resort_id, :store_id, :_destroy])
   end
