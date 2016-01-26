@@ -12,6 +12,8 @@
 
 
 <div class="tab-content">
+
+  <!-- 酒 -->
   <div class="tab-pane active" id="home">
     <div class="tab_bottom_form">
       <div class="navbar-form navbar-left">
@@ -113,6 +115,8 @@
 
 
   <div class="tab-pane" id="about">
+
+    <!-- 料理の名前 -->
     <div class="tab_bottom_form">
       <div class="navbar-form navbar-left">
         <%= form_for :search, url: dishes_path, method: :get do |f| %>
@@ -166,15 +170,17 @@
     </div>
   </div>
 
-
+  <!-- 観光地 -->
   <div class="tab-pane" id="about2">
     <div class="tab_bottom_form">
-      <form class="navbar-form navbar-left" role="search" action="<%= stores_path %>" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索">
-        </div>
-        <%= submit_tag '検索', class: 'btn btn-default' %>
-      </form>
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: stores_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: '観光地の名前で近くの店を' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
 
 
@@ -219,15 +225,17 @@
     </div>
   </div>
 
-
+  <!-- 店 -->
   <div class="tab-pane" id="about3">
     <div class="tab_bottom_form">
-      <form class="navbar-form navbar-left" role="search" action="<%= stores_path %>" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索">
-        </div>
-        <%= submit_tag '検索', class: 'btn btn-default' %>
-      </form>
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: stores_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: '店の名前' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
 
 
