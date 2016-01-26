@@ -66,19 +66,29 @@
 
 
     <!-- <form role="search" action="<%= drinks_path %>" method="get"> -->
-    <%= form_tag drinks_path, method: :get do %>
-
+    <%#= form_tag drinks_path, method: :get do %>
+    <%= form_for :search, url: drinks_path, method: :get do |f| %>
       <div class="center">
         <div class="panel panel-warning">
           <div class="panel-heading">
             <h3 class="panel-title">お酒の種類</h3>
           </div>
+          <%= f.hidden_field 'name' %>
+          <%= f.hidden_field 'alcohol' %>
           <% @alcoholics.each do |a| %>
-            <label>
-              <%= check_box_tag 'condition[alcoholics][]', a.id %>
-              <%= a.name %>
-            </label>
+            <%= f.label :alcoholics, a.name %>
+            <%= f.check_box 'alcoholic', {}, a.id, nil %>
+            <%#= check_box_tag 'alcoholics', a.id %>
+            <!--<label>
+            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&search%5Bbrewer%5D=&alcoholics=1&commit=%E6%A4%9C%E7%B4%A2
+            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&alcoholics=1&search%5Bbrewer%5D=&commit=%E6%A4%9C%E7%B4%A2
+            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&search%5Balcoholics%5D=1&search%5Bbrewer%5D=&commit=%E6%A4%9C%E7%B4%A2
+            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&search%5Balcoholic%5D=1&search%5Bbrewer%5D=&commit=%E6%A4%9C%E7%B4%A2
+              <%#= check_box_tag 'condition[alcoholics][]', a.id %>
+              <%#= a.name %>
+            </label>-->
           <% end %>
+          <%= f.hidden_field 'brewer' %>
         </div>
       </div>
 
@@ -87,11 +97,11 @@
           <div class="panel-heading">
             <h3 class="panel-title">お酒の種類</h3>
           </div>
-          <% @alcoholics.each do |a| %>
+          <!--<%# @alcoholics.each do |a| %>
             <label>
-              <%= a.name %>
+              <%#= a.name %>
             </label>
-          <% end %>
+          <%# end %>-->
         </div>
       </div>
 
@@ -100,16 +110,16 @@
           <div class="panel-heading">
             <h3 class="panel-title">アルコール度数</h3>
           </div>
-          <% @alcohol.each do |a| %>
+          <!--<%# @alcohol.each do |a| %>
             <label>
-              <%= check_box_tag 'condition[alcohol][]', a[:number] %>
-              <%= a[:text] %>
+              <%#= check_box_tag 'condition[alcohol][]', a[:number] %>
+              <%#= a[:text] %>
             </label>
-          <% end %>
+          <%# end %> -->
         </div>
       </div>
       <div id="sake_bottan">
-        <%= submit_tag '検索', class: 'btn btn-default' %>
+        <%= f.submit '検索', class: 'btn btn-default' %>
       </div>
     <% end %>
   </div>
