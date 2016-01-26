@@ -57,7 +57,7 @@
           <span class="sr-only">Previous</span>
         <% end %>
         <%= link_to '#carousel-example-generic', class: 'right carousel-control', role: 'button', data: { 'data-slide' => 'next' } do %>
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         <% end %>
 
@@ -65,8 +65,6 @@
     </div>
 
 
-    <!-- <form role="search" action="<%= drinks_path %>" method="get"> -->
-    <%#= form_tag drinks_path, method: :get do %>
     <%= form_for :search, url: drinks_path, method: :get do |f| %>
       <div class="center">
         <div class="panel panel-warning">
@@ -74,19 +72,9 @@
             <h3 class="panel-title">お酒の種類</h3>
           </div>
           <%= f.hidden_field 'name' %>
-          <%= f.hidden_field 'alcohol' %>
           <% @alcoholics.each do |a| %>
             <%= f.label :alcoholics, a.name %>
-            <%= f.check_box 'alcoholic', {}, a.id, nil %>
-            <%#= check_box_tag 'alcoholics', a.id %>
-            <!--<label>
-            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&search%5Bbrewer%5D=&alcoholics=1&commit=%E6%A4%9C%E7%B4%A2
-            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&alcoholics=1&search%5Bbrewer%5D=&commit=%E6%A4%9C%E7%B4%A2
-            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&search%5Balcoholics%5D=1&search%5Bbrewer%5D=&commit=%E6%A4%9C%E7%B4%A2
-            http://localhost:3000/drinks?utf8=%E2%9C%93&search%5Bname%5D=&search%5Balcohol%5D=&search%5Balcoholic%5D=1&search%5Bbrewer%5D=&commit=%E6%A4%9C%E7%B4%A2
-              <%#= check_box_tag 'condition[alcoholics][]', a.id %>
-              <%#= a.name %>
-            </label>-->
+            <%= f.radio_button 'alcoholic', a.id, {} %>
           <% end %>
           <%= f.hidden_field 'brewer' %>
         </div>
@@ -110,12 +98,10 @@
           <div class="panel-heading">
             <h3 class="panel-title">アルコール度数</h3>
           </div>
-          <!--<%# @alcohol.each do |a| %>
-            <label>
-              <%#= check_box_tag 'condition[alcohol][]', a[:number] %>
-              <%#= a[:text] %>
-            </label>
-          <%# end %> -->
+          <% @alcohol.each do |a| %>
+            <%= f.label :alcohol, a[:text] %>
+            <%= f.radio_button 'alcohol', a[:number], {} %>
+          <% end %>
         </div>
       </div>
       <div id="sake_bottan">
