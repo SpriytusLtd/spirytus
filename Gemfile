@@ -45,7 +45,6 @@ gem 'carrierwave'
 gem 'will_paginate'
 
 # Active forn
-gem 'nested_form'
 gem 'nested_form_fields'
 
 # Heroku

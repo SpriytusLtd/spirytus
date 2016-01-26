@@ -95,7 +95,6 @@ GEM
     minitest (5.8.3)
     multi_json (1.11.2)
     mysql2 (0.3.20)
-    nested_form (0.3.2)
     nested_form_fields (0.7.4)
       coffee-rails (>= 3.2.1)
       jquery-rails
@@ -222,7 +221,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (~> 0.3.18)
-  nested_form
   nested_form_fields
   rails (= 4.2.3)
   rails_12factor

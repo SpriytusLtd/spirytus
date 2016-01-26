@@ -4,10 +4,11 @@
   <p>
     <strong> 取り扱っているお酒: </strong>
   </p>
-  <%= f.nested_fields_for :store_drinks do |ff| %>
+  <%= f.nested_fields_for :store_drinks, wrapper: false do |ff| %>
     <%= ff.hidden_field :id %>
     <%= ff.collection_select(:drink_id, Drink.all, :id, :name, {include_blank: 'お酒を選んでください'}) %>
-    <%= ff.remove_nested_fields_link '削除' %>
+    <%= ff.label :_destroy, "削除" %>
+    <%= ff.check_box :_destroy %>
   <% end %>
   <p>
     <%= f.add_nested_fields_link :store_drinks, '追加する' %>
@@ -19,8 +20,9 @@
   </p>
   <%= f.nested_fields_for :store_dishes do |ff| %>
     <%= ff.hidden_field :id %>
-    <%= ff.collection_select(:dish_id, Dish.all, :id, :name, {include_blank: '料理を選んでください'}) %>
-    <%= ff.remove_nested_fields_link '削除' %>
+    <%= ff.collection_select(:dish_id, Dish.all, :id, :name, {include_blank: '郷土料理を選んでください'}) %>
+    <%= ff.label :_destroy, "削除" %>
+    <%= ff.check_box :_destroy %>
   <% end %>
   <p>
     <%= f.add_nested_fields_link :store_dishes, '追加する' %>
@@ -32,8 +34,9 @@
   </p>
   <%= f.nested_fields_for :resort_stores do |ff| %>
     <%= ff.hidden_field :id %>
-    <%= ff.collection_select(:resort_id, Resort.all, :id, :name, {include_blank: 'お酒を選んでください'}) %>
-    <%= ff.remove_nested_fields_link '削除' %>
+    <%= ff.collection_select(:resort_id, Resort.all, :id, :name, {include_blank: '観光地を選んでください'}) %>
+    <%= ff.label :_destroy, "削除" %>
+    <%= ff.check_box :_destroy %>
   <% end %>
   <p>
     <%= f.add_nested_fields_link :resort_stores, '追加する' %>
