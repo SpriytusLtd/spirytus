@@ -7,22 +7,19 @@
 <% @store.store_drinks.each do |r| %>
   <%= r.drink.name %>
 <% end %>
-<% @have_drinks.each do |drink| %>
-  <p>  </p>
-<% end %>
 
 <p>
   <strong> 取り扱っている郷土料理: </strong>
 </p>
-<% @have_dishes.each do |dish| %>
-  <p><%= dish.name %></p>
+<% @store.store_dishes.each do |r| %>
+  <%= r.dish.name %>
 <% end %>
 
 <p>
   <strong> 近くの観光地: </strong>
 </p>
-<% @close_resorts.each do |resort| %>
-  <p><%= resort.name %></p>
+<% @store.resort_stores.each do |r| %>
+  <%= r.resort.name %>
 <% end %>
 
 <%= link_to '設定を編集', new_store_configuration_path %>
