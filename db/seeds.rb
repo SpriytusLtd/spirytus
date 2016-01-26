@@ -32,12 +32,16 @@ a_syochu  = Alcoholic.create({ name: '焼酎', item1: '辛さ', item2: '香り',
 a_chuhai  = Alcoholic.create({ name: '酎ハイ', item1: '香り', item2: '甘さ', item3: '飲みやすさ' })
 a_kajitsu = Alcoholic.create({ name: '果実酒', item1: '香り', item2: '甘さ', item3: '飲みやすさ' })
 
-d_tosazuru = Drink.create({ name: '土佐鶴', alcohol: 15, detail: '金賞', alcoholic: a_nihon, brewer: b_tosazuru })
-d_keigetsu = Drink.create({ name: '桂月', alcohol: 15, detail: '微妙', alcoholic: a_nihon, brewer: b_tosa })
-d_minami   = Drink.create({ name: '南', alcohol: 15, detail: 'すばらしい', alcoholic: a_nihon, brewer: b_minami })
-d_kurokiri = Drink.create({ name: '黒霧島', alcohol: 20, detail: 'あじわいいい', alcoholic: a_syochu })
-d_kasiore  = Drink.create({ name: 'カシスオレンジ', alcohol: 8, detail: 'すっきりした甘み', alcoholic: a_cactel })
-d_makaihe  = Drink.create({ name: '魔界への誘い', alcohol: 37, detail: '味わい深い', alcoholic: a_syochu })
+dr_tosazuru = Drink.create({ name: '土佐鶴', alcohol: 15, detail: '金賞', alcoholic: a_nihon, brewer: b_tosazuru })
+dr_keigetsu = Drink.create({ name: '桂月', alcohol: 15, detail: '微妙', alcoholic: a_nihon, brewer: b_tosa })
+dr_minami   = Drink.create({ name: '南', alcohol: 15, detail: 'すばらしい', alcoholic: a_nihon, brewer: b_minami })
+dr_kurokiri = Drink.create({ name: '黒霧島', alcohol: 20, detail: 'あじわいいい', alcoholic: a_syochu })
+dr_kasiore  = Drink.create({ name: 'カシスオレンジ', alcohol: 8, detail: 'すっきりした甘み', alcoholic: a_cactel })
+dr_makaihe  = Drink.create({ name: '魔界への誘い', alcohol: 37, detail: '味わい深い', alcoholic: a_syochu })
+
+di_katsuo_t  = Dish.create({ name: 'かつおのたたき', detail: 'かつおは高知県の県魚です。土佐の地域ならでは味覚を堪能できる奥の深さのある料理です。' })
+di_utsubo_k  = Dish.create({ name: 'ウツボの唐揚げ', detail: 'うつぼは見た目がグロテスクで気性の荒い生き物ですが、太平洋側でよく食されている。皮のコリコリが特徴的です。' })
+di_sabasushi = Dish.create({ name: '鯖の姿寿司', detail: '皿鉢料理の組みものの中心に守る定番の姿ずしです。鯖を背開きにして塩を聞かせ、柚子の酢で締めます。' })
 
 m_harimaya        = Municipality.create({ name: 'はりまや町' })
 m_kami_tosayamada = Municipality.create({ name: '香美市土佐山田町' })
@@ -59,7 +63,7 @@ s_ippu     = Store.create({
   banquet_hall: false,
   banquet_hall_capacity: 0,
   smoking: 5,
-  hp: 'http://www.ipphu.com/access/'
+  hp: 'http://www.ipphu.com/access/',
   municipality_id: m_harimaya.id
 })
 
@@ -79,7 +83,8 @@ s_bunzo   = Store.create({
   banquet_hall: false,
   banquet_hall_capacity: 0,
   smoking: 5,
-  hp: 'https://www.facebook.com/bunzo.bunkajin'
+  hp: 'https://www.facebook.com/bunzo.bunkajin',
+  municipality_id: m_kami_tosayamada
 })
 
 u_testuser1 = User.create({ name: 'tester1', email: 'tester1@email.com', password: 'tester1pass' })
