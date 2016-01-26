@@ -39,6 +39,10 @@ d_kurokiri = Drink.create({ name: '黒霧島', alcohol: 20, detail: 'あじわ�
 d_kasiore  = Drink.create({ name: 'カシスオレンジ', alcohol: 8, detail: 'すっきりした甘み', alcoholic: a_cactel })
 d_makaihe  = Drink.create({ name: '魔界への誘い', alcohol: 37, detail: '味わい深い', alcoholic: a_syochu })
 
+m_harimaya        = Municipality.create({ name: 'はりまや町' })
+m_kami_tosayamada = Municipality.create({ name: '香美市土佐山田町' })
+m_shimanto        = Municipality.create({ name: '四万十市' })
+
 s_ippu     = Store.create({
   name: '土佐の一風',
   address: '高知県高知市はりまや町1-6-1',
@@ -56,6 +60,7 @@ s_ippu     = Store.create({
   banquet_hall_capacity: 0,
   smoking: 5,
   hp: 'http://www.ipphu.com/access/'
+  municipality_id: m_harimaya.id
 })
 
 s_bunzo   = Store.create({
@@ -80,5 +85,7 @@ s_bunzo   = Store.create({
 u_testuser1 = User.create({ name: 'tester1', email: 'tester1@email.com', password: 'tester1pass' })
 u_testuser2 = User.create({ name: 'tester2', email: 'tester2@email.com', password: 'tester2pass' })
 
-m_kami_tosayamada = Municipality.create({ name: '香美市土佐山田町' })
-m_kami_tosayamada = Municipality.create({ name: '四万十市' })
+r_katsura   = Resort.create({ name: '桂浜', address: '高知県高知市浦戸183-1', detail: '高知県を代表する景勝地のひとつ。近くには龍馬記念館もある。' })
+r_ryugado   = Resort.create({ name: '龍河洞', address: '高知県香美市土佐山田町逆川1424', detail: '日本の代表的観光鍾乳洞。幻想的で神秘的な世界を体感できる。' })
+r_wakamiya  = Resort.create({ name: '若宮八幡宮', address: '高知長浜6600', detail: '長宗我部元親公出陣祈願の社。高知市港南区の総氏神、また厄除け開運の神などとして近郷近在の里人から広く信仰を集めている。' })
+r_muroto    = Resort.create({ name: '室戸岬', address: '高知県室戸市室戸岬町', detail: '壮大な岩、荒々しい海、空海が残した数々の伝説、パワースポットなど盛りだくさん！'} )
