@@ -19,7 +19,7 @@
   </p>
   <%= f.nested_fields_for :store_dishes do |ff| %>
     <%= ff.hidden_field :id %>
-    <%= ff.collection_select(:dish_id, Dish.all, :id, :name, {include_blank: '料理を選んでください'}) %>
+    <%= ff.collection_select(:dish_id, Dish.all, :id, :name, {include_blank: '郷土料理を選んでください'}) %>
     <%= ff.remove_nested_fields_link '削除' %>
   <% end %>
   <p>
@@ -32,7 +32,7 @@
   </p>
   <%= f.nested_fields_for :resort_stores do |ff| %>
     <%= ff.hidden_field :id %>
-    <%= ff.collection_select(:resort_id, Resort.all, :id, :name, {include_blank: 'お酒を選んでください'}) %>
+    <%= ff.collection_select(:resort_id, Resort.all, :id, :name, {include_blank: '観光地を選んでください'}) %>
     <%= ff.remove_nested_fields_link '削除' %>
   <% end %>
   <p>
