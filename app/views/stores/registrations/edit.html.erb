@@ -1,40 +1,5 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-<body>
 
-	<header>
-	 <div class="container">
-		 <div class="header-left">
-			 <img class="logo1" src="./../img/のんべえ2.png">
-		 </div>
-		 <div class="header-left">
-			 <img class="logo2" src="./../img/rogo3.png">
-		 </div>
-	 </div>
- </header>
-
-<div id="site-box">
-
-<p class="text10">
-店舗登録の申請メールを送信しました!
-<br>
-申請完了のメールが送られるまでしばらくお待ちください。 <br>
-<br>
-<a href="S_login.html">
-<input type="submit" value="ログイン画面へ" />
-</a>
-</p>
-
-
-<footer>
-  <HR style="margin: 1em 0 ;">
-  <div class="Copyright">
-    Copyright (C) 2016 Spirytus. All Rights Reserved.
-  </div>
-</footer>
-
-
-</div>
-</body>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
