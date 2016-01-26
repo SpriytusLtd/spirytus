@@ -1,0 +1,68 @@
+@charset "UTF-8" ;
+
+/********************************************************************************
+
+	SYNCER 〜 知識、感動をみんなと同期(Sync)するブログ
+
+	* 配布場所
+	https://syncer.jp/jquery-modal-window
+
+	* 最終更新日時
+	2015/08/17 15:38
+
+	* 作者
+	あらゆ
+
+	** 連絡先
+	Twitter: https://twitter.com/arayutw
+	Facebook: https://www.facebook.com/arayutw
+	Google+: https://plus.google.com/114918692417332410369/
+	E-mail: info@syncer.jp
+
+	※ バグ、不具合の報告、提案、ご要望など、お待ちしております。
+	※ 申し訳ありませんが、ご利用者様、個々の環境における問題はサポートしていません。
+
+********************************************************************************/
+
+
+@charset "UTF-8";
+
+/* ここからデモページ用のコード */
+body {
+	width: 100% ;
+	height: 5000px ;
+	padding: 0 ;
+}
+/* ここまでデモページ用のコード */
+
+.modal-content {
+	width: 50% ;
+	margin: 0 ;
+	padding: 10px 20px ;
+	border: 2px solid #aaa ;
+	background: #fff ;
+	position: fixed ;
+	display: none ;
+	z-index: 2 ;
+}
+
+#modal-overlay {
+	z-index: 1 ;
+	display: none ;
+	position: fixed ;
+	top: 0 ;
+	left: 0 ;
+	width: 100% ;
+	height: 120% ;
+	background-color: rgba( 0,0,0, 0.75 ) ;
+}
+
+.button-link {
+	color: #00f ;
+	text-decoration: underline ;
+}
+
+.button-link:hover {
+	cursor: pointer ;
+	color: #f00 ;
+}

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.content{
+  min-height: 0px;
+}
+
+.page-top
+{
+  /*display: none;*/
+  margin: 0;
+  padding: 0;
+}
+
+.page-top p
+{
+  margin: 0;
+  padding: 0;
+
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+/*.move-page-top
+{
+  display: block;
+  background: #D36015;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  /*color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s
+}
+*/
+
+@media screen and (min-width:1130px) {
+  .move-page-top:hover{
+    opacity: 0.85;
+  }
+}
