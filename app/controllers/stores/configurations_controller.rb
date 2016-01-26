@@ -4,28 +4,19 @@ class Stores::ConfigurationsController < ApplicationController
   def index
     redirect_to '/' if current_store.id != params[:store_id].to_i
     @store = Store.find(params[:store_id])
+    @have_drinks  = @store.store_drinks
+    @have_dishes  = @store.store_dishes
+    @close_resorts = @store.resort_stores
   end
 
   def create
     redirect_to '/' if current_store.id != params[:store_id].to_i
-    input_store = Store.new(store_params)
-    saved_store = Store.find(params[:store_id])
-    saved_store.update_attributes(
-      name: input_store.name,
-      address: input_store.address,
-      phone_number: input_store.phone_number,
-      budget: input_store.budget,
-      detail: input_store.detail,
-      business_day: input_store.business_day,
-      business_time: input_store.business_time,
-      transportation: input_store.transportation,
-      seat: input_store.seat,
-      room: input_store.room,
-      banquet_hall_capacity: input_store.banquet_hall_capacity,
-      smoking: input_store.smoking,
-      hp: input_store.hp
-    )
-    redirect_to :store_configurations
+    @store = Store.find(current_store.id)
+    if @store.update_attributes(create_params)
+      redirect_to @store, notice: 'successfully created.'
+    else
+      redirect_to @store, notice: 'failed'
+    end
   end
 
   def new
@@ -35,7 +26,7 @@ class Stores::ConfigurationsController < ApplicationController
 
   private
 
-  def store_params
-    params.require(:store).permit(:name, :address, :phone_number, :budget, :detail, :business_day, :business_time, :transportation, :seat, :room, :banquet_hall, :banquet_hall_capacity, :smoking, :hp)
+  def create_params
+    params.require(:store).permit(store_drinks_attributes: [:id, :drink_id, :store_id, :_destroy], store_dishes_attributes: [:id, :dish_id, :store_id, :_destroy], resort_stores_attributes: [:id, :resort_id, :store_id, :_destroy])
   end
 end

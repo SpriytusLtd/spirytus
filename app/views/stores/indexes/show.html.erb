@@ -1,36 +1,82 @@
 <h1>stores/indexes/show</h1>
 <div id="information">
-  <%= @store.name %><br />
-  <%= @store.email %><br />
-  <% if @store.image? %>
-    <div>
-      <%= image_tag @store.image.url %>
-    </div>
-  <% end %>
-  <%= @municipality.name %><br />
-  <%= @store.address %><br />
-  <%= @store.phone_number %><br />
-  <%= @store.budget %><br />
-  <%= @store.detail %><br />
-  <%= @store.business_day %><br />
-  <%= @store.business_time %><br />
-  <%= @store.transportation %><br />
-  <%= @store.seat %><br />
-  <%= @store.room %><br />
-  <%= @store.banquet_hall %><br />
-  <%= @store.banquet_hall_capacity %><br />
-  <%= @store.smoking %><br />
-  <%= link_to @store.hp, @store.hp %><br />
+  <p>
+    <strong> メールアドレス: </strong>
+    <%= @store.email %>
+  </p>
+
+  <p>
+    <strong> 店舗名: </strong>
+    <%= @store.name %>
+  </p>
+
+  <p>
+    <strong> 住所: </strong>
+    <%= @store.address %>
+  </p>
+
+  <p>
+    <strong> 電話番号: </strong>
+    <%= @store.phone_number %>
+  </p>
+
+  <p>
+    <strong> 予算: </strong>
+    <%= @store.budget %>
+  </p>
+
+  <p>
+    <strong> 詳細説明: </strong>
+    <%= @store.detail %>
+  </p>
+
+  <p>
+    <strong> 営業日: </strong>
+    <%= @store.business_day %>
+  </p>
+
+  <p>
+    <strong> 営業時間: </strong>
+    <%= @store.business_time %>
+  </p>
+
+  <p>
+    <strong> アクセス: </strong>
+    <%= @store.transportation %>
+  </p>
+
+  <p>
+    <strong> 座席数: </strong>
+    <%= @store.seat %>
+  </p>
+
+  <p>
+    <strong> 個室数: </strong>
+    <%= @store.seat %>
+  </p>
+
+  <p>
+    <strong> 宴会場の収容人数: </strong>
+    <%= @store.banquet_hall_capacity %>
+  </p>
+
+  <p>
+    <strong> ホームページ: </strong>
+    <%= link_to @store.hp, @store.hp %>
+  </p>
 </div>
 
 <div id="store_reviews">
-  <%= link_to 'レビュー', store_reviews_path(store_id: @store.id)  %>
+  <strong><%= link_to ' レビュー: ', store_reviews_path(store_id: @store.id)  %></strong>
   <% @store_reviews.each do |r| %>
     <%= link_to r.name, store_reviews_path(r) %>
     <%= r.body %><br />
   <% end %>
 </div>
 
+<br />
+
 <% if store_signed_in? %>
-  <%= link_to '登録情報を編集する', edit_store_path(@store) %>
+  <%= link_to '登録情報を編集する', edit_store_path(@store) %><br />
+  <%= link_to '酒・郷土料理・観光地情報を編集する', store_configurations_path(@store) %>
 <% end %>
