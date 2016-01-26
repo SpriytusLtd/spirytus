@@ -14,12 +14,14 @@
 <div class="tab-content">
   <div class="tab-pane active" id="home">
     <div class="tab_bottom_form">
-      <form class="navbar-form navbar-left" role="search" action="<%= drinks_path %>" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索" name="search">
-        </div>
-        <button type="submit" class="btn btn-default">検索</button>
-      </form>
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: drinks_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: 'お酒の名前' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
 
     <div class="range">
