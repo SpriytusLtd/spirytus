@@ -1,17 +1,48 @@
-<h1>Indexes#index</h1>
-<p>Find me in app/views/indexes/index.html.erb</p>
-
-<div>
-  <% unless store_signed_in? %>
-    <% if user_signed_in? %>
-      <%= link_to 'User Page', user_path(current_user) %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_registration_path %> |
-      <%= link_to 'Sign In', new_user_session_path %>
+<link href="/css/bootstrap.min.css" rel="stylesheet" media = "screen">
+<header>
+  <%= image_tag 'rogo.png', class: 'header-log' %>
+  <div class="header-login">
+    <% unless store_signed_in? %>
+      <% if user_signed_in? %>
+        <%= button_tag class: 'btn btn-default' do %>
+          <%= link_to 'User Page', user_path(current_user) %>
+        <% end %>
+        <%= button_tag class: 'btn btn-default' do %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% end %>
+      <% else %>
+        <%= button_tag class: 'btn btn-default' do %>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+        <%= button_tag class: 'btn btn-default' do %>
+          <%= link_to 'Sign In', new_user_session_path %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+</header>
+
+<nav>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#home" data-toggle="tab"><span class="text-muted"><strong>お酒</strong></span></a></li>
+    <li><a href="#about" data-toggle = "tab"><span class="text-muted"><strong>食材</strong></span></a></li>
+    <li><a href="#about2" data-toggle = "tab"><span class="text-muted"><strong>観光地</strong></span></a></li>
+    <li><a href="#about3" data-toggle = "tab"><span class="text-muted"><strong>店舗</strong></a></span></li>
+  </ul>
+</nav>
+
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+    <div class="tab_bottom_form">
+      <%= form_for class: 'navbar-form navbar-left'
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="検索">
+        </div>
+        <button type="submit" class="btn btn-default">検索</button>
+      </form>
+
 
 <div>
   <% unless user_signed_in? %>
