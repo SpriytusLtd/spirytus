@@ -12,6 +12,10 @@ header {
 	right:8px;
 }
 
+footer {
+  text-align: center;
+}
+
 .logo1 {
   width: 70px;
   height: 100px;
