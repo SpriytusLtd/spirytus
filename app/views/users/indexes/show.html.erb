@@ -1,5 +1,5 @@
 <head>
-    <%= stylesheet_link_tag "user/user_mypage.css" %>
+  <%= stylesheet_link_tag "user/user_mypage.css" %>
 </head>
 <%= render 'layouts/header' %>
 <div id="site-box-user-mypage">
@@ -11,6 +11,10 @@
         <div id="face">
           <%= image_tag @user.thumbnail.url, width: '140', height: '140' %>
         </div>
+      <% else %>
+      <div id="face">
+        <%= image_tag 'no_thumbnail.jpg', width: '140', height: '140' %>
+      </div>
       <% end %>
       <div id="profile_infomation">
         ユーザ名 : <%= @user.name %><br />
