@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: <%= ENV['SPIRYTUS_DATABASE_USERNAME'] %>
-  password: <%= ENV['SPIRYTUS_DATABASE_PASSWORD'] %>
+  username: murase
+  password: tetsuro624
   # socket: /tmp/mysql.sock
 
 development:
