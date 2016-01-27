@@ -1,11 +1,13 @@
 <header>
   <div class="container">
-    <div class="header-left">
-      <%= image_tag 'nombe2.png', class: 'logo1' %>
-    </div>
-    <div class="header-left">
-      <%= image_tag 'rogo3.png' %>
-    </div>
+    <%= link_to root_path do %>
+      <div class="header-left">
+        <%= image_tag 'nombe2.png', class: 'logo1' %>
+      </div>
+      <div class="header-left">
+        <%= image_tag 'rogo3.png' %>
+      </div>
+    <% end %>
     <div class="header-login">
       <% unless store_signed_in? %>
         <% if user_signed_in? %>

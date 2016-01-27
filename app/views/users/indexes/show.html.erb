@@ -75,7 +75,7 @@
             <ul>
               <% @store_reviews.each do |r| %>
                 <li>
-                  <%= link_to r.name, store_reviews_path(r) %>
+                  <%= link_to r.user.name, store_reviews_path(r) %>
                   <div class="comment"><%= r.body %></div>
                 </li>
               <% end %>
