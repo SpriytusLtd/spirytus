@@ -148,8 +148,12 @@ header {
 }
 
 #right3{
-	float:right;
+	float: left;
 	width:50%;
+}
+
+#link-user-delete {
+  text-align: right;
 }
 
 .complete{
