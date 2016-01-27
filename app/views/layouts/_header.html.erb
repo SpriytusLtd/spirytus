@@ -9,10 +9,8 @@
     <div class="header-login">
       <% unless store_signed_in? %>
         <% if user_signed_in? %>
-          <%= button_tag class: 'btn btn-default' do %>
             <%= link_to 'User Page', user_path(current_user) %>
-          <% end %>
-          <%= button_tag class: 'btn btn-default' do %>
+          <%= button_tag class: 'btn btn-default', type: :button do %>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
           <% end %>
         <% else %>
