@@ -1,3 +1,7 @@
+.container {
+  background-color: white;
+}
+
 #star1 {
   width: 100px;
   margin-left: auto;
@@ -31,7 +35,7 @@
 }
 
 .store-topic {
-  background-color: white;
+  /* background-color: white; */
   padding-top: 32px;
   padding-bottom: 32px;
 }
@@ -49,4 +53,9 @@
 .store-topic__drink {
   font-size: 16px;
   text-align: center;
+}
+
+.address_mapping, .map {
+  margin-top: 64px;
+  margin-bottom: 64px;
 }
