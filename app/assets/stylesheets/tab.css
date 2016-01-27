@@ -33,18 +33,18 @@ color:white;
   margin: 25px;;
 }
 
-h2 {
+.top-content__title {
 	position: relative;
 	padding: 0 .5em .5em 2em;
 	border-bottom: 1px solid #ccc;
 }
-h2::before,
-h2::after {
+.top_content__title::before,
+.top_content__title::after {
 	position: absolute;
 	content: '';
 	border-radius: 100%
 }
-h2::before {
+.top_content__title::before {
 	top: .2em;
 	left: .2em;
 	z-index: 2;
@@ -52,7 +52,7 @@ h2::before {
 	height: 18px;
 	background: rgba(150, 150, 150, .5);
 }
-h2::after {
+.top_content__title::after {
 	top: .7em;
 	left: .7em;
 	width: 13px;

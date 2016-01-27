@@ -1,70 +1,104 @@
-<h1>stores/indexes/show</h1>
-<div id="information">
-  <p>
-    <strong> メールアドレス: </strong>
-    <%= @store.email %>
-  </p>
+<script type="text/javascript" src="/javascripts/jquery.raty.js"></script>
+<script type="text/javascript" src="/javascripts/top.js"></script>
+<script type="text/javascript">
+  $.fn.raty.defaults.path = "/assets/";
+  $(function(){
+    $('#star1').raty({ score: 4, readOnly: true });
+  });
+</script>
 
-  <p>
-    <strong> 店舗名: </strong>
-    <%= @store.name %>
-  </p>
+<div class="container store-show-containt">
+  <div class="row">
+    <div class="col-md-5 store-info">
+      <center><h1 class="store-info__name"><%= @store.name %></h1></center>
+      <div id="star1"></div>
+      <table class="table store-info__infomation-table">
+        <tr>
+          <td>住所</td>
+          <td><%= @store.address %> </td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @store.phone_number %> </td>
+        </tr>
+        <tr>
+          <td>営業日</td>
+          <td><%= @store.business_day %> </td>
+        </tr>
+        <tr>
+          <td>営業時間</td>
+          <td><%= @store.business_time %> </td>
+        </tr>
+        <tr>
+          <td>席数</td>
+          <td><%= @store.seat %> </td>
+        </tr>
+        <tr>
+          <td>平均予算</td>
+          <td><%= @store.budget %> </td>
+        </tr>
+        <% if @store.banquet_hall_capacity > 0 %>
+          <tr>
+            <td>宴会場の最大収容人数</td>
+            <td><%= @store.banquet_hall_capacity %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>HP</td>
+          <td><%= link_to @store.hp, @store.hp %></td>
+        </tr>
+      </table>
+      <%= link_to 'このお店のレビューを見る', store_reviews_path(@store) %>
+    </div>
+    <div class="col-md-7 store-images">
+      <%= image_tag 'tosa1.jpg', class: 'store-images__image' %>
+    </div>
+  </div>
 
-  <p>
-    <strong> 住所: </strong>
-    <%= @store.address %>
-  </p>
+  <div class="row store-description">
+    <div class="col-md-12">
+      <article class="centering-article store-description__article">
+        <p> <%= @store.detail %> </p>
+      </article>
+    </div>
+  </div>
 
-  <p>
-    <strong> 電話番号: </strong>
-    <%= @store.phone_number %>
-  </p>
+  <% unless @reration_to_drinks.empty? %>
+    <div class="row store-topic">
+      <% main_drink = @reration_to_drinks[0].drink %>
+      <div class="col-md-7">
+        <h2 class="store-topic__title"><%= main_drink.name %></h2>
+        <article class="centering-article">
+          <p> <%= main_drink.detail %> </p>
+        </article>
+      </div>
+      <div class="col-md-5">
+        <%= image_tag 'img2.jpg', class: 'store-topic__image' %>
+      </div>
+    </div>
+    <div class="row store-topic">
+      <div class="col-md-12">
+        <h2 class="store-topic__title white">扱っているお酒</h2>
+      </div>
+      <% @reration_to_drinks.each do |r| %>
+        <div class="col-md-4 store-topic__drink">
+          <%= r.drink.name %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
-  <p>
-    <strong> 予算: </strong>
-    <%= @store.budget %>
-  </p>
-
-  <p>
-    <strong> 詳細説明: </strong>
-    <%= @store.detail %>
-  </p>
-
-  <p>
-    <strong> 営業日: </strong>
-    <%= @store.business_day %>
-  </p>
-
-  <p>
-    <strong> 営業時間: </strong>
-    <%= @store.business_time %>
-  </p>
-
-  <p>
-    <strong> アクセス: </strong>
-    <%= @store.transportation %>
-  </p>
-
-  <p>
-    <strong> 座席数: </strong>
-    <%= @store.seat %>
-  </p>
-
-  <p>
-    <strong> 個室数: </strong>
-    <%= @store.seat %>
-  </p>
-
-  <p>
-    <strong> 宴会場の収容人数: </strong>
-    <%= @store.banquet_hall_capacity %>
-  </p>
-
-  <p>
-    <strong> ホームページ: </strong>
-    <%= link_to @store.hp, @store.hp %>
-  </p>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="map" class="map"></div>
+      <input id="input_store_address" type="hidden" value="<%= @store.address %>" />
+      <div id="latlngtext"></div>
+      <script src="http://maps.google.com/maps/api/js?v=3&censor=false" type="text/javascript" charset="UTF-8"></script>
+      <script src="/assets/map.js" type="text/javascript" charset="UTF-8"></script>
+    </div>
+  </div>
 </div>
+
 
 <div id="store_reviews">
   <strong><%= link_to ' レビュー: ', store_reviews_path(store_id: @store.id)  %></strong>

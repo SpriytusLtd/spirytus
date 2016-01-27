@@ -1,21 +1,76 @@
-<h1>お店レビュー</h1>
-<%= link_to 'New', new_store_review_path %>
-<table>
+
+<div class="container store-show-containt">
+  <div class="row">
+    <div class="col-md-5 store-info">
+      <center><h1 class="store-info__name"><%= @store.name %></h1></center>
+      <div id="star1"></div>
+      <table class="table store-info__infomation-table">
+        <tr>
+          <td>住所</td>
+          <td><%= @store.address %> </td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @store.phone_number %> </td>
+        </tr>
+        <tr>
+          <td>営業日</td>
+          <td><%= @store.business_day %> </td>
+        </tr>
+        <tr>
+          <td>営業時間</td>
+          <td><%= @store.business_time %> </td>
+        </tr>
+        <tr>
+          <td>席数</td>
+          <td><%= @store.seat %> </td>
+        </tr>
+        <tr>
+          <td>平均予算</td>
+          <td><%= @store.budget %> </td>
+        </tr>
+        <% if @store.banquet_hall_capacity > 0 %>
+          <tr>
+            <td>宴会場の最大収容人数</td>
+            <td><%= @store.banquet_hall_capacity %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>HP</td>
+          <td><%= link_to @store.hp, @store.hp %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-7 store-images">
+      <%= image_tag 'tosa1.jpg', class: 'store-images__image' %>
+    </div>
+  </div>
 
 
- <% @reviews.each do |review| %>
- <tr>
-   <td>
-     <%= review.body %>
-   </td>
-   <td><%= review.id %></td>
+  <div class="store-review-form">
+    <%= form_for @new_review, class: 'store-review-form__form' do |r| %>
+      <div class="store-review-form__contents">
+        <%= r.label :body, 'レビュー投稿欄', class: 'store-review-form__title' %>
+        <%= r.text_area :body, maxlength: 1000, class: 'store-review-form__text-area' %>
+        <%= r.submit '投稿する', class: 'store-review-form__submit-button' %>
+      </div>
+    <% end %>
+  </div>
 
-   <td><%= link_to 'show', store_review_path(id: review) %>
-   <%= link_to 'edit', edit_store_review_path(id: review) %>
-   <%= link_to 'delete', store_review_path(id: review), method: :delete %>
-   </td>
-   </tr>
-   <% end %>
-</table>
+  <% @reviews.each do |review| %>
+    <div class="media">
+      <div class="media-left media-top">
+        <%= image_tag review.user.thumbnail.url, class: 'media-object' %>
+      </div>
+      <div class="media-body">
+        <p class="media-heading reviewer-name"><%= review.user.name %></p>
+        <p class="review-body"><%= review.body %></p>
+        <% if review.user == current_user %>
+          <%= link_to '削除する', store_review_path(id: review), method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
-<%= will_paginate @reviews, previous_label: '<前ページ', next_label: '次ページ>' %>
+  <%= will_paginate @reviews, previous_label: '<前ページ', next_label: '次ページ>' %>
+</div>
