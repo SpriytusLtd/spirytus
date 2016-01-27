@@ -4,8 +4,7 @@ class Stores::IndexesController < ApplicationController
   def index
     info = params[:search]
     if info
-      @stores = Store.search(info)
-      @stores = @stores.paginate(page: params[:page], per_page: 5)
+      @stores = Store.search(info).paginate(page: params[:page], per_page: 5)
     else
       @stores = Store.all.paginate(page: params[:page], per_page: 5)
     end
