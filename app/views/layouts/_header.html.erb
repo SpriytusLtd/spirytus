@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <div class="header-left">
+    <div class="head-left">
       <%= image_tag 'nombe2.png', class: 'logo1' %>
     </div>
     <div class="header-left">
@@ -9,15 +9,17 @@
     <div class="header-login">
       <% unless store_signed_in? %>
         <% if user_signed_in? %>
+          <%= button_tag class: 'btn btn-default', type: :button do %>
             <%= link_to 'User Page', user_path(current_user) %>
+          <% end %>
           <%= button_tag class: 'btn btn-default', type: :button do %>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
           <% end %>
         <% else %>
-          <%= button_tag class: 'btn btn-default' do %>
+          <%= button_tag class: 'btn btn-default', type: :button do %>
             <%= link_to 'Sign Up', new_user_registration_path %>
           <% end %>
-          <%= button_tag class: 'btn btn-default' do %>
+          <%= button_tag class: 'btn btn-default', type: :button do %>
             <%= link_to 'Sign In', new_user_session_path %>
           <% end %>
         <% end %>
