@@ -1,0 +1,52 @@
+#star1 {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.store-images {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.store-images__image {
+  max-width: 640px;
+  max-height: 480px;
+}
+
+.centering-article {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.store-description__article {
+  margin-top: 86px;
+  margin-bottom: 86px;
+}
+
+.centering-article p {
+  text-align: center;
+}
+
+.store-topic {
+  background-color: white;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.store-topic__title {
+  font-size: 22px;
+  text-align: center;
+}
+
+.tore-topic__image {
+  width: 320px;
+  height: 260px;
+}
+
+.store-topic__drink {
+  font-size: 16px;
+  text-align: center;
+}

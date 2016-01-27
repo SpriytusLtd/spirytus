@@ -1,0 +1,161 @@
+hr.line{
+  border: none;
+  border-top: 2px dotted #999;
+  width: 30%;
+}
+
+body{
+    color: #555;
+    background: url("../img/img5.jpg"), url("../img/img6.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+  　width: 100%;
+  　height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.text-area {
+ margin: 15px auto;
+ padding: 10px 5px 50px;
+ width: 1000px;
+ background-color: #fff;
+ position: relative;
+ top: 0;
+ left:30px;
+ margin-right: auto;
+ margin-left: auto;
+}
+
+#info{
+  width: 500px;
+  height: 450px
+}
+
+#waku1{
+  width: 1000px;
+  height: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#img{
+  padding: 35px;
+  float: right;
+  clear: both;
+  width: 500px;
+  height: 450px;
+}
+
+#wrapper{
+  width: 100%;
+}
+
+#box1{
+  width: 1000px;
+  height: 550px;
+}
+
+#img1{
+  margin-right: 20px;
+  float: right;
+  width: 400px;
+  height: 370px;
+}
+
+#text1{
+  float: left;
+  text-align: center;
+  width: 550px;
+  height: 370px;
+}
+
+#info1{
+  clear: both;
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  height: 150px;
+}
+
+#info1_left{
+  position: relative;
+  left: 120px;
+}
+
+#info1_center{
+  position: relative;
+  top: -70px;
+  left: 420px;
+}
+
+#info1_right{
+  position: relative;
+  top: -140px;
+  left: 720px;
+}
+
+#box2{
+  width: 1000px;
+  height: 600px;
+}
+
+#text2{
+  float: right;
+  text-align: center;
+  width: 550px;
+  height: 370px;
+}
+
+#img2{
+  margin-left: 20px;
+  float: left;
+  width: 400px;
+  height: 370px;
+}
+
+#info2{
+  clear: both;
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  height: 200px;
+
+}
+
+#info2_left{
+  position: relative;
+  left: 120px;
+}
+
+#info2_center{
+  position: relative;
+  top: -120px;
+  left: 420px;
+}
+
+#info2_right{
+  position: relative;
+  top: -240px;
+  left: 720px;
+}
+
+#box3{
+  width: 1000px;
+  height: 380px;
+}
+
+#text3{
+  float: left;
+  text-align: center;
+  width: 550px;
+  height: 370px;
+}
+
+#img3{
+  margin-right: 20px;
+  float: right;
+  width: 400px;
+  height: 370px;
+}
