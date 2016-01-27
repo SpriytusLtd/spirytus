@@ -1,26 +1,279 @@
-<h1>Indexes#index</h1>
-<p>Find me in app/views/indexes/index.html.erb</p>
+<div class="container" style="padding: 10px 0px 10px 0px">
+<%= render 'layouts/header' %>
 
-<div>
-  <% unless store_signed_in? %>
-    <% if user_signed_in? %>
-      <%= link_to 'User Page', user_path(current_user) %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_registration_path %> |
-      <%= link_to 'Sign In', new_user_session_path %>
+<nav>
+  <ul class="nav nav-tabs nav-justified">
+    <li class="active"><a href="#home" data-toggle="tab"><span class="text-muted"><strong>お酒</strong></span></a></li>
+    <li><a href="#about" data-toggle = "tab"><span class="text-muted"><strong>食材</strong></span></a></li>
+    <li><a href="#about2" data-toggle = "tab"><span class="text-muted"><strong>観光地</strong></span></a></li>
+    <li><a href="#about3" data-toggle = "tab"><span class="text-muted"><strong>店舗</strong></a></span></li>
+  </ul>
+</nav>
+
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+    <div class="tab_bottom_form">
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: drinks_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: 'お酒の名前' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="range">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag 'slide_folder/view1.jpg', alt: '...', width: '700', height: '440' %>
+          </div>
+          <div class="item">
+            <%= image_tag 'slide_folder/view2.jpg', alt: '...', width: '700', height: '440' %>
+          </div>
+          <div class="item">
+            <%= image_tag 'slide_folder/view3.jpg', alt: '...', width: '700', height: '440' %>
+          </div>
+          <div class="item">
+            <%= image_tag 'slide_folder/view4.jpg', alt: '...', width: '700', height: '440' %>
+          </div>
+          <div class="item">
+            <%= image_tag 'slide_folder/view5.jpg', alt: '...', width: '700', height: '440' %>
+          </div>
+        </div>
+
+        <%= link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: { 'data-slide' => 'prev' } do %>
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        <% end %>
+        <%= link_to '#carousel-example-generic', class: 'right carousel-control', role: 'button', data: { 'data-slide' => 'next' } do %>
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        <% end %>
+
+      </div>
+    </div>
+
+
+    <!-- <form role="search" action="<%= drinks_path %>" method="get"> -->
+    <%= form_tag drinks_path, method: :get do %>
+
+      <div class="center">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">お酒の種類</h3>
+          </div>
+          <% @alcoholics.each do |a| %>
+            <label>
+              <%= check_box_tag 'condition[alcoholics][]', a.id %>
+              <%= a.name %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">お酒の種類</h3>
+          </div>
+          <% @alcoholics.each do |a| %>
+            <label>
+              <%= a.name %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">アルコール度数</h3>
+          </div>
+          <% @alcohol.each do |a| %>
+            <label>
+              <%= check_box_tag 'condition[alcohol][]', a[:number] %>
+              <%= a[:text] %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+      <div id="sake_bottan">
+        <%= submit_tag '検索', class: 'btn btn-default' %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
+
+
+
+  <div class="tab-pane" id="about">
+    <div class="tab_bottom_form">
+      <form class="navbar-form navbar-left" role="search" action="<%= dishes_path %>" method="get">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="検索">
+        </div>
+        <%= submit_tag '検索', class: 'btn btn-default' %>
+      </form>
+    </div>
+
+
+    <div class="range">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag 'view6.png', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'view7.jpg', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'view8.jpg', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'view9.jpg', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'view10.jpg', alt: '...', width: 700, height: 440 %>
+          </div>
+        </div>
+
+        <%= link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: { 'data-slide' => 'prev' } do %>
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        <% end %>
+        <%= link_to '#carousel-example-generic', class: 'right carousel-control', role: 'button', data: { 'data-slide' => 'next' } do %>
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tab-pane" id="about2">
+    <div class="tab_bottom_form">
+      <form class="navbar-form navbar-left" role="search" action="<%= stores_path %>" method="get">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="検索">
+        </div>
+        <%= submit_tag '検索', class: 'btn btn-default' %>
+      </form>
+    </div>
+
+
+    <div class="range">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag 'light1.jpg', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'light2.png', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'light3.png', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'light4.png', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'light5.png', alt: '...', width: 700, height: 440 %>
+          </div>
+        </div>
+
+        <%= link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: { 'data-slide' => 'prev' } do %>
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        <% end %>
+        <%= link_to '#carousel-example-generic', class: 'right carousel-control', role: 'button', data: { 'data-slide' => 'next' } do %>
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tab-pane" id="about3">
+    <div class="tab_bottom_form">
+      <form class="navbar-form navbar-left" role="search" action="<%= stores_path %>" method="get">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="検索">
+        </div>
+        <%= submit_tag '検索', class: 'btn btn-default' %>
+      </form>
+    </div>
+
+
+    <div class="range">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag 'store.jpg', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'store2.png', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'store3.png', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'store4.png', alt: '...', width: 700, height: 440 %>
+          </div>
+          <div class="item">
+            <%= image_tag 'store5.png', alt: '...', width: 700, height: 440 %>
+          </div>
+        </div>
+
+        <%= link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: { 'data-slide' => 'prev' } do %>
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        <% end %>
+        <%= link_to '#carousel-example-generic', class: 'right carousel-control', role: 'button', data: { 'data-slide' => 'next' } do %>
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
 </div>
-
-<div>
-  <% unless user_signed_in? %>
-    <% if store_signed_in? %>
-      <%= link_to '店アカウントの専用ページ', store_path(current_store) %>
-      <%= link_to '店アカウント用ログアウト', destroy_store_session_path, method: :delete %>
-    <% else %>
-      <%= link_to '店アカウント作成申請', new_store_registration_path %>
-      <%= link_to '店アカウント用ログイン', new_store_session_path %>
-    <% end %>
-  <% end %>
+<%= render 'layouts/footer' %>
 </div>

@@ -1,0 +1,49 @@
+
+header {
+  height: 100px;
+  width: 101%;
+  position: fixed;
+  background: url(header2.jpg);
+	background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+	opacity: 0.9;
+	top: -8px;
+	right:8px;
+  z-index: -1;
+}
+
+.logo1 {
+  width: 70px;
+  height: 100px;
+	opacity:1;
+}
+
+.logo2{
+	width: 300px;
+	height: 80px;
+	margin-top: 10px;
+}
+
+.header-left {
+  float: left;
+}
+
+
+#site-box {
+  width : 752px;
+ margin-right: auto;
+ margin-left : auto;
+}
+
+#comment{
+  font-size: 200%;
+  text-align: center;
+  padding-top: 300px;
+  padding-bottom:300px;
+}
+
+.Copyright{
+  text-align: center;
+  color:#000000;
+}
