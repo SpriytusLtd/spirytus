@@ -10,7 +10,10 @@ header {
 	opacity: 0.9;
 	top: -8px;
 	right:8px;
-  z-index: -1;
+}
+
+footer {
+  text-align: center;
 }
 
 .logo1 {
@@ -27,6 +30,10 @@ header {
 
 .header-left {
   float: left;
+}
+
+.header-login {
+  float: right;
 }
 
 
