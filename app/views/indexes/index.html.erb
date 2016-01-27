@@ -4,7 +4,7 @@
 <nav>
   <ul class="nav nav-tabs nav-justified">
     <li class="active"><a href="#home" data-toggle="tab"><span class="text-muted"><strong>お酒</strong></span></a></li>
-    <li><a href="#about" data-toggle = "tab"><span class="text-muted"><strong>食材</strong></span></a></li>
+    <li><a href="#about" data-toggle = "tab"><span class="text-muted"><strong>郷土料理</strong></span></a></li>
     <li><a href="#about2" data-toggle = "tab"><span class="text-muted"><strong>観光地</strong></span></a></li>
     <li><a href="#about3" data-toggle = "tab"><span class="text-muted"><strong>店舗</strong></a></span></li>
   </ul>
@@ -168,6 +168,21 @@
 
       </div>
     </div>
+    
+    <%= form_for :search, url: stores_path, method: :get do |f| %>
+      <div class="center2">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title"> 高知の郷土料理 </h3>
+          </div>
+          <% @dishes.each do |d| %>
+            <%= f.label :name, d.name %>
+            <%= f.radio_button 'dish', d.id, {} %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit '検索', class: 'btn btn-default' %>
+    <% end %>
   </div>
 
   <!-- 観光地 -->
@@ -223,6 +238,22 @@
 
       </div>
     </div>
+
+    <%= form_for :search, url: stores_path, method: :get do |f| %>
+      <div class="center2">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title"> 観光地 </h3>
+            <p> 観光地を指定して、その近くのお店を調べましょう </p>
+          </div>
+          <% @resorts.each do |r| %>
+            <%= f.label :name, r.name %>
+            <%= f.radio_button 'resort', r.id, {} %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit '検索', class: 'btn btn-default' %>
+    <% end %>
   </div>
 
   <!-- 店 -->
@@ -278,6 +309,7 @@
 
       </div>
     </div>
+
   </div>
 
 </div>

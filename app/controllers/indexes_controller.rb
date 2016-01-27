@@ -11,5 +11,7 @@ class IndexesController < ApplicationController
       { text: '40%以下', number: 40 },
       { text: '41%以上', number: 100 }
     ]
+    @dishes = Dish.all
+    @resorts = Resort.all
   end
 end
