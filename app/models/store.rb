@@ -44,8 +44,6 @@ class Store < ActiveRecord::Base
     @stores
   end
 
-  private
-
   def self.name_search(date, name)
     @result = date.where('name like ?', "%#{name}%")
   end
