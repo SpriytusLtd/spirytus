@@ -29,6 +29,10 @@ header {
   float: left;
 }
 
+.header-login {
+  float: right;
+}
+
 
 #site-box {
   width : 752px;
