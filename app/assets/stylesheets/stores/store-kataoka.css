@@ -60,9 +60,21 @@
   margin-bottom: 64px;
 }
 
-.store-review-form__text-area {
+.store-review-form__title {
+  font-size: 24px;
+}
+
+.store-review-form__form {
+
+}
+
+.store-review-form__contents {
+  width: 75%;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+}
+
+.store-review-form__text-area {
+  width: 100%;
   height: 100px;
 }

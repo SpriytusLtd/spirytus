@@ -48,29 +48,29 @@
 
 
   <div class="store-review-form">
-    <h2 class="store-review-form__title">レビュー投稿欄</h2>
-    <%= form_for @new_review do |r| %>
-      <%= r.text_area :body, maxlength: 1000, class: 'store-review-form__text-area' %>
-      <%= r.submit '投稿する', class: 'store-review-form__submit-button' %>
+    <%= form_for @new_review, class: 'store-review-form__form' do |r| %>
+      <div class="store-review-form__contents">
+        <%= r.label :body, 'レビュー投稿欄', class: 'store-review-form__title' %>
+        <%= r.text_area :body, maxlength: 1000, class: 'store-review-form__text-area' %>
+        <%= r.submit '投稿する', class: 'store-review-form__submit-button' %>
+      </div>
     <% end %>
   </div>
-  <table>
 
-
-   <% @reviews.each do |review| %>
-   <tr>
-     <td>
-       <%= review.body %>
-     </td>
-     <td><%= review.id %></td>
-
-     <td><%= link_to 'show', store_review_path(id: review) %>
-     <%= link_to 'edit', edit_store_review_path(id: review) %>
-     <%= link_to 'delete', store_review_path(id: review), method: :delete %>
-     </td>
-     </tr>
-     <% end %>
-  </table>
+  <% @reviews.each do |review| %>
+    <div class="media">
+      <div class="media-left media-top">
+        <%= image_tag review.user.thumbnail.url, class: 'media-object' %>
+      </div>
+      <div class="media-body">
+        <p class="media-heading reviewer-name"><%= review.user.name %></p>
+        <p class="review-body"><%= review.body %></p>
+        <% if review.user == current_user %>
+          <%= link_to '削除する', store_review_path(id: review), method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
   <%= will_paginate @reviews, previous_label: '<前ページ', next_label: '次ページ>' %>
 </div>
