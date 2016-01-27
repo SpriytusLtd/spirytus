@@ -3,7 +3,7 @@ header {
   height: 100px;
   width: 101%;
   position: fixed;
-  background: url(header2.jpg);
+  background-image: url(header2.jpg);
 	background-attachment: fixed;
   background-size: cover;
   position: relative;
