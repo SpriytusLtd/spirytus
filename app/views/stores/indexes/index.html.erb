@@ -1,0 +1,47 @@
+<h1>お店検索結果一覧</h1>
+
+<ul>
+  <% @stores.each do |store| %>
+  <li>
+    <%= link_to store.name, store_path(store.id) %>
+  </li>
+  <% end %>
+</ul>
+<%= will_paginate @stores, previous_label: '<前のページ', next_label: '次のページ>' %>
+
+<%= form_for :search, method: "get" do |f| %>
+<p>
+  <%= f.label :name, '名前' %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :resort, '観光名所' %><br>
+  <%= f.text_field :resort %>
+</p>
+
+<p>
+  <%= f.label :drink, 'お酒' %><br>
+  <%= f.text_field :drink %>
+</p>
+
+<p>
+  <%= f.label :people, '収容人数' %><br>
+  <%= f.text_field :people %>
+</p>
+
+<p>
+  <%= f.label :dish, '郷土料理' %><br>
+  <%= f.text_field :dish %>
+</p>
+
+<p>
+  <%= f.label :budget, '平均予算' %><br>
+  <%= f.text_field :budget %>
+</P>
+
+<p>
+  <%= submit_tag "検索" %>
+</p>
+
+<% end %>
