@@ -33,18 +33,18 @@ class Store < ActiveRecord::Base
   accepts_nested_attributes_for :store_dishes, allow_destroy: true
   accepts_nested_attributes_for :resort_stores, allow_destroy: true
 
-  def self.search(name:, resort:, drink:, people:, dish:, budget:)
+  def self.search(info)
     @stores = Store.all
-    @stores = @stores.where('name like ?', "%#{name}%") if name.present?
-    @stores = @stores.where(id: ResortStore.search(nil, resort)) if resort.present?
-    @stores = @stores.where(id: StoreDrink.search(nil, drink)) if drink.present?
-    @stores = @stores.where('banquet_hall_capacity >= ?', people) if people.present?
-    @stores = @stores.where(id: StoreDish.search(nil, dish)) if dish.present?
-    if budget.present?
-      if budget.to_i <= 5000
-        @stores = @stores.where('budget <= ?', budget)
+    @stores = @stores.where('name like ?', "%#{info[:name]}%") if info[:name].present?
+    @stores = @stores.where(id: ResortStore.search(nil, info[:resort])) if info[:resort].present?
+    @stores = @stores.where(id: StoreDrink.search(nil, info[:drink])) if info[:drink].present?
+    @stores = @stores.where('banquet_hall_capacity >= ?', info[:people]) if info[:people].present?
+    @stores = @stores.where(id: StoreDish.search(nil, info[:dish])) if info[:dish].present?
+    if info[:budget].present?
+      if info[:budget].to_i <= 5000
+        @stores = @stores.where('budget <= ?', info[:budget])
       else
-        @stores = @stores.where('budget > ?', budget)
+        @stores = @stores.where('budget > ?', info[:budget])
       end
     end
     @stores
