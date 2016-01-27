@@ -33,7 +33,7 @@ class Store < ActiveRecord::Base
   accepts_nested_attributes_for :store_dishes, allow_destroy: true
   accepts_nested_attributes_for :resort_stores, allow_destroy: true
 
-  def self.search(name, resort, drink, people, dish, budget)
+  def self.search(name:, resort:, drink:, people:, dish:, budget:)
     @stores = Store.all
     @stores = @stores.where('name like ?', "%#{name}%") if name.present?
     @stores = @stores.where(id: ResortStore.search(nil, resort)) if resort.present?

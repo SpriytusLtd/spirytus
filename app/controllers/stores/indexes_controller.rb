@@ -4,7 +4,7 @@ class Stores::IndexesController < ApplicationController
   def index
     info = params[:search]
     if info
-      @stores = Store.search(info['name'], info['resort'], info['drink'], info['people'], info['dish'], info['budget'])
+      @stores = Store.search(name: info['name'], resort: info['resort'], drink: info['drink'], people: info['people'], dish: info['dish'], budget: info['budget'])
       @stores = @stores.paginate(page: params[:page], per_page: 5)
     else
       @stores = Store.all.paginate(page: params[:page], per_page: 5)
