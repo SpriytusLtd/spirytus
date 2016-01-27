@@ -1,60 +1,51 @@
 <h1> stores/configurations/new </h1>
 
-<%= form_for(@store, url: :store_configurations, html: { method: 'post' }) do |f| %>
-  <div class="field">
-    <%= f.label(:name, '店舗名') %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label(:address, '住所') %>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label(:phone_number, '電話番号') %>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label(:budget, '平均予算額') %>
-    <%= f.text_field :budget %>
-  </div>
-  <div class="field">
-    <%= f.label(:detail, '詳細説明') %>
-    <%= f.text_field :detail %>
-  </div>
-  <div class="field">
-    <%= f.label(:business_day, '営業日') %>
-    <%= f.text_field :business_day %>
-  </div>
-  <div class="field">
-    <%= f.label(:business_time, '営業時間') %>
-    <%= f.text_field :business_time %>
-  </div>
-  <div class="field">
-    <%= f.label(:transportation, 'アクセス') %>
-    <%= f.text_field :transportation %>
-  </div>
-  <div class="field">
-    <%= f.label(:seat, '座席数') %>
-    <%= f.text_field :seat %>
-  </div>
-  <div class="field">
-    <%= f.label(:room, '個室数') %>
-    <%= f.text_field :room %>
-  </div>
-  <div class="field">
-    <%= f.label(:banquet_hall_capacity, '最大収容人数') %>
-    <%= f.text_field :banquet_hall_capacity %>
-  </div>
-  <div class="field">
-    <%= f.label(:smoking, '喫煙席数') %>
-    <%= f.text_field :smoking %>
-  </div>
-  <div class="field">
-    <%= f.label(:hp, 'ホームページ URL') %>
-    <%= f.text_field :hp %>
-  </div>
+<%= form_for @store, url: store_configurations_path, html: { method: 'post' } do |f| %>
+  <p>
+    <strong> 取り扱っているお酒: </strong>
+  </p>
+  <%= f.nested_fields_for :store_drinks, wrapper: false do |ff| %>
+    <%= ff.hidden_field :id %>
+    <%= ff.collection_select(:drink_id, Drink.all, :id, :name, {include_blank: 'お酒を選んでください'}) %>
+    <%= ff.label :_destroy, "削除" %>
+    <%= ff.check_box :_destroy %>
+  <% end %>
+  <p>
+    <%= f.add_nested_fields_link :store_drinks, '追加する' %>
+  </p>
+  <br />
+
+  <p>
+    <strong> 取り扱っている郷土料理: </strong>
+  </p>
+  <%= f.nested_fields_for :store_dishes do |ff| %>
+    <%= ff.hidden_field :id %>
+    <%= ff.collection_select(:dish_id, Dish.all, :id, :name, {include_blank: '郷土料理を選んでください'}) %>
+    <%= ff.label :_destroy, "削除" %>
+    <%= ff.check_box :_destroy %>
+  <% end %>
+  <p>
+    <%= f.add_nested_fields_link :store_dishes, '追加する' %>
+  </p>
+  <br />
+
+  <p>
+    <strong> 近くの観光地: </strong>
+  </p>
+  <%= f.nested_fields_for :resort_stores do |ff| %>
+    <%= ff.hidden_field :id %>
+    <%= ff.collection_select(:resort_id, Resort.all, :id, :name, {include_blank: '観光地を選んでください'}) %>
+    <%= ff.label :_destroy, "削除" %>
+    <%= ff.check_box :_destroy %>
+  <% end %>
+  <p>
+    <%= f.add_nested_fields_link :resort_stores, '追加する' %>
+  </p>
+  <br />
+
   <div>
-    <%= link_to('前のページに戻る', :back) %>
     <%= f.submit('変更を登録') %>
   </div>
 <% end %>
+
+<%= link_to('前のページに戻る', :back) %><br />
