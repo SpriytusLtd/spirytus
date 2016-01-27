@@ -1,0 +1,196 @@
+body{
+	margin-right: auto;
+	margin-left : auto;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+	background-color: rgba(120, 30, 30, 0.1);
+	background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+	top: -8px;
+	right:8px;
+}
+
+.title_name {
+	text-align: center;
+	font-size: 300%;
+}
+
+.text10 {
+	text-align: center;
+	font-size: 150%;
+}
+
+#login-form {
+	text-align: center;
+}
+
+#site-box2 {
+	width : 752px;
+	height: 1380px;
+	margin-right: auto;
+	margin-left : auto;
+  padding-top: 20px;
+}
+
+#site-box3 {
+	width : 752px;
+	height: 400px;
+	margin-right: auto;
+	margin-left : auto;
+  padding-top: 20px;
+}
+
+input[type="name"] , input[type="e-mail"] {
+	font-size: 90%;
+}
+
+input[type="text1"] {
+	font-size: 120%;
+}
+
+input[type="radio"] {
+	margin-top: 10px;
+}
+
+.shared-links {
+	text-align: center;
+}
+
+.joho_left {
+	text-align: left;
+	font-size: 150%;
+}
+
+ul li {
+	list-style: none;
+	margin-top: 10px;
+}
+
+#All {
+	width: 100%;
+	height:420px;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#left {
+	float: left;
+ 	width : 47%;
+	height: 330px;
+	margin-top: 5px;
+}
+
+#right1 {
+	float: right;
+	width : 48%;
+	height: 330px;
+}
+
+#best{
+	width: 100%;
+	height: 340px;
+	margin-top:10px;
+}
+
+#best_drink{
+	width: 49%;
+	height: 340px;
+ 	float:left;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#best_cook{
+	width: 49%;
+	float:right;
+	height: 340px;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+
+#favorite{
+	background-color: rgba(140, 50, 50, 0.2);
+ margin-top: 10px;
+	width: 100%;
+	height: 200px;
+	text-align: center;
+}
+
+#osake11 {
+	width: 33%;
+	height: 200px;
+	float: left;
+}
+
+#food {
+ float:left;
+ width: 33%;
+height: 200px;
+}
+
+#cook {
+	float:left;
+	width: 33%;
+	height: 200px;
+}
+
+#sonota2{
+	width: 100%;
+	height: 180px;
+	background-color: rgba(140, 50, 50, 0.2);
+	top:20px;
+}
+
+#sentaku {
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#all2 {
+	width:100%;
+	height: 200px;
+	float:center;
+}
+
+#left2 {
+	float: left;
+ 	width : 50%;
+	height: 200px;
+}
+
+#right2 {
+	float: right;
+	width : 50%;
+	height: 200px;
+}
+
+input[type="text2"] {
+	margin-top: 20px;
+	font-size: 120%;
+}
+
+.complete {
+	float: right;
+}
+
+.page-top p
+{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+@media screen and (min-width:1130px) {
+  .move-page-top:hover{
+    opacity: 0.85;
+  }
+}
+
+.Copyright{
+  text-align: center;
+  color:#000000;
+}
