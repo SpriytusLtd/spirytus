@@ -4,7 +4,7 @@
 <nav>
   <ul class="nav nav-tabs nav-justified">
     <li class="active"><a href="#home" data-toggle="tab"><span class="text-muted"><strong>お酒</strong></span></a></li>
-    <li><a href="#about" data-toggle = "tab"><span class="text-muted"><strong>食材</strong></span></a></li>
+    <li><a href="#about" data-toggle = "tab"><span class="text-muted"><strong>郷土料理</strong></span></a></li>
     <li><a href="#about2" data-toggle = "tab"><span class="text-muted"><strong>観光地</strong></span></a></li>
     <li><a href="#about3" data-toggle = "tab"><span class="text-muted"><strong>店舗</strong></a></span></li>
   </ul>
@@ -12,6 +12,8 @@
 
 
 <div class="tab-content">
+
+  <!-- 酒 -->
   <div class="tab-pane active" id="home">
     <div class="tab_bottom_form">
       <div class="navbar-form navbar-left">
@@ -57,7 +59,7 @@
           <span class="sr-only">Previous</span>
         <% end %>
         <%= link_to '#carousel-example-generic', class: 'right carousel-control', role: 'button', data: { 'data-slide' => 'next' } do %>
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         <% end %>
 
@@ -65,20 +67,18 @@
     </div>
 
 
-    <!-- <form role="search" action="<%= drinks_path %>" method="get"> -->
-    <%= form_tag drinks_path, method: :get do %>
-
+    <%= form_for :search, url: drinks_path, method: :get do |f| %>
       <div class="center">
         <div class="panel panel-warning">
           <div class="panel-heading">
             <h3 class="panel-title">お酒の種類</h3>
           </div>
+          <%= f.hidden_field 'name' %>
           <% @alcoholics.each do |a| %>
-            <label>
-              <%= check_box_tag 'condition[alcoholics][]', a.id %>
-              <%= a.name %>
-            </label>
+            <%= f.label :alcoholics, a.name %>
+            <%= f.radio_button 'alcoholic', a.id, {} %>
           <% end %>
+          <%= f.hidden_field 'brewer' %>
         </div>
       </div>
 
@@ -87,11 +87,11 @@
           <div class="panel-heading">
             <h3 class="panel-title">お酒の種類</h3>
           </div>
-          <% @alcoholics.each do |a| %>
+          <!--<%# @alcoholics.each do |a| %>
             <label>
-              <%= a.name %>
+              <%#= a.name %>
             </label>
-          <% end %>
+          <%# end %>-->
         </div>
       </div>
 
@@ -101,15 +101,13 @@
             <h3 class="panel-title">アルコール度数</h3>
           </div>
           <% @alcohol.each do |a| %>
-            <label>
-              <%= check_box_tag 'condition[alcohol][]', a[:number] %>
-              <%= a[:text] %>
-            </label>
+            <%= f.label :alcohol, a[:text] %>
+            <%= f.radio_button 'alcohol', a[:number], {} %>
           <% end %>
         </div>
       </div>
       <div id="sake_bottan">
-        <%= submit_tag '検索', class: 'btn btn-default' %>
+        <%= f.submit '検索', class: 'btn btn-default' %>
       </div>
     <% end %>
   </div>
@@ -117,13 +115,17 @@
 
 
   <div class="tab-pane" id="about">
+
+    <!-- 料理の名前 -->
     <div class="tab_bottom_form">
-      <form class="navbar-form navbar-left" role="search" action="<%= dishes_path %>" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索">
-        </div>
-        <%= submit_tag '検索', class: 'btn btn-default' %>
-      </form>
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: dishes_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: '料理の名前' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
 
 
@@ -166,17 +168,34 @@
 
       </div>
     </div>
+    
+    <%= form_for :search, url: stores_path, method: :get do |f| %>
+      <div class="center2">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title"> 高知の郷土料理 </h3>
+          </div>
+          <% @dishes.each do |d| %>
+            <%= f.label :name, d.name %>
+            <%= f.radio_button 'dish', d.id, {} %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit '検索', class: 'btn btn-default' %>
+    <% end %>
   </div>
 
-
+  <!-- 観光地 -->
   <div class="tab-pane" id="about2">
     <div class="tab_bottom_form">
-      <form class="navbar-form navbar-left" role="search" action="<%= stores_path %>" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索">
-        </div>
-        <%= submit_tag '検索', class: 'btn btn-default' %>
-      </form>
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: stores_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: '観光地の名前で近くの店を' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
 
 
@@ -219,17 +238,35 @@
 
       </div>
     </div>
+
+    <%= form_for :search, url: stores_path, method: :get do |f| %>
+      <div class="center2">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title"> 観光地 </h3>
+            <p> 観光地を指定して、その近くのお店を調べましょう </p>
+          </div>
+          <% @resorts.each do |r| %>
+            <%= f.label :name, r.name %>
+            <%= f.radio_button 'resort', r.id, {} %>
+          <% end %>
+        </div>
+      </div>
+      <%= f.submit '検索', class: 'btn btn-default' %>
+    <% end %>
   </div>
 
-
+  <!-- 店 -->
   <div class="tab-pane" id="about3">
     <div class="tab_bottom_form">
-      <form class="navbar-form navbar-left" role="search" action="<%= stores_path %>" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索">
-        </div>
-        <%= submit_tag '検索', class: 'btn btn-default' %>
-      </form>
+      <div class="navbar-form navbar-left">
+        <%= form_for :search, url: stores_path, method: :get do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: 'form-control', placeholder: '店の名前' %>
+          </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
     </div>
 
 
@@ -272,6 +309,7 @@
 
       </div>
     </div>
+
   </div>
 
 </div>
