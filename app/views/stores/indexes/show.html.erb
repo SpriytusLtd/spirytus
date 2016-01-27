@@ -1,3 +1,5 @@
+<%= render 'layouts/header' %>
+
 <script type="text/javascript" src="/javascripts/jquery.raty.js"></script>
 <script type="text/javascript" src="/javascripts/top.js"></script>
 <script type="text/javascript">
@@ -100,13 +102,13 @@
 </div>
 
 
-<div id="store_reviews">
-  <strong><%= link_to ' レビュー: ', store_reviews_path(store_id: @store.id)  %></strong>
-  <% @store_reviews.each do |r| %>
-    <%= link_to r.name, store_reviews_path(r) %>
-    <%= r.body %><br />
-  <% end %>
-</div>
+<!-- <div id="store_reviews">
+  <strong><%#= link_to ' レビュー: ', store_reviews_path(store_id: @store.id)  %></strong>
+  <%# @store_reviews.each do |r| %>
+    <%#= link_to r.user.name, store_reviews_path(r) %>
+    <%#= r.body %><br />
+  <%# end %>
+</div> -->
 
 <br />
 
@@ -114,3 +116,5 @@
   <%= link_to '登録情報を編集する', edit_store_path(@store) %><br />
   <%= link_to '酒・郷土料理・観光地情報を編集する', store_configurations_path(@store) %>
 <% end %>
+
+<%= render 'layouts/footer' %>
