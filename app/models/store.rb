@@ -35,38 +35,38 @@ class Store < ActiveRecord::Base
 
   def self.search(info)
     @stores = Store.all
-    @stores = nameSearch(@stores, info[:name]) if info[:name].present?
-    @stores = resortSearch(@stores, info[:resort]) if info[:resort].present?
-    @stores = drinkSearch(@stores, info[:drink]) if info[:drink].present?
-    @stores = dishSearch(@stores, info[:dish]) if info[:dish].present?
-    @stores = peopleSearch(@stores, info[:people]) if info[:people].present?
-    @stores = budgetSearch(@stores, info[:budget]) if info[:budget].present?
+    @stores = name_search(@stores, info[:name]) if info[:name].present?
+    @stores = resort_search(@stores, info[:resort]) if info[:resort].present?
+    @stores = drink_search(@stores, info[:drink]) if info[:drink].present?
+    @stores = dish_search(@stores, info[:dish]) if info[:dish].present?
+    @stores = people_search(@stores, info[:people]) if info[:people].present?
+    @stores = budget_search(@stores, info[:budget]) if info[:budget].present?
     @stores
   end
 
   private
 
-  def self.nameSearch(date, name)
+  def self.name_search(date, name)
     @result = date.where('name like ?', "%#{name}%")
   end
 
-  def self.resortSearch(date, resort)
+  def self.resort_search(date, resort)
     @result = date.where(id: ResortStore.search(nil, resort))
   end
 
-  def self.drinkSearch(date, drink)
+  def self.drink_search(date, drink)
     @result = date.where(id: StoreDrink.search(nil, drink))
   end
 
-  def self.dishSearch(date, dish)
+  def self.dish_search(date, dish)
     @result = date.where(id: StoreDish.search(nil, dish))
   end
 
-  def self.peiopleSearch(date, people)
+  def self.peiople_search(date, people)
     @result = date.where('banquet_hall_capacity >= ?', people)
   end
 
-  def self.budgetSearch(date, budget)
+  def self.budget_search(date, budget)
     if budget.to_i <= 5000
       @result = date.where('budget <= ?', budget)
     else
