@@ -1,8 +1,10 @@
 <h1><%= @drink.name %></h1>
-<% if current_user.favorite_drinks.include?(@drink) %>
-  <%= link_to 'お気に入りから削除する', drink_favorites_path(@drink), method: :delete %>
-<% else %>
-  <%= link_to 'お気に入りに追加する', drink_favorites_path(@drink), method: :post %>
+<% if user_signed_in? %>
+  <% if current_user.favorite_drinks.include?(@drink) %>
+    <%= link_to 'お気に入りから削除する', drink_favorites_path(@drink), method: :delete %>
+  <% else %>
+    <%= link_to 'お気に入りに追加する', drink_favorites_path(@drink), method: :post %>
+  <% end %>
 <% end %>
 
 <p>
