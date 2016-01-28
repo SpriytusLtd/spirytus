@@ -1,8 +1,9 @@
 class Drinks::ReviewsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
 
   def index
-    @reviews = Drink.find(params[:drink_id]).reviews
+    @drink = Drink.find(params[:drink_id])
+    @reviews = @drink.reviews
     @new_review = DrinkReview.new
     @new_review.drink_id = params[:drink_id]
   end
@@ -12,10 +13,17 @@ class Drinks::ReviewsController < ApplicationController
   end
 
   def create
+    @reviews = Drink.find(params[:drink_id]).reviews
     @review = DrinkReview.new(review_params)
     @review.user_id = current_user.id
     @review.drink_id = params[:drink_id]
-    @review.save
+    flg = 0
+    @reviews.each do |r|
+      if @review.user_id == r.user_id
+        flg = 1
+      end
+    end
+    @review.save if flg == 0
     redirect_to drink_reviews_path
   end
 
