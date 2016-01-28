@@ -1,0 +1,17 @@
+
+.user-registration {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-registration__form {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-registration__field {
+  margin: 15px, 0px;
+  text-align: center;
+}
