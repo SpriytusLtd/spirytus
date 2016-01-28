@@ -7,33 +7,36 @@
           <%= devise_error_messages! %>
 
           <div class="field user-registration__field">
-            <%= f.label :name, 'ユーザ名' %>
+            <%= f.label :name, 'ユーザ名 : ' %>
             <%= f.text_field :name, autofocus: true %>
           </div>
-
+          <br />
           <div class="field user-registration__field">
-            <%= f.label :email, 'メールアドレス' %>
+            <%= f.label :email, 'メールアドレス : ' %>
             <%= f.email_field :email %>
           </div>
-
+          <br />
           <div class="field user-registration__field">
-            <%= f.label :password, 'パスワード' %>
+            <%= f.label :password, 'パスワード : ' %>
+            <%= f.password_field :password, autocomplete: "off" %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
+            <% end %>
           </div>
-
+          <br />
           <div class="field user-registration__field">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label :password_confirmation, 'パスワード(再入力) : ' %>
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
           </div>
-
-          <div class="actions">
+          <br />
+          <div class="field user-registration__field">
             <%= f.submit "Sign up" %>
           </div>
         <% end %>
-
+        <br />
         <%= render "users/shared/links" %>
       </div>
     </div>
