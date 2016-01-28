@@ -1,36 +1,133 @@
-<h1>stores/indexes/show</h1>
-<div id="information">
-  <%= @store.name %><br />
-  <%= @store.email %><br />
-  <% if @store.image? %>
-    <div>
-      <%= image_tag @store.image.url %>
+<%= render 'layouts/header' %>
+
+<script type="text/javascript" src="/javascripts/jquery.raty.js"></script>
+<script type="text/javascript" src="/javascripts/top.js"></script>
+<script type="text/javascript">
+  $.fn.raty.defaults.path = "/assets/";
+  $(function(){
+    $('#star1').raty({ score: 4, readOnly: true });
+  });
+</script>
+
+<div class="container store-show-containt">
+  <div class="row">
+    <div class="col-md-5 store-info">
+      <center><h1 class="store-info__name"><%= @store.name %></h1></center>
+      <div id="star1"></div>
+      <table class="table store-info__infomation-table">
+        <tr>
+          <td>住所</td>
+          <td><%= @store.address %> </td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @store.phone_number %> </td>
+        </tr>
+        <tr>
+          <td>営業日</td>
+          <td><%= @store.business_day %> </td>
+        </tr>
+        <tr>
+          <td>営業時間</td>
+          <td><%= @store.business_time %> </td>
+        </tr>
+        <tr>
+          <td>席数</td>
+          <td><%= @store.seat %> </td>
+        </tr>
+        <tr>
+          <td>平均予算</td>
+          <td><%= @store.budget %> </td>
+        </tr>
+        <% if @store.banquet_hall_capacity > 0 %>
+          <tr>
+            <td>宴会場の最大収容人数</td>
+            <td><%= @store.banquet_hall_capacity %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>HP</td>
+          <td><%= link_to @store.hp, @store.hp %></td>
+        </tr>
+      </table>
+      <%= link_to 'このお店のレビューを見る', store_reviews_path(@store) %>
+    </div>
+    <div class="col-md-7 store-images">
+      <div calss="store-favorite">
+        <% if user_signed_in? %>
+          <% if current_user.favorite_stores.include?(@store) %>
+            <%= link_to 'お気に入りから削除する', store_favorites_path(@store), method: :delete %>
+          <% else %>
+            <%= link_to 'お気に入りに追加する', store_favorites_path(@store), method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+      <% if @store.image? %>
+        <%= image_tag @store.image.url , width: '640', height: '317' %>
+      <% else %>
+        <%= image_tag 'no_image.png', width: '640', height: '317', class: 'store-images__image' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row store-description">
+    <div class="col-md-12">
+      <article class="centering-article store-description__article">
+        <p> <%= @store.detail %> </p>
+      </article>
+    </div>
+  </div>
+
+  <% unless @reration_to_drinks.empty? %>
+    <div class="row store-topic">
+      <% main_drink = @reration_to_drinks[0].drink %>
+      <div class="col-md-7">
+        <h2 class="store-topic__title"><%= main_drink.name %></h2>
+        <article class="centering-article">
+          <p> <%= main_drink.detail %> </p>
+        </article>
+      </div>
+      <div class="col-md-5">
+        <%= image_tag 'img2.jpg', class: 'store-topic__image' %>
+      </div>
+    </div>
+    <div class="row store-topic">
+      <div class="col-md-12">
+        <h2 class="store-topic__title white">扱っているお酒</h2>
+      </div>
+      <% @reration_to_drinks.each do |r| %>
+        <div class="col-md-4 store-topic__drink">
+          <%= r.drink.name %>
+        </div>
+      <% end %>
     </div>
   <% end %>
-  <%= @municipality.name %><br />
-  <%= @store.address %><br />
-  <%= @store.phone_number %><br />
-  <%= @store.budget %><br />
-  <%= @store.detail %><br />
-  <%= @store.business_day %><br />
-  <%= @store.business_time %><br />
-  <%= @store.transportation %><br />
-  <%= @store.seat %><br />
-  <%= @store.room %><br />
-  <%= @store.banquet_hall %><br />
-  <%= @store.banquet_hall_capacity %><br />
-  <%= @store.smoking %><br />
-  <%= link_to @store.hp, @store.hp %><br />
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="map" class="map"></div>
+      <input id="input_store_address" type="hidden" value="<%= @store.address %>" />
+      <div id="latlngtext"></div>
+      <script src="http://maps.google.com/maps/api/js?v=3&censor=false" type="text/javascript" charset="UTF-8"></script>
+      <script src="/assets/map.js" type="text/javascript" charset="UTF-8"></script>
+    </div>
+  </div>
 </div>
 
-<div id="store_reviews">
-  <%= link_to 'レビュー', store_reviews_path(store_id: @store.id)  %>
-  <% @store_reviews.each do |r| %>
-    <%= link_to r.name, store_reviews_path(r) %>
-    <%= r.body %><br />
-  <% end %>
-</div>
+
+<!-- <div id="store_reviews">
+  <strong><%#= link_to ' レビュー: ', store_reviews_path(store_id: @store.id)  %></strong>
+  <%# @store_reviews.each do |r| %>
+    <%#= link_to r.user.name, store_reviews_path(r) %>
+    <%#= r.body %><br />
+  <%# end %>
+</div> -->
+
+<br />
 
 <% if store_signed_in? %>
-  <%= link_to '登録情報を編集する', edit_store_path(@store) %>
+  <%= link_to '登録情報を編集する', edit_store_path(@store) %><br />
+  <%= link_to '酒・郷土料理・観光地情報を編集する', store_configurations_path(@store) %>
 <% end %>
+
+<%= render 'layouts/footer' %>

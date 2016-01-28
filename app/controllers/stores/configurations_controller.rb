@@ -4,28 +4,21 @@ class Stores::ConfigurationsController < ApplicationController
   def index
     redirect_to '/' if current_store.id != params[:store_id].to_i
     @store = Store.find(params[:store_id])
+    @have_drinks  = @store.store_drinks
+    @have_dishes  = @store.store_dishes
+    @close_resorts = @store.resort_stores
   end
 
   def create
     redirect_to '/' if current_store.id != params[:store_id].to_i
-    input_store = Store.new(store_params)
-    saved_store = Store.find(params[:store_id])
-    saved_store.update_attributes(
-      name: input_store.name,
-      address: input_store.address,
-      phone_number: input_store.phone_number,
-      budget: input_store.budget,
-      detail: input_store.detail,
-      business_day: input_store.business_day,
-      business_time: input_store.business_time,
-      transportation: input_store.transportation,
-      seat: input_store.seat,
-      room: input_store.room,
-      banquet_hall_capacity: input_store.banquet_hall_capacity,
-      smoking: input_store.smoking,
-      hp: input_store.hp
-    )
-    redirect_to :store_configurations
+    @store = Store.find(current_store.id)
+    blank_check(params)
+    uniq_check(params)
+    if @store.update_attributes(create_params)
+      redirect_to store_configurations_path, notice: 'successfully created.'
+    else
+      redirect_to store_configurations_path, notice: 'failed'
+    end
   end
 
   def new
@@ -35,7 +28,56 @@ class Stores::ConfigurationsController < ApplicationController
 
   private
 
-  def store_params
-    params.require(:store).permit(:name, :address, :phone_number, :budget, :detail, :business_day, :business_time, :transportation, :seat, :room, :banquet_hall, :banquet_hall_capacity, :smoking, :hp)
+  def create_params
+    params.require(:store).permit(store_drinks_attributes: [:id, :drink_id, :store_id, :_destroy], store_dishes_attributes: [:id, :dish_id, :store_id, :_destroy], resort_stores_attributes: [:id, :resort_id, :store_id, :_destroy])
+  end
+
+  def blank_check(req)
+    req[:store].each do |r|
+      r[1].each do |rr|
+        if rr[1][:drink_id].blank? && rr[1][:dish_id].blank? && rr[1][:resort_id].blank?
+          r[1].delete(rr[0])
+        end
+      end
+    end
+  end
+
+  def uniq_check(req)
+    uniq_check_drink(req) if req[:store][:store_drinks_attributes]
+    uniq_check_dish(req) if req[:store][:store_dishes_attributes]
+    uniq_check_resort(req) if req[:store][:resort_stores_attributes]
+  end
+
+  def uniq_check_drink(req)
+    ids = []
+    req[:store][:store_drinks_attributes].each do |r|
+      if ids.include?(r[1][:drink_id])
+        req[:store][:store_drinks_attributes].delete(r[0])
+      else
+        ids << r[1][:drink_id]
+      end
+    end
+  end
+
+  def uniq_check_dish(req)
+    ids = []
+    req[:store][:store_dishes_attributes].each do |r|
+      if ids.include?(r[1][:dish_id])
+        req[:store][:store_dishes_attributes].delete(r[0])
+      else
+        ids << r[1][:dish_id]
+      end
+    end
+  end
+
+  def uniq_check_resort(req)
+    ids = []
+    req[:store][:resort_stores_attributes].each do |r|
+      if ids.include?(r[1][:resort_id])
+        req[:store][:resort_stores_attributes].delete(r[0])
+      else
+        ids << r[1][:resort_id]
+      end
+    end
   end
 end

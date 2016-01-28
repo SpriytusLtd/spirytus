@@ -1,15 +1,51 @@
-<h1><%= @drink.name %></h1>
-<% if current_user.favorite_drinks.include?(@drink) %>
-  <%= link_to 'お気に入りから削除する', drink_favorites_path(@drink), method: :delete %>
-<% else %>
-  <%= link_to 'お気に入りに追加する', drink_favorites_path(@drink), method: :post %>
-<% end %>
+<%= render 'layouts/header' %>
 
-<p>
-  アルコール度数：<br>
-  <%= @drink.alcohol %>
-</p>
-<p>
-  詳細：<br>
-  <%= @drink.detail %>
-</p>
+<script type="text/javascript" src="/javascripts/jquery.raty.js"></script>
+<script type="text/javascript" src="/javascripts/top.js"></script>
+<script type="text/javascript">
+  $.fn.raty.defaults.path = "/assets/";
+  $(function(){
+    $('#star1').raty({ score: 4, readOnly: true });
+  });
+</script>
+
+<div class="container drink-show-containt">
+  <div class="row">
+    <div class="col-md-5 drink-info">
+      <center><h1 class="drink-info__name"><%= @drink.name %></h1></center>
+      <div id="star1"></div>
+      <table class="table drink-info__infomation-table">
+        <tr>
+          <td>アルコール度数</td>
+          <td><%= @drink.alcohol %> </td>
+        </tr>
+      </table>
+      <%= link_to 'このお店のレビューを見る', drink_reviews_path(@drink) %>
+    </div>
+    <div class="col-md-7 drink-images">
+      <div class="drink-favorite">
+        <% if user_signed_in? %>
+          <% if current_user.favorite_drinks.include?(@drink) %>
+            <%= link_to 'お気に入りから削除する', drink_favorites_path(@drink), method: :delete %>
+          <% else %>
+            <%= link_to 'お気に入りに追加する', drink_favorites_path(@drink), method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+      <%= image_tag 'no_image.png', class: 'drink-images__image', width: '400', height: '400' %>
+    </div>
+  </div>
+
+  <div class="row drink-description">
+    <div class="col-md-12">
+      <article class="centering-article drink-description__article">
+        <p> <%= @drink.detail %> </p>
+      </article>
+    </div>
+  </div>
+
+</div>
+
+<br />
+
+<%= render 'layouts/footer' %>

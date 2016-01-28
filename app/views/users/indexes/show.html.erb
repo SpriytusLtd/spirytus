@@ -1,47 +1,89 @@
-<h1> user/indexes/show </h1>
-<div id="profile">
-  <p>プロフィール</p>
-  <%= @user.name %><br />
-  <%= @user.email %><br />
-  <% if @user.thumbnail? %>
-    <div>
-      <%= image_tag @user.thumbnail.url %>
+<head>
+  <%= stylesheet_link_tag "user/user_mypage.css" %>
+</head>
+<%= render 'layouts/header' %>
+<div id="site-box-user-mypage">
+    <div id="top">
+      <div id="user__name"><%= @user.name %>さんのマイページ </div>
     </div>
-  <% end %>
-  <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
-</div>
-<div id="favorite_drinks">
-  <%= link_to 'お気に入りのお酒', user_drink_favorites_path(user_id: @user.id) %>
-  <% @user.favorite_drinks.each do |f| %>
-    <%= link_to f.name, drink_path(f) %><br />
-  <% end %>
-</div>
-<br />
-<div id="favorite_stores">
-  <%= link_to 'お気に入りの店舗', user_store_favorites_path(user_id: @user.id) %>
-  <% @user.favorite_stores.each do |f| %>
-    <%= link_to f.name, store_path(f) %><br />
-  <% end %>
-</div>
-<br />
-<div id="dinks_reviews">
-  <%= link_to 'お酒のレビュー', user_drink_reviews_path(user_id: @user.id)  %>
-  <% @drink_reviews.each do |r| %>
-    <%= link_to r.name, drink_reviews_path(r) %>
-    <%= r.body %><br />
-    <%= r.param1 %><br />
-    <%= r.param2 %><br />
-    <%= r.param3 %><br />
-    <%= r.param4 %><br />
-    <%= r.param5 %><br />
-    <%= r.param6 %><br />
-  <% end %>
-</div>
-<br />
-<div id="store_reviews">
-  <%= link_to '店舗のレビュー', user_store_reviews_path(user_id: @user.id)  %>
-  <% @store_reviews.each do |r| %>
-    <%= link_to r.name, store_reviews_path(r) %>
-    <%= r.body %><br />
-  <% end %>
-</div>
+    <div id="profile">
+      <% if @user.thumbnail? %>
+        <div id="face">
+          <%= image_tag @user.thumbnail.url, width: '140', height: '140' %>
+        </div>
+      <% else %>
+      <div id="face">
+        <%= image_tag 'no_thumbnail.jpg', width: '140', height: '140' %>
+      </div>
+      <% end %>
+      <div id="profile_infomation">
+        ユーザ名 : <%= @user.name %><br />
+        メールアドレス : <%= @user.email %><br />
+      </div>
+      <div id="hensyu">
+        <%= button_tag class: 'btn btn-default' do %>
+          <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
+        <% end %>
+      </div>
+    </div>
+    <div id="Favorite">
+      <div id="F_osake">
+        <div id="osake10"><%= link_to 'お気に入りのお酒', user_drink_favorites_path(user_id: @user.id) %></div>
+        <div id="F_osake_infomation">
+          <form>
+            <ul>
+              <% @user.favorite_drinks.each do |f| %>
+                <li><%= link_to f.name, drink_path(f) %></li>
+              <% end %>
+            </ul>
+          </form>
+        </div>
+      </div>
+      <div id="F_mise">
+        <div id="mise"><%= link_to 'お気に入りの店舗', user_store_favorites_path(user_id: @user.id) %></div>
+        <div id="F_mise_infomation">
+          <form>
+            <ul>
+              <% @user.favorite_stores.each do |f| %>
+                <li><%= link_to f.name, store_path(f) %></li>
+              <% end %>
+            </ul>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="Review">
+      <div id="R_osake">
+        <div id="R_osake_title"><%= link_to 'お酒のレビュー', user_drink_reviews_path(user_id: @user.id)  %></div>
+        <div id="R_osake_infomation">
+          <form>
+            <ul>
+              <% @drink_reviews.each do |r| %>
+                <li>
+                  <%= link_to r.name, drink_reviews_path(r) %>
+                  <div class="comment"><%= r.body %></div>
+                </li>
+              <% end %>
+            </ul>
+          </form>
+        </div>
+      </div>
+      <div id="R_mise">
+        <div id="R_mise_title"><%= link_to '店舗のレビュー', user_store_reviews_path(user_id: @user.id)  %></div>
+        <div id="R_mise_infomation">
+          <form>
+            <ul>
+              <% @store_reviews.each do |r| %>
+                <li>
+                  <%= link_to r.user.name, store_reviews_path(r) %>
+                  <div class="comment"><%= r.body %></div>
+                </li>
+              <% end %>
+            </ul>
+          </form>
+        </div>
+      </div>
+    </div>
+    <HR style="margin: 1em 0 ;">
+  </div>
+<%= render 'layouts/footer' %>
