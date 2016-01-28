@@ -1,6 +1,15 @@
 class Stores::IndexesController < ApplicationController
   before_action :authenticate_store!, only: [:edit, :update]
 
+  def index
+    info = params[:search]
+    if info
+      @stores = Store.search(info).paginate(page: params[:page], per_page: 5)
+    else
+      @stores = Store.all.paginate(page: params[:page], per_page: 5)
+    end
+  end
+
   def show
     @store = Store.find(params[:id])
     @reration_to_drinks = @store.store_drinks

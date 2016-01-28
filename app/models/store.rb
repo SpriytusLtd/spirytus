@@ -32,4 +32,40 @@ class Store < ActiveRecord::Base
   accepts_nested_attributes_for :store_drinks, allow_destroy: true
   accepts_nested_attributes_for :store_dishes, allow_destroy: true
   accepts_nested_attributes_for :resort_stores, allow_destroy: true
+
+  def self.search(info)
+    catch_date
+    name_search(@stores, info[:name]) if info[:name].present?
+    resort_drink_dish_search(@stores, info[:resort], info[:drink], info[:dish])
+    people_search(@stores, info[:people]) if info[:people].present?
+    budget_search(@stores, info[:budget]) if info[:budget].present?
+    @stores
+  end
+
+  def self.catch_date
+    @stores = Store.all
+  end
+
+  def self.name_search(date, name)
+    @stores = date.where('name like ?', "%#{name}%")
+  end
+
+  def self.resort_drink_dish_search(date, resort, drink, dish)
+    @stores = date.where(id: ResortStore.search(nil, resort)) if resort.present?
+    @stores = date.where(id: StoreDrink.search(nil, drink)) if drink.present?
+    @stores = date.where(id: StoreDish.search(nil, dish)) if dish.present?
+  end
+
+  def self.people_search(date, people)
+    @stores = date.where('banquet_hall_capacity >= ?', people)
+  end
+
+  def self.budget_search(date, budget)
+    if budget.to_i <= 5000
+      @stores = date.where('budget <= ?', budget)
+    else
+      @stores = date.where('budget > ?', budget)
+    end
+    @stores
+  end
 end
