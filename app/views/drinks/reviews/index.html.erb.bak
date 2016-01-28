@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+  <%= render 'form' %>
+  <% @reviews.each do |review| %>
+
+    <script type='text/javascript'>
+    $(function(){
+      $.fn.raty.defaults.path = '/assets/';
+      $('.review_total').raty({
+        readOnly: true,
+        score: function(){
+          return $(this).attr('data-score');
+          },
+        });
+      });
+    </script>
+
+    <div class='review_total' data-score = <%= review.param1 %>> </div>
+    <p><%= review.body %></p>
+    <% end %>
+</body>
+<%= javascript_include_tag "drinks/jquery.raty.js" %>
+</html>
