@@ -11,5 +11,6 @@ class IndexesController < ApplicationController
     ]
     @dishes = Dish.all
     @resorts = Resort.all
+    @drinks = Drink.all
   end
 end

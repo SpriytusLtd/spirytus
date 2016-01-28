@@ -30,19 +30,19 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <%= image_tag 'slide_folder/view1.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink1.jpg', alt: '...', width: '700', height: '440' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/view2.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink2.jpg', alt: '...', width: '700', height: '440' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/view3.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink3.jpg', alt: '...', width: '700', height: '440' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/view4.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink4.jpg', alt: '...', width: '700', height: '440' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/view5.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink5.jpg', alt: '...', width: '700', height: '440' %>
           </div>
         </div>
         <%= link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: { 'data-slide' => 'prev' } do %>
@@ -165,19 +165,19 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <%= image_tag 'store.jpg', alt: '...', width: 700, height: 440 %>
+            <%= image_tag 'slide_folder/store1.jpg', alt: '...', width: 700, height: 440 %>
           </div>
           <div class="item">
-            <%= image_tag 'store2.png', alt: '...', width: 700, height: 440 %>
+            <%= image_tag 'slide_folder/store2.jpg', alt: '...', width: 700, height: 440 %>
           </div>
           <div class="item">
-            <%= image_tag 'store3.png', alt: '...', width: 700, height: 440 %>
+            <%= image_tag 'slide_folder/store3.jpg', alt: '...', width: 700, height: 440 %>
           </div>
           <div class="item">
-            <%= image_tag 'store4.png', alt: '...', width: 700, height: 440 %>
+            <%= image_tag 'slide_folder/store4.jpg', alt: '...', width: 700, height: 440 %>
           </div>
           <div class="item">
-            <%= image_tag 'store5.png', alt: '...', width: 700, height: 440 %>
+            <%= image_tag 'slide_folder/store5.jpg', alt: '...', width: 700, height: 440 %>
           </div>
         </div>
         <%= link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: { 'data-slide' => 'prev' } do %>
@@ -196,61 +196,27 @@
           <div class="panel-heading">
             <h3 class="panel-title"> 名所 </h3>
           </div>
-          <% @dishes.each do |d| %>
+          <% @resorts.each do |d| %>
             <%= f.label :name, d.name %>
-            <%= f.radio_button 'dish', d.id, {} %>
+            <%= f.radio_button 'resort', d.id, {} %>
           <% end %>
         </div>
       </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-<%= form_for :search, url: stores_path, method: :get do |f| %>
       <div class="center2">
         <div class="panel panel-warning">
           <div class="panel-heading">
             <h3 class="panel-title"> 酒 </h3>
           </div>
-          <% @dishes.each do |d| %>
-            <%= f.label :name, d.name %>  
-            <%= f.radio_button 'dishes', d.id, {} %>
-          <% end %>
-        </div>
-      </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-<%= form_for :search, url: stores_path, method: :get do |f| %>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 収容人数 </h3>
-          </div>
-          <% @dishes.each do |d| %>
+          <% @drinks.each do |d| %>
             <%= f.label :name, d.name %>
-            <%= f.radio_button 'dish', d.id, {} %>
+            <%= f.radio_button 'dirnk', d.id, {} %>
           <% end %>
         </div>
       </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-<%= form_for :search, url: stores_path, method: :get do |f| %>
       <div class="center2">
         <div class="panel panel-warning">
           <div class="panel-heading">
             <h3 class="panel-title"> 郷土料理 </h3>
-          </div>
-          <% @dishes.each do |d| %>
-            <%= f.label :name, d.name %>
-            <%= f.radio_button 'dish', d.id, {} %>
-          <% end %>
-        </div>
-      </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-<%= form_for :search, url: stores_path, method: :get do |f| %>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 平均予算 </h3>
           </div>
           <% @dishes.each do |d| %>
             <%= f.label :name, d.name %>
