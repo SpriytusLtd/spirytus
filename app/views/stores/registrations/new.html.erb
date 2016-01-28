@@ -1,68 +1,59 @@
-<%= render 'layouts/header' %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="store-registration">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'store-registration__form') do |f| %>
-          <div class="field store-registration__field">
-            <%= f.label :name, '店舗名 : ' %>
-            <%= f.text_field :name, autofocus: true %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :email, 'メールアドレス : ' %>
-            <%= f.email_field :email %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :password, 'パスワード : ' %>
-            <%= f.password_field :password, autocomplete: "off" %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :password_confirmation, 'パスワード(再入力) : ' %>
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :municipality_id, '市区町村 : ' %>
-            <%= f.collection_select :municipality_id, Municipality.all, :id, :name %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :address, '住所 : ' %>
-            <%= f.text_field :address %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :phone_number, '電話番号 : ' %>
-            <%= f.text_field :phone_number %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :budget, '平均予算 : ' %>
-            <%= f.text_field :budget %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.label :detail, '詳細 : ' %>
-            <%= f.text_area :detail, size: "30×48" %>
-          </div>
-          <br />
-          <div class="field store-registration__field">
-            <%= f.submit "Sign up" %>
-          </div>
-        <% end %>
-        <br />
-        <%= render "stores/shared/links" %>
-        </div>
-      </div>
-    </div>
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
-<%= render 'layouts/footer' %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :municipality_id %><br />
+    <%= f.collection_select :municipality_id, Municipality.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :budget %><br />
+    <%= f.text_field :budget %>
+  </div>
+
+  <div class="area">
+    <%= f.label :detail %><br />
+    <%= f.text_area :detail, size: "30×48" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "stores/shared/links" %>
