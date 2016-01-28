@@ -10,7 +10,8 @@ class Drinks::FavoritesController < ApplicationController
     redirect_to status: :bad_request if drink.users_who_likes.include?(current_user)
 
     drink.users_who_likes << current_user
-    redirect_to status: :created
+    @drink = Drink.find(params[:drink_id])
+    redirect_to drink_path(@drink)
   end
 
   def destroy
@@ -20,6 +21,7 @@ class Drinks::FavoritesController < ApplicationController
       redirect_to '/'
     end
     drink.users_who_likes.delete(current_user)
-    redirect_to status: :created
+    @drink = Drink.find(params[:drink_id])
+    redirect_to drink_path(@drink)
   end
 end
