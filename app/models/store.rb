@@ -56,7 +56,7 @@ class Store < ActiveRecord::Base
     @stores = date.where(id: StoreDish.search(nil, dish)) if dish.present?
   end
 
-  def self.peiople_search(date, people)
+  def self.people_search(date, people)
     @stores = date.where('banquet_hall_capacity >= ?', people)
   end
 
