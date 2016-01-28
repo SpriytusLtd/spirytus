@@ -53,7 +53,20 @@
       <%= link_to 'このお店のレビューを見る', store_reviews_path(@store) %>
     </div>
     <div class="col-md-7 store-images">
-      <%= image_tag 'tosa1.jpg', class: 'store-images__image' %>
+      <div calss="store-favorite">
+        <% if user_signed_in? %>
+          <% if current_user.favorite_stores.include?(@store) %>
+            <%= link_to 'お気に入りから削除する', store_favorites_path(@store), method: :delete %>
+          <% else %>
+            <%= link_to 'お気に入りに追加する', store_favorites_path(@store), method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+      <% if @store.image? %>
+        <%= image_tag @store.image.url , width: '640', height: '317' %>
+      <% else %>
+        <%= image_tag 'no_image.png', width: '640', height: '317', class: 'store-images__image' %>
+      <% end %>
     </div>
   </div>
 
