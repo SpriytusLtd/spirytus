@@ -3,7 +3,8 @@
   height:300px;
 }
 #sake_bottan{
-  float:right;
+  float:left;  
+  padding-top:70px;  
 }
 #shokuzai_bottan{
   float:right;
