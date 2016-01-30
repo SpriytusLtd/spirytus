@@ -15,11 +15,30 @@
           <div class="form-group">
             <%= f.text_field :name, class: 'form-control', placeholder: 'お酒の名前' %>
           </div>
-          <%= f.submit '検索', class: 'btn btn-default' %>
+         <%= f.submit '検索', class: 'btn btn-default' %>
         <% end %>
       </div>
     </div>
-    <div class="range">
+    <div class="slide_stage">
+      <div id="photo1" class="pic">
+        <%= image_tag 'slide_folder/drink1.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo2" class="pic">
+        <%= image_tag 'slide_folder/drink2.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo3" class="pic">
+        <%= image_tag 'slide_folder/drink3.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo4" class="pic">
+        <%= image_tag 'slide_folder/drink4.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo5" class="pic">
+        <%= image_tag 'slide_folder/drink5.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+　　　<div style="padding:28%;"></div>
+    </div>
+
+<!--<div class="slide_range">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -30,19 +49,19 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <%= image_tag 'slide_folder/drink1.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink1.jpg', alt: '...', width: '1000', height: '500' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/drink2.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink2.jpg', alt: '...', width: '1000', height: '500' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/drink3.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink3.jpg', alt: '...', width: '1000', height: '500' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/drink4.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink4.jpg', alt: '...', width: '1000', height: '500' %>
           </div>
           <div class="item">
-            <%= image_tag 'slide_folder/drink5.jpg', alt: '...', width: '700', height: '440' %>
+            <%= image_tag 'slide_folder/drink5.jpg', alt: '...', width: '1000', height: '500' %>
           </div>
         </div>
         <%= link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: { 'data-slide' => 'prev' } do %>
@@ -54,8 +73,8 @@
           <span class="sr-only">Next</span>
         <% end %>
       </div>
-    </div>
-   <div id = "radio_bottan_wrapper">
+    </div>-->
+   <div class = "radio_bottan_wrapper">
     <%= form_for :search, url: drinks_path, method: :get do |f| %>
       <div class="center">
         <div class="panel panel-warning">
@@ -154,7 +173,26 @@
         <% end %>
       </div>
     </div>
-    <div class="range">
+    <div class="slide_stage">
+      <div id="photo1" class="pic">
+        <%= image_tag 'slide_folder/store1.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo2" class="pic">
+        <%= image_tag 'slide_folder/store2.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo3" class="pic">
+        <%= image_tag 'slide_folder/store3.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo4" class="pic">
+        <%= image_tag 'slide_folder/store4.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+      <div id="photo5" class="pic">
+        <%= image_tag 'slide_folder/store5.jpg', alt: '...', width: '100%', height: 'auto' %>
+      </div>
+　　　<div style="padding:28%;"></div>
+    </div>
+
+ <!-- <div class="slide_range">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -189,7 +227,8 @@
           <span class="sr-only">Next</span>
         <% end %>
       </div>
-    </div>
+    </div>-->
+<div class = "radio_bottan_wrapper">
 <%= form_for :search, url: stores_path, method: :get do |f| %>
       <div class="center2">
         <div class="panel panel-warning">
