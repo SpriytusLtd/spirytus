@@ -78,6 +78,11 @@
     </div>
   </div>
 
+  <% @contents.each do |content| %>
+    <%= image_tag content.image %>
+    <%= content.description %>
+  <% end %>
+
   <% unless @reration_to_drinks.empty? %>
     <div class="row store-topic">
       <% main_drink = @reration_to_drinks[0].drink %>

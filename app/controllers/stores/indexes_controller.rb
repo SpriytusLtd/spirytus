@@ -15,6 +15,7 @@ class Stores::IndexesController < ApplicationController
     @reration_to_drinks = @store.store_drinks
     @municipality = Municipality.find(@store.municipality_id)
     @store_reviews = StoreReview.search(nil, params[:id])
+    @contents = @store.contents
   end
 
   def edit
