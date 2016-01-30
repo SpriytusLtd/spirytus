@@ -12,6 +12,7 @@ class Stores::IndexesController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @reration_to_drinks = @store.store_drinks
     @municipality = Municipality.find(@store.municipality_id)
     @store_reviews = StoreReview.search(nil, params[:id])
   end

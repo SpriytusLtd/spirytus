@@ -1,16 +1,43 @@
-<h1> users/indexes/edit </h1>
-<%= form_for(@user) do |f| %>
-  <%= f.label :name, 'ユーザ名' %>
-  <%= f.text_field :name %>
-
-  <%= f.label :thumbnail, 'サムネイル画像' %>
-  <%= f.file_field :thumbnail %>
-
-  <%= f.submit '変更を適用する' %>
-
-  <%= @user.email %>
- 
-  <%= link_to "退会", user_path(current_user), method: :DELETE, data: { confirm: '本当にこのメンバーを削除' } %>
-
-
-<% end %>
+<head>
+    <%= stylesheet_link_tag "user/user_mypage.css" %>
+</head>
+<%= render 'layouts/header' %>
+<div id="site-box-user-mypage">
+  <div id="title_name2">プロフィール編集 </div>
+  <div id="all3">
+    <div id="left3">
+      <%= form_for(@user) do |f| %>
+        <ul>
+          <li class="Y_name">
+            <strong><%= f.label :name, 'ユーザ名' %></strong>
+          </li>
+          <li class="Y_name">
+            <%= f.text_field :name %>
+          </li>
+        </ul>
+    </div>
+    <div id="right3">
+        <ul>
+          <li>
+            <%= f.label :thumbnail, 'サムネイル画像' %>
+          </li>
+          <li>
+            <%= f.file_field :thumbnail %>
+          </li>
+        </ul>
+    </div>
+    <div class="complete">
+      <p>
+        <%= f.submit '変更を適用する' %>
+      </p>
+    </div>
+  </div>
+  <% end %>
+  <div id="link-user-delete">
+    <button type="button" class="btn btn-warning">
+    <%= link_to "退会", user_path(current_user), method: :DELETE, data: { confirm: '本当に退会しますか？' } %>
+    </button>
+  </div>
+  <HR style="margin: 1em 0 ;">
+</div>
+<%= render 'layouts/footer' %>

@@ -1,0 +1,84 @@
+.drink-show-containt {
+  background-color: white;
+}
+
+#star1 {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drink-images {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.drink-images__image {
+  padding: 16px;
+  max-width: 640px;
+  max-height: 480px;
+}
+
+.centering-article {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.drink-description__article {
+  margin-top: 86px;
+  margin-bottom: 86px;
+}
+
+.centering-article p {
+  text-align: center;
+}
+
+.drink-topic {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.drink-topic__title {
+  font-size: 22px;
+  text-align: center;
+}
+
+.tore-topic__image {
+  width: 320px;
+  height: 260px;
+}
+
+.drink-topic__drink {
+  font-size: 16px;
+  text-align: center;
+}
+
+.address_mapping, .map {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.drink-review-form__title {
+  font-size: 24px;
+}
+
+.drink-review-form__form {
+
+}
+
+.drink-review-form__contents {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drink-review-form__text-area {
+  width: 100%;
+  height: 100px;
+}
+
+.drink-favorite {
+  text-align: right;
+}

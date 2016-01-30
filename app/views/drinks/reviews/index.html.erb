@@ -1,26 +1,87 @@
-<html>
-<head>
-<script type='text/javascripts' src='assets/drinks/jquery-1.11.3.min.js'></script>
-<script type='/application/javascript' src='/assets/drinks/jquery.raty.js'></script>
-</head>
-<body>
-  <%= render 'form' %>
-  <% @reviews.each do |review| %>
 
-    <script type='text/javascript'>
-    $(function(){
-      $.fn.raty.defaults.path = '/assets/';
-      $('.review_total').raty({
-        readOnly: true,
-        score: function(){
-          return $(this).attr('data-score');
-          },
-        });
-      });
-    </script>
+<%= render 'layouts/header' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="drink-info">
+        <p aligin="left">
+        <center>
+          <h2><%= @drink.name %></h2>
+          <p>
+            アルコール度数: <%= @drink.alcohol %>
+          </p>
+          <p>
+            詳細: <br />
+            <%= @drink.detail %>
+          </p>
+        </center>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="drink-favorite">
+        <% if user_signed_in? %>
+          <% if current_user.favorite_drinks.include?(@drink) %>
+            <%= link_to 'お気に入りから削除する', drink_favorites_path(@drink), method: :delete %>
+          <% else %>
+            <%= link_to 'お気に入りに追加する', drink_favorites_path(@drink), method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+      <%= image_tag 'no_image.png', width: '400', height: '400', class: 'store-images__image' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="drink-review">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="drink-reviews">
+        <hr class="drink-review-bar">
+        <% @reviews.each do |review| %>
+          <%= @drink.alcoholic.item1 %>
+          <div class='drink-reviews__param' data-score = <%= review.param1 %>> </div>
+          <%= @drink.alcoholic.item2 %>
+          <div class='drink-reviews__param' data-score = <%= review.param2 %>> </div>
+          <% if @drink.alcoholic.item3? %>
+            <%= @drink.alcoholic.item3 %>
+            <div class='drink-reviews__param' data-score = <%= review.param3 %>> </div>
+          <% end %>
+          <% if @drink.alcoholic.item4? %>
+            <%= @drink.alcoholic.item4 %>
+            <div class='drink-reviews__param' data-score = <%= review.param4 %>> </div>
+          <% end %>
+          <% if @drink.alcoholic.item5? %>
+            <%= @drink.alcoholic.item5 %>
+            <div class='drink-reviews__param' data-score = <%= review.param5 %>> </div>
+          <% end %>
+          <% if @drink.alcoholic.item6? %>
+            <%= @drink.alcoholic.item6 %>
+            <div class='drink-reviews__param' data-score = <%= review.param6 %>> </div>
+          <% end %>
+          <p>投稿者 : <%= review.user.name %></p>
+          <p><%= review.body %></p>
+          <hr class="drink-review-bar">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <div class='review_total' data-score = <%= review.param1 %>> </div>
-    <p><%= review.body %></p>
-    <% end %>
-</body>
-</html>
+<%= javascript_include_tag "drinks/jquery.raty.js" %>
+<script type='text/javascript'>
+$(function(){
+  $.fn.raty.defaults.path = '/assets/';
+  $('.drink-reviews__param').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+      },
+    });
+  });
+</script>
+  <%= render 'layouts/footer' %>

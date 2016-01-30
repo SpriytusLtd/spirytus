@@ -1,9 +1,10 @@
 class Stores::ReviewsController < ApplicationController
-  before_action :authenticate_user!
-  # protect_from_forgery except: [:index, :review_params, :new, :create, :show, :edit, :update, :destroy, :body]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @reviews = Store.find_by(params[:store_id]).reviews.paginate(page: params[:page], per_page: 5)
+    @store = Store.find_by(params[:store_id])
+    @reviews = @store.reviews.paginate(page: params[:page], per_page: 5)
+    @new_review = StoreReview.new
   end
 
   def new
@@ -11,13 +12,21 @@ class Stores::ReviewsController < ApplicationController
   end
 
   def create
+    @reviews = Store.find(params[:store_id]).reviews
     @review = StoreReview.new(review_params)
     @review.store_id = params[:store_id]
     @review.user_id = current_user.id
-    if @review.save
-      redirect_to action: 'index', notice: 'Store review was successfully created.'
+    flg = 0
+    @reviews.each do |r|
+      if @review.user_id == r.user_id
+        flg = 1
+      end
+    end
+    if flg == 0
+      @review.save
+      redirect_to store_reviews_path
     else
-      redirect_to action: 'index', notice: 'failed'
+      redirect_to store_reviews_path, alert: 'レビューは1件しか投稿できません。'
     end
   end
 

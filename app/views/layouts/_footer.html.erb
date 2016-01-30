@@ -1,0 +1,20 @@
+<div id="page-top" class="page-top">
+  <p>
+    <a id="move-page-top" class="move-page-top">
+      <%= image_tag 'pt.png', alt: '...', width: '96', height: '96' %>
+    </a>
+  </p>
+</div>
+<footer>
+  <% unless user_signed_in? %>
+    <% if store_signed_in? %>
+      <%= link_to '店アカウントの専用ページ', store_configurations_path(current_store) %>
+      <%= link_to '店アカウント用ログアウト', destroy_store_session_path, method: :delete %>
+    <% else %>
+      <%= link_to '店アカウント作成申請', new_store_registration_path %>
+      <%= link_to '店アカウント用ログイン', new_store_session_path %>
+    <% end %>
+  <% end %>
+  <HR style="margin: 1em 0 ;">
+  <div class="Copyright">Copyright (C) 2016 Spirytus. All Rights Reserved. </div>
+</footer>

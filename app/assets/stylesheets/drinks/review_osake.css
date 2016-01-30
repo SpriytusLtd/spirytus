@@ -1,0 +1,61 @@
+.text-area {
+ margin: 10px auto;
+ padding: 10px 5px 50px;
+ width: 95%;
+ height: 250px;
+ background-color: #fff;
+ position: relative;
+ top: 0;
+ left:30px;
+}
+
+#favo-drink-review {
+  text-align: right;
+}
+
+#info{
+  width: 500px;
+  height: 450px;
+}
+
+#waku1{
+  width: 1000px;
+  height: 450px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#img{
+  float: right;
+  width: 500px;
+  height: 450px;
+}
+
+#review{
+  text-align: center;
+}
+
+.review1{
+  margin: 15px auto;
+  padding: 10px 5px 20px;
+  width: 95%;
+  background-color: #fff;
+  position: relative;
+  top: 0;
+  left:30px;
+}
+
+#textbox{
+  margin-left: 45px;
+  float: left;
+  width: 400px;
+  height: 100px;
+}
+
+#star{
+  margin-left: 30px;
+  float: right;
+  width: 400px;
+  height: 100px;
+  text-align: center;
+}

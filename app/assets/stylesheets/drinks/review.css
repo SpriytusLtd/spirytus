@@ -1,0 +1,32 @@
+.drink-review {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.review-params {
+  width: 275px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.review__text-area {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drink-reviews {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.review__text-area__area {
+  width: 100%;
+}
+
+.drink-review-bar {
+  color: black;
+  size: 3px;
+}

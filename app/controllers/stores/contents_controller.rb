@@ -6,14 +6,11 @@ class Stores::ContentsController < ApplicationController
   end
 
   def create
-    redirect_to '/' if current_store.id == params[:store_id].to_i
+    redirect_to '/' unless current_store.id == params[:store_id].to_i
     content = StoreContent.new(create_params)
     content.store_id = current_store.id
-    if content.save
-      redirect_to action: :index
-    else
-      redirect_to action: :index
-    end
+    content.save
+    redirect_to action: :index
   end
 
   def new

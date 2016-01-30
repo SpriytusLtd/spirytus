@@ -14,9 +14,10 @@ class Drink < ActiveRecord::Base
   validates :detail, length: { maximum: 1000 }
 
   def self.search(name, alcohol, alcoholic_id, brewer_id)
+    range = [[0, 4], [5, 9], [10, 19], [20, 39], [40, 100]]
     @drinks = Drink.all
     @drinks = @drinks.where('name like ?', "%#{name}%") if name.present?
-    @drinks = @drinks.where(alcohol: alcohol) if alcohol.present?
+    @drinks = @drinks.where(alcohol: range[alcohol.to_i][0]..range[alcohol.to_i][1]) if alcohol.present?
     @drinks = @drinks.where(alcoholic_id: alcoholic_id) if alcoholic_id.present?
     @drinks = @drinks.where(brewer_id: brewer_id) if brewer_id.present?
     @drinks
