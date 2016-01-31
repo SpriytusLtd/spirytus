@@ -95,5 +95,5 @@ r_ryugado   = Resort.create({ name: '龍河洞', address: '高知県香美市土
 r_wakamiya  = Resort.create({ name: '若宮八幡宮', address: '高知長浜6600', detail: '長宗我部元親公出陣祈願の社。高知市港南区の総氏神、また厄除け開運の神などとして近郷近在の里人から広く信仰を集めている。' })
 r_muroto    = Resort.create({ name: '室戸岬', address: '高知県室戸市室戸岬町', detail: '壮大な岩、荒々しい海、空海が残した数々の伝説、パワースポットなど盛りだくさん！'} )
 
-s_ippu.have_drinks << dr_tosazuru
-s_ippu.have_drinks << dr_keigetsu
+StoreDrink.create(store: s_ippu, drink: dr_tosazuru)
+StoreDrink.create(store: s_ippu, drink: dr_keigetsu)
