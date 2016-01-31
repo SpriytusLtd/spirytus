@@ -1,0 +1,19 @@
+.drink-result-list {
+  display: block;
+  text-align: center;
+}
+
+.drink-search_criteria {
+  display: block;
+  text-align: center;
+}
+
+.drink-index-search-form {
+  display: block;
+  text-align: center;
+}
+
+.drink-index-text {
+  font-size: 15px;
+  font-weight: bold;
+}

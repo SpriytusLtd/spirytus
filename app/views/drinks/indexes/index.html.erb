@@ -1,4 +1,9 @@
-<h1>お酒検索結果一覧</h1>
+<%= render 'layouts/header' %>
+
+<%= @info %>
+<div class="drink-search_criteria">
+  <p class="drink-index-text"><%= @search_criteria %>で検索した結果</p>
+</div>
 
 <ul>
   <% @drinks.each do |drink| %>
@@ -20,18 +25,17 @@
 </p>
 
 <p>
-  <%= f.label :alcohol, 'アルコール度数' %><br>
-  <%= f.text_field :alcohol %>
+  <% @alcoholics.each do |a| %>
+    <%= f.label :alcoholics, a.name %>
+    <%= f.radio_button 'alcoholic', a.id, {} %>
+  <% end %>
 </p>
 
 <p>
-  <%= f.label :alcoholic, '種類' %><br>
-  <%= f.text_field :alcoholic %>
-</p>
-
-<p>
-  <%= f.label :brewer, '酒造' %><br>
-  <%= f.text_field :brewer %>
+  <% @alcohol.each do |a| %>
+    <%= f.label :alcohol, a[:text] %>
+    <%= f.radio_button 'alcohol', a[:number], {} %>
+  <% end %>
 </p>
 
 <p>
@@ -43,3 +47,5 @@
 <% if store_signed_in? %>
   <p><%= link_to "新規追加", new_drink_path %></p>
 <% end %>
+
+<%= render 'layouts/footer' %>
