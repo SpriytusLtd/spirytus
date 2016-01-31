@@ -1,54 +1,73 @@
 <%= render 'layouts/header' %>
 
-<%= @info %>
-<div class="store-search-criteria">
-  <p class="store-index-text"><%= @search_criteria %>で検索した結果</p>
-</div>
+<div class="container">
+  <div class="store-search-criteria">
+    <p class="store-index-text"><%= @search_criteria %>で検索した結果</p>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+        <% @stores.each do |store| %>
+          <%= link_to store, class: 'search-results-item__link' do %>
+            <li class="search-results-item media">
+              <div class="media-left media-middle">
+                <% if store.image? %>
+                  <%= image_tag store.image.url, class: 'search-results-item__thumbnail' %>
+                <% else %>
+                  <%= image_tag '#', class: 'search-results-item__thumbnail' %>
+                <% end %>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= store.name %></h4>
+                <p><%= store.detail %></p>
+                <p><span class="glyphicon glyphicon-earphone"></span><%= store.phone_number %></p>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <%= will_paginate @stores, previous_label: '<前ページ', next_label: '次ページ>' %>
 
-<div class="store-result-list">
-    <% @stores.each do |store| %>
-      <p class="store-index-text"><%= link_to store.name, store_path(store.id) %></p>
-    <% end %>
-<%= will_paginate @stores, previous_label: '<前ページ', next_label: '次ページ>' %>
-</div>
+      <div class="store-index-search-form">
+        <p class="store-index-text">再検索フォーム</p>
+        <%= form_for :search, method: "get" do |f| %>
+          <p>
+            <%= f.label :name, '名前' %><br>
+            <%= f.text_field :name %>
+          </p>
 
-<div class="store-index-search-form">
-  <p class="store-index-text">再検索フォーム</p>
-  <%= form_for :search, method: "get" do |f| %>
-  <p>
-    <%= f.label :name, '名前' %><br>
-    <%= f.text_field :name %>
-  </p>
+          <p class="store-index-text">観光地</p>
+          <p>
+            <% @resorts.each do |d| %>
+              <%= f.label :name, d.name %>
+              <%= f.radio_button 'resort', d.id, {} %>
+            <% end %>
+          </p>
 
-  <p class="store-index-text">観光地</p>
-  <p>
-    <% @resorts.each do |d| %>
-      <%= f.label :name, d.name %>
-      <%= f.radio_button 'resort', d.id, {} %>
-    <% end %>
-  </p>
+          <p class="store-index-text">お酒</p>
+          <p>
+            <% @drinks.each do |d| %>
+              <%= f.label :name, d.name %>
+              <%= f.radio_button 'drink', d.id, {} %>
+            <% end %>
+          </p>
 
-  <p class="store-index-text">お酒</p>
-  <p>
-    <% @drinks.each do |d| %>
-      <%= f.label :name, d.name %>
-      <%= f.radio_button 'drink', d.id, {} %>
-    <% end %>
-  </p>
+          <p class="store-index-text">郷土料理</p>
+          <p>
+            <% @dishes.each do |d| %>
+              <%= f.label :name, d.name %>
+              <%= f.radio_button 'dish', d.id, {} %>
+            <% end %>
+          </p>
 
-  <p class="store-index-text">郷土料理</p>
-  <p>
-    <% @dishes.each do |d| %>
-      <%= f.label :name, d.name %>
-      <%= f.radio_button 'dish', d.id, {} %>
-    <% end %>
-  </p>
+          <p>
+            <%= submit_tag "検索" %>
+          </p>
 
-  <p>
-    <%= submit_tag "検索" %>
-  </p>
-
-  <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= render 'layouts/footer' %>

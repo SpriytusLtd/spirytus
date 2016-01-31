@@ -84,7 +84,7 @@ s_bunzo   = Store.create({
   banquet_hall_capacity: 0,
   smoking: 5,
   hp: 'https://www.facebook.com/bunzo.bunkajin',
-  municipality_id: m_kami_tosayamada
+  municipality_id: m_kami_tosayamada.id
 })
 
 u_testuser1 = User.create({ name: 'tester1', email: 'tester1@email.com', password: 'tester1pass' })
