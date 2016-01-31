@@ -1,0 +1,1538 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+
+
+ */
+
+.drink-show-containt {
+  background-color: white;
+}
+
+#star1 {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drink-images {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.drink-images__image {
+  padding: 16px;
+  max-width: 640px;
+  max-height: 480px;
+}
+
+.centering-article {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.drink-description__article {
+  margin-top: 86px;
+  margin-bottom: 86px;
+}
+
+.centering-article p {
+  text-align: center;
+}
+
+.drink-topic {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.drink-topic__title {
+  font-size: 22px;
+  text-align: center;
+}
+
+.tore-topic__image {
+  width: 320px;
+  height: 260px;
+}
+
+.drink-topic__drink {
+  font-size: 16px;
+  text-align: center;
+}
+
+.address_mapping, .map {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.drink-review-form__title {
+  font-size: 24px;
+}
+
+.drink-review-form__form {
+
+}
+
+.drink-review-form__contents {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drink-review-form__text-area {
+  width: 100%;
+  height: 100px;
+}
+
+.drink-favorite {
+  text-align: right;
+}
+.drink-review {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.review-params {
+  width: 275px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.review__text-area {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drink-reviews {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.review__text-area__area {
+  width: 100%;
+}
+
+.drink-review-bar {
+  color: black;
+  size: 3px;
+}
+.text-area {
+ margin: 10px auto;
+ padding: 10px 5px 50px;
+ width: 95%;
+ height: 250px;
+ background-color: #fff;
+ position: relative;
+ top: 0;
+ left:30px;
+}
+
+#favo-drink-review {
+  text-align: right;
+}
+
+#info{
+  width: 500px;
+  height: 450px;
+}
+
+#waku1{
+  width: 1000px;
+  height: 450px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#img{
+  float: right;
+  width: 500px;
+  height: 450px;
+}
+
+#review{
+  text-align: center;
+}
+
+.review1{
+  margin: 15px auto;
+  padding: 10px 5px 20px;
+  width: 95%;
+  background-color: #fff;
+  position: relative;
+  top: 0;
+  left:30px;
+}
+
+#textbox{
+  margin-left: 45px;
+  float: left;
+  width: 400px;
+  height: 100px;
+}
+
+#star{
+  margin-left: 30px;
+  float: right;
+  width: 400px;
+  height: 100px;
+  text-align: center;
+}
+.drink-result-list {
+  display: block;
+  text-align: center;
+}
+
+.drink-search-criteria {
+  display: block;
+  text-align: center;
+}
+
+.drink-index-search-form {
+  display: block;
+  text-align: center;
+}
+
+.drink-index-text {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+header {
+  height: 100px;
+  width: 101%;
+  position: fixed;
+  background-image: url(header2.jpg);
+	background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+	opacity: 0.9;
+	top: -8px;
+	right:8px;
+}
+
+footer {
+  /* position:absolute; */
+  bottom:  0;
+  text-align: center;
+}
+
+.logo1 {
+  width: 70px;
+  height: 100px;
+	opacity:1;
+}
+
+.logo2{
+	width: 300px;
+	height: 80px;
+	margin-top: 10px;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-login {
+  float: right;
+}
+
+
+#site-box {
+  width : 752px;
+ margin-right: auto;
+ margin-left : auto;
+}
+
+#comment{
+  font-size: 200%;
+  text-align: center;
+  padding-top: 300px;
+  padding-bottom:300px;
+}
+
+.Copyright{
+  text-align: center;
+  color:#000000;
+}
+/********************************************************************************
+
+	SYNCER 〜 知識、感動をみんなと同期(Sync)するブログ
+
+	* 配布場所
+	https://syncer.jp/jquery-modal-window
+
+	* 最終更新日時
+	2015/08/17 15:38
+
+	* 作者
+	あらゆ
+
+	** 連絡先
+	Twitter: https://twitter.com/arayutw
+	Facebook: https://www.facebook.com/arayutw
+	Google+: https://plus.google.com/114918692417332410369/
+	E-mail: info@syncer.jp
+
+	※ バグ、不具合の報告、提案、ご要望など、お待ちしております。
+	※ 申し訳ありませんが、ご利用者様、個々の環境における問題はサポートしていません。
+
+********************************************************************************/
+
+
+
+
+.my-modal-content {
+	background-color: red;
+	width: 50% ;
+	margin: 0 ;
+	padding: 10px 20px ;
+	border: 2px solid #aaa ;
+	background: #fff ;
+	position: fixed ;
+	display: none ;
+	z-index: 2 ;
+}
+
+#my-modal-overlay {
+	z-index: 1 ;
+	display: none ;
+	position: fixed ;
+	top: 0 ;
+	left: 0 ;
+	width: 100% ;
+	height: 120% ;
+	background-color: rgba( 0,0,0, 0.75 ) ;
+}
+
+.my-button-link {
+	color: #00f ;
+	text-decoration: underline ;
+}
+
+.my-button-link:hover {
+	cursor: pointer ;
+	color: #f00 ;
+}
+.line{
+font-size: 130%;
+font-family: cursive;
+}
+.search-results-item {
+  background-color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.search-results-item:hover {
+  background-color: #E4E4E4
+}
+
+.search-results-item__thumbnail {
+  width: 64px;
+  height: 64px;
+}
+
+.search-results-item__link {
+  color: black;
+  text-decoration: none;
+}
+
+.search-results-item__link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.search-results-item__link:active {
+  color: black;
+  text-decoration: none;
+}
+
+.search-results-item__link:visited {
+  color: black;
+  text-decoration: none;
+}
+body{
+	margin-right: auto;
+	margin-left : auto;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+	background-color: rgba(120, 30, 30, 0.1);
+	background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+	top: -8px;
+	right:8px;
+}
+
+.title_name {
+	text-align: center;
+	font-size: 300%;
+}
+
+.text10 {
+	text-align: center;
+	font-size: 150%;
+}
+
+#login-form {
+	text-align: center;
+}
+
+#site-box2 {
+	width : 752px;
+	height: 1380px;
+	margin-right: auto;
+	margin-left : auto;
+  padding-top: 20px;
+}
+
+#site-box3 {
+	width : 752px;
+	height: 400px;
+	margin-right: auto;
+	margin-left : auto;
+  padding-top: 20px;
+}
+
+input[type="name"] , input[type="e-mail"] {
+	font-size: 90%;
+}
+
+input[type="text1"] {
+	font-size: 120%;
+}
+
+input[type="radio"] {
+	margin-top: 10px;
+}
+
+.shared-links {
+	text-align: center;
+}
+
+.joho_left {
+	text-align: left;
+	font-size: 150%;
+}
+
+ul li {
+	list-style: none;
+	margin-top: 10px;
+}
+
+#All {
+	width: 100%;
+	height:420px;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#left {
+	float: left;
+ 	width : 47%;
+	height: 330px;
+	margin-top: 5px;
+}
+
+#right1 {
+	float: right;
+	width : 48%;
+	height: 330px;
+}
+
+#best{
+	width: 100%;
+	height: 340px;
+	margin-top:10px;
+}
+
+#best_drink{
+	width: 49%;
+	height: 340px;
+ 	float:left;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#best_cook{
+	width: 49%;
+	float:right;
+	height: 340px;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+
+#favorite{
+	background-color: rgba(140, 50, 50, 0.2);
+ margin-top: 10px;
+	width: 100%;
+	height: 200px;
+	text-align: center;
+}
+
+#osake11 {
+	width: 33%;
+	height: 200px;
+	float: left;
+}
+
+#food {
+ float:left;
+ width: 33%;
+height: 200px;
+}
+
+#cook {
+	float:left;
+	width: 33%;
+	height: 200px;
+}
+
+#sonota2{
+	width: 100%;
+	height: 180px;
+	background-color: rgba(140, 50, 50, 0.2);
+	top:20px;
+}
+
+#sentaku {
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#all2 {
+	width:100%;
+	height: 200px;
+	float:center;
+}
+
+#left2 {
+	float: left;
+ 	width : 50%;
+	height: 200px;
+}
+
+#right2 {
+	float: right;
+	width : 50%;
+	height: 200px;
+}
+
+input[type="text2"] {
+	margin-top: 20px;
+	font-size: 120%;
+}
+
+.complete {
+	float: right;
+}
+
+.page-top p
+{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+@media screen and (min-width:1130px) {
+  .move-page-top:hover{
+    opacity: 0.85;
+  }
+}
+
+.Copyright{
+  text-align: center;
+  color:#000000;
+}
+#map {
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  height: 600px;
+}
+
+.store-registration {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.store-registration__form {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.store-registration__field {
+  margin: 15px, 0px;
+  text-align: center;
+}
+.store-result-list {
+  display: block;
+  text-align: center;
+}
+
+.store-search-criteria {
+  display: block;
+  text-align: center;
+}
+
+.store-index-search-form {
+  display: block;
+  text-align: center;
+}
+
+.store-index-text {
+  font-size: 15px;
+  font-weight: bold;
+}
+.store-show-containt {
+  background-color: white;
+}
+
+#star1 {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.store-images {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.store-images__image {
+  padding: 16px;
+  max-width: 640px;
+  max-height: 480px;
+}
+
+.centering-article {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.store-description__article {
+  margin-top: 86px;
+  margin-bottom: 86px;
+}
+
+.centering-article p {
+  text-align: center;
+}
+
+.store-topic {
+  background-color: #E4E4E4;
+  margin: 15px;
+  padding-top: 11px;
+  padding-bottom: 22px;
+}
+
+.store-topic__title {
+  font-size: 22px;
+  text-align: center;
+}
+
+.store-topic__image {
+  width: 320px;
+  height: 260px;
+}
+
+.address_mapping, .map {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.store-review-form__title {
+  font-size: 24px;
+}
+
+.store-review-form__contents {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.store-review-form__text-area {
+  width: 100%;
+  height: 100px;
+}
+
+.store-favorite {
+  text-align: right;
+}
+
+.store-content {
+  background-color: #E4E4E4;
+  margin: 15px;
+  height: 300px;
+}
+
+.store-content__image {
+  display: block;
+  width: 480px;
+  height: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.store-content__description-container {
+  width: 100%;
+  height: 100%;
+}
+
+.store-content__description {
+  display: table;
+  width: 480px;
+  height: 270px;
+  margin: auto;
+}
+
+.store-content__description p {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.5em;
+}
+hr.line{
+  border: none;
+  border-top: 2px dotted #999;
+  width: 30%;
+}
+
+body{
+    color: #555;
+    background: url("../img/img5.jpg"), url("../img/img6.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+  　width: 100%;
+  　height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.text-area {
+ margin: 15px auto;
+ padding: 10px 5px 50px;
+ width: 1000px;
+ background-color: #fff;
+ position: relative;
+ top: 0;
+ left:30px;
+ margin-right: auto;
+ margin-left: auto;
+}
+
+#info{
+  width: 500px;
+  height: 450px
+}
+
+#waku1{
+  width: 1000px;
+  height: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#img{
+  padding: 35px;
+  float: right;
+  clear: both;
+  width: 500px;
+  height: 450px;
+}
+
+#wrapper{
+  width: 100%;
+}
+
+#box1{
+  width: 1000px;
+  height: 550px;
+}
+
+#img1{
+  margin-right: 20px;
+  float: right;
+  width: 400px;
+  height: 370px;
+}
+
+#text1{
+  float: left;
+  text-align: center;
+  width: 550px;
+  height: 370px;
+}
+
+#info1{
+  clear: both;
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  height: 150px;
+}
+
+#info1_left{
+  position: relative;
+  left: 120px;
+}
+
+#info1_center{
+  position: relative;
+  top: -70px;
+  left: 420px;
+}
+
+#info1_right{
+  position: relative;
+  top: -140px;
+  left: 720px;
+}
+
+#box2{
+  width: 1000px;
+  height: 600px;
+}
+
+#text2{
+  float: right;
+  text-align: center;
+  width: 550px;
+  height: 370px;
+}
+
+#img2{
+  margin-left: 20px;
+  float: left;
+  width: 400px;
+  height: 370px;
+}
+
+#info2{
+  clear: both;
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  height: 200px;
+
+}
+
+#info2_left{
+  position: relative;
+  left: 120px;
+}
+
+#info2_center{
+  position: relative;
+  top: -120px;
+  left: 420px;
+}
+
+#info2_right{
+  position: relative;
+  top: -240px;
+  left: 720px;
+}
+
+#box3{
+  width: 1000px;
+  height: 380px;
+}
+
+#text3{
+  float: left;
+  text-align: center;
+  width: 550px;
+  height: 370px;
+}
+
+#img3{
+  margin-right: 20px;
+  float: right;
+  width: 400px;
+  height: 370px;
+}
+#event{
+  width:100%;
+  height:300px;
+}
+#sake_bottan{
+  float:left;  
+  padding-top:70px;  
+}
+#shokuzai_bottan{
+  float:right;
+}
+#kankouti_bottan{
+  float:right;
+}
+img.tab-content{
+width:100%;
+height:100%;
+}
+img.haikei{
+  width:100%;
+  height:100%;
+}
+
+/*.active p{
+color:white;
+}*/
+#header_login{
+  color:white;
+}
+/*.center-block{
+  color:black;
+}*/
+.center{
+  width:30%;
+  float:left;
+  margin: 15px;;
+}
+.center2{
+  width:20%;
+  float:left;
+  margin: 25px;;
+}
+
+.top-content__title {
+	position: relative;
+	padding: 0 .5em .5em 2em;
+	border-bottom: 1px solid #ccc;
+}
+.top_content__title::before,
+.top_content__title::after {
+	position: absolute;
+	content: '';
+	border-radius: 100%
+}
+.top_content__title::before {
+	top: .2em;
+	left: .2em;
+	z-index: 2;
+	width: 18px;
+	height: 18px;
+	background: rgba(150, 150, 150, .5);
+}
+.top_content__title::after {
+	top: .7em;
+	left: .7em;
+	width: 13px;
+	height: 13px;
+	background: rgba(210, 210, 210, .5);
+}
+
+
+.content{
+  min-height: 0px;
+}
+
+.page-top
+{
+  /*display: none;*/
+  margin: 0;
+  padding: 0;
+}
+
+.page-top p
+{
+  margin: 0;
+  padding: 0;
+
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+/*.move-page-top
+{
+  display: block;
+  background: #D36015;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  /*color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s
+}
+*/
+
+@media screen and (min-width:1130px) {
+  .move-page-top:hover{
+    opacity: 0.85;
+  }
+}
+
+.user-registration {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-registration__form {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-registration__field {
+  margin: 15px, 0px;
+  text-align: center;
+}
+body{
+	margin-right: auto;
+	margin-left : auto;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+	background-color: rgba(120, 30, 30, 0.1);
+	background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+	top: -8px;
+	right:8px;
+}
+
+.title_name {
+	text-align: center;
+	font-size: 300%;
+}
+
+.text10 {
+	text-align: center;
+	font-size: 150%;
+}
+
+#login-form {
+	text-align: center;
+}
+
+#site-box2 {
+	width : 752px;
+	height: 1380px;
+	margin-right: auto;
+	margin-left : auto;
+  padding-top: 20px;
+}
+
+#site-box3 {
+	width : 752px;
+	height: 400px;
+	margin-right: auto;
+	margin-left : auto;
+  padding-top: 20px;
+}
+
+input[type="name"] , input[type="e-mail"] {
+	font-size: 90%;
+}
+
+input[type="text1"] {
+	font-size: 120%;
+}
+
+input[type="radio"] {
+	margin-top: 10px;
+}
+
+.shared-links {
+	text-align: center;
+}
+
+.joho_left {
+	text-align: left;
+	font-size: 150%;
+}
+
+ul li {
+	list-style: none;
+	margin-top: 10px;
+}
+
+#All {
+	width: 100%;
+	height:420px;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#left {
+	float: left;
+ 	width : 47%;
+	height: 330px;
+	margin-top: 5px;
+}
+
+#right1 {
+	float: right;
+	width : 48%;
+	height: 330px;
+}
+
+#best{
+	width: 100%;
+	height: 340px;
+	margin-top:10px;
+}
+
+#best_drink{
+	width: 49%;
+	height: 340px;
+ 	float:left;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#best_cook{
+	width: 49%;
+	float:right;
+	height: 340px;
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+
+#favorite{
+	background-color: rgba(140, 50, 50, 0.2);
+ margin-top: 10px;
+	width: 100%;
+	height: 200px;
+	text-align: center;
+}
+
+#osake11 {
+	width: 33%;
+	height: 200px;
+	float: left;
+}
+
+#food {
+ float:left;
+ width: 33%;
+height: 200px;
+}
+
+#cook {
+	float:left;
+	width: 33%;
+	height: 200px;
+}
+
+#sonota2{
+	width: 100%;
+	height: 180px;
+	background-color: rgba(140, 50, 50, 0.2);
+	top:20px;
+}
+
+#sentaku {
+	background-color: rgba(140, 50, 50, 0.2);
+}
+
+#all2 {
+	width:100%;
+	height: 200px;
+	float:center;
+}
+
+#left2 {
+	float: left;
+ 	width : 50%;
+	height: 200px;
+}
+
+#right2 {
+	float: right;
+	width : 50%;
+	height: 200px;
+}
+
+input[type="text2"] {
+	margin-top: 20px;
+	font-size: 120%;
+}
+
+.complete {
+	float: right;
+}
+
+.page-top p
+{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+@media screen and (min-width:1130px) {
+  .move-page-top:hover{
+    opacity: 0.85;
+  }
+}
+
+.Copyright{
+  text-align: center;
+  color:#000000;
+}
+body{
+  margin-right: auto;
+  margin-left : auto;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+	background-color: rgba(120, 30, 30, 0.1);
+  background-image: url(header2.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+	top: -8px;
+	right:8px;
+}
+
+#site-box-user-mypage {
+	width : 752px;
+	margin-right: auto;
+	margin-left : auto;
+  padding-top: 20px;
+}
+
+#user__name{
+	font-size: 150%;
+	width	: 50%;
+	float: left;
+}
+
+#top {
+  width:100%;
+  height:40px;
+}
+
+#profile{
+  width:100%;
+  height:200px;
+  background-color: rgba(140, 50, 50, 0.2);
+}
+
+#hensyu{
+  text-align: right;
+  bottom: 0;
+}
+
+#face{
+  width:40%;
+  height:140px;
+  float:left;
+  text-align: center;
+  padding-top: 30px;
+}
+
+#profile_infomation{
+  width:60%;
+  height:110px;
+  float:right;
+  text-align: left;
+  padding-top: 50px;
+}
+
+
+#Favorite{
+  width:100%;
+  height:210px;
+  padding-top: 20px;
+}
+
+#F_osake{
+  width:48%;
+  height:210px;
+  float:left;
+}
+
+#F_mise{
+  width:48%;
+  height:210px;
+  float:right;
+}
+
+#mise, #osake10{
+  width:100%;
+  height:20px;
+  font-size: 120%;
+}
+
+#F_osake_infomation,#F_mise_infomation{
+  width: 100%;
+  height:190px;
+  background-color: rgba(140, 50, 50, 0.2);
+  overflow: auto;
+}
+
+
+#Review{
+  width:100%;
+  height:300px;
+  padding-top: 20px;
+}
+
+#R_osake{
+  width:48%;
+  height:290px;
+  float:left;
+}
+
+#R_mise{
+  width:48%;
+  height:300px;
+  float:right;
+}
+
+#R_osake_title, #R_mise_title{
+  width:100%;
+  height:20px;
+  font-size: 120%;
+}
+
+#R_osake_infomation, #R_mise_infomation{
+  width:100%;
+  height:270px;
+  background-color: rgba(140, 50, 50, 0.2);
+  overflow: auto;
+}
+
+#sonota{
+  width:100%;
+  height: 20px;
+  text-align: center;
+}
+
+#title_name2{
+	text-align: center;
+	width:100%;
+	font-size: 200%;
+}
+
+
+#all3{
+  width:100%;
+  height: 300px;
+}
+
+#left3{
+	float:left;
+	width:50%;
+}
+
+#right3{
+	float: left;
+	width:50%;
+}
+
+#link-user-delete {
+  text-align: right;
+}
+
+.complete{
+	float:right;
+}
+
+ul li {
+	list-style: none;
+	margin-top: 20px;
+}
+
+.page-top{
+  margin: 0;
+  padding: 0;
+}
+
+.page-top p
+{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+@media screen and (min-width:1130px) {
+  .move-page-top:hover{
+    opacity: 0.85;
+  }
+}
+
+#Copyright{
+  text-align: center;
+  color:#000000;
+}
+body{
+  width:100%;
+  height:100%;
+  color:#555;
+  /*background :url(img/tosa.png),url(img/2haikei.jpg);*/
+  background : url(tosa.png),url(S_haikei.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+#wrapper{
+  width:80%;
+  height:100%;
+}
+#header_login{
+  width:270px;
+  float:right;
+  text-align: right;
+}
+.range{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width:720px;
+  height:500px;
+  font-size:large;
+    background-color:#A0522D;
+    border-style:dashed ridge dashed groove;
+    border-width:5px 12px;
+    border-color:#DEB887;
+
+}
+.range2{
+width:1000px;
+height:500px;
+margin: auto;
+border:solid 5px #000;
+}
+ul.pagination{
+  width:auto;
+  height:auto;
+  float:right;
+  margin-bottom: 0
+}
+#nav_range{
+  width:100%;
+  height:100px;
+  margin-top: 50px;
+}
+
+.item{
+  width:100%;
+  height:490px;
+}
+img.item{
+  width:100%;
+  height:100%;
+}
+#tab_wrapper{
+  　margin-top: 30px;
+    position: relative;
+    padding: 20px;
+    color: #000;/*ここが白だと文字が見えんでしょ！*/
+    background: #d2b48c;
+    overflow: hidden;
+}
+/*ここがタブの大きさを変えられるのでは？*/
+#tab_wrapper:before {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-width: 16px 16px 0 0;
+    border-style: solid;
+    border-color: #fff;
+    border-top-color: #998366;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+img.event{
+  width:550px;
+  height:170px;
+}
+#event_all{
+  width:100%;
+  height:700px;
+}
+#event1{
+  /*text-align: center;*/
+  width:50%;
+  height:510px;
+  float:left;
+}
+#event2{
+  /*text-align: center;*/
+  width:50%;
+  height:510px;
+  float:right;
+}
+#radio_bottan_wrapper{
+  width:100%;
+  height:300px;
+  padding-left:25%;
+  padding-top:10%;
+}
+.best{
+  width:30%;
+  height:300px;
+  float:left;
+  /*text-align: center;*/
+}
+img.best{
+  width:30%;
+  height:50%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.contents{
+  clear:both;
+  width:80%;
+  height:500px;
+}
+.center-block{
+  width:100%;
+  height:500px;
+}
+#popular{
+  width:100%;
+  height:400px;
+}
+img.img-circle_center-block{
+  width:30%;
+  height:30%;
+}
+.tab_bottom_form{
+  float:right;
+  margin-top: -100px;
+}
