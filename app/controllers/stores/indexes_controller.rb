@@ -2,11 +2,16 @@ class Stores::IndexesController < ApplicationController
   before_action :authenticate_store!, only: [:edit, :update]
 
   def index
-    @info = params[:search]
-    @search_criteria = get_search_criteria(@info)
     @resorts = Resort.all
     @drinks = Drink.all
     @dishes = Dish.all
+    if params[:search].blank?
+      @search_criteria = '""'
+      @stores = Store.all.paginate(page: params[:page], per_page: 5)
+      return
+    end
+    @info = params[:search]
+    @search_criteria = get_search_criteria(@info)
     if @info
       @stores = Store.search(@info).paginate(page: params[:page], per_page: 5)
     else
