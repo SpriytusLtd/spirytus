@@ -38,160 +38,161 @@
         <div style="padding:28%;"></div>
       </div>
       <div class = "radio_bottan_wrapper">
-        <%= form_for :search, url: drinks_path, method: :get do |f| %>
-        <div class="center">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h3 class="panel-title">お酒の種類</h3>
+        <%= form_for :search, url: drinks_path, method: :get, class: 'search-form' do |f| %>
+          <div class="center">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">お酒の種類</h3>
+              </div>
+              <%= f.hidden_field 'name' %>
+              <% @alcoholics.each do |a| %>
+                <%= f.label :alcoholics, a.name %>
+                <%= f.radio_button 'alcoholic', a.id, {} %>
+                <% end %>
+              <%= f.hidden_field 'brewer' %>
             </div>
-            <%= f.hidden_field 'name' %>
-            <% @alcoholics.each do |a| %>
-              <%= f.label :alcoholics, a.name %>
-              <%= f.radio_button 'alcoholic', a.id, {} %>
-            <% end %>
-            <%= f.hidden_field 'brewer' %>
           </div>
-        </div>
-        <div class="center">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h3 class="panel-title">アルコール度数</h3>
+          <div class="center">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">アルコール度数</h3>
+              </div>
+              <% @alcohol.each do |a| %>
+                <%= f.label :alcohol, a[:text] %>
+                <%= f.radio_button 'alcohol', a[:number], {} %>
+              <% end %>
             </div>
-            <% @alcohol.each do |a| %>
-              <%= f.label :alcohol, a[:text] %>
-              <%= f.radio_button 'alcohol', a[:number], {} %>
+          </div>
+          <div id="sake_bottan">
+            <%= f.submit '検索', class: 'btn btn-default' %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane" id="about">
+        <!-- 料理の名前 -->
+        <div class="tab_bottom_form">
+          <div class="navbar-form navbar-left">
+            <%= form_for :search, url: dishes_path, method: :get, class: 'search-form' do |f| %>
+              <div class="form-group">
+                <%= f.text_field :name, class: 'form-control', placeholder: '料理の名前' %>
+              </div>
+              <%= f.submit '検索', class: 'btn btn-default' %>
             <% end %>
           </div>
         </div>
-        <div id="sake_bottan">
-          <%= f.submit '検索', class: 'btn btn-default' %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  <div class="tab-pane" id="about">
-    <!-- 料理の名前 -->
-    <div class="tab_bottom_form">
-      <div class="navbar-form navbar-left">
-        <%= form_for :search, url: dishes_path, method: :get do |f| %>
-          <div class="form-group">
-            <%= f.text_field :name, class: 'form-control', placeholder: '料理の名前' %>
-          </div>
-          <%= f.submit '検索', class: 'btn btn-default' %>
-        <% end %>
-      </div>
-    </div>
-    <%= form_for :search, url: stores_path, method: :get do |f| %>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 高知の郷土料理 </h3>
-          </div>
-          <% @dishes.each do |d| %>
-            <%= f.label :name, d.name %>
-            <%= f.radio_button 'dish', d.id, {} %>
-          <% end %>
-        </div>
-      </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-  </div>
-  <!-- 観光地 -->
-  <div class="tab-pane" id="about2">
-    <div class="tab_bottom_form">
-      <div class="navbar-form navbar-left">
         <%= form_for :search, url: stores_path, method: :get do |f| %>
-          <div class="form-group">
-            <%= f.text_field :name, class: 'form-control', placeholder: '観光地の名前で近くの店を' %>
+          <div class="center2">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title"> 高知の郷土料理 </h3>
+              </div>
+              <% @dishes.each do |d| %>
+                <%= f.label :name, d.name %>
+                <%= f.radio_button 'dish', d.id, {} %>
+              <% end %>
+            </div>
           </div>
           <%= f.submit '検索', class: 'btn btn-default' %>
         <% end %>
       </div>
-    </div>
-    <%= form_for :search, url: stores_path, method: :get do |f| %>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 観光地 </h3>
-            <p> 観光地を指定して、その近くのお店を調べましょう </p>
+      <!-- 観光地 -->
+      <div class="tab-pane" id="about2">
+        <div class="tab_bottom_form">
+          <div class="navbar-form navbar-left">
+            <%= form_for :search, url: stores_path, method: :get do |f| %>
+              <div class="form-group">
+                <%= f.text_field :name, class: 'form-control', placeholder: '観光地の名前で近くの店を' %>
+              </div>
+              <%= f.submit '検索', class: 'btn btn-default' %>
+            <% end %>
           </div>
-          <% @resorts.each do |r| %>
-            <%= f.label :name, r.name %>
-            <%= f.radio_button 'resort', r.id, {} %>
-          <% end %>
         </div>
-      </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-  </div>
-  <!-- 店 -->
-  <div class="tab-pane" id="about3">
-    <div class="tab_bottom_form">
-      <div class="navbar-form navbar-left">
         <%= form_for :search, url: stores_path, method: :get do |f| %>
-          <div class="form-group">
-            <%= f.text_field :name, class: 'form-control', placeholder: '店の名前' %>
+          <div class="center2">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title"> 観光地 </h3>
+                <p> 観光地を指定して、その近くのお店を調べましょう </p>
+              </div>
+              <% @resorts.each do |r| %>
+                <%= f.label :name, r.name %>
+                <%= f.radio_button 'resort', r.id, {} %>
+              <% end %>
+            </div>
           </div>
           <%= f.submit '検索', class: 'btn btn-default' %>
         <% end %>
       </div>
-    </div>
-    <div class="slide_stage">
-      <div id="photo1" class="pic">
-        <%= image_tag 'slide_folder/store1.jpg', alt: '...', width: '100%', height: 'auto' %>
-      </div>
-      <div id="photo2" class="pic">
-        <%= image_tag 'slide_folder/store2.jpg', alt: '...', width: '100%', height: 'auto' %>
-      </div>
-      <div id="photo3" class="pic">
-        <%= image_tag 'slide_folder/store3.jpg', alt: '...', width: '100%', height: 'auto' %>
-      </div>
-      <div id="photo4" class="pic">
-        <%= image_tag 'slide_folder/store4.jpg', alt: '...', width: '100%', height: 'auto' %>
-      </div>
-      <div id="photo5" class="pic">
-        <%= image_tag 'slide_folder/store5.jpg', alt: '...', width: '100%', height: 'auto' %>
-      </div>
-　　　<div style="padding:28%;"></div>
-    </div>
-    <div class = "radio_bottan_wrapper">
-    <%= form_for :search, url: stores_path, method: :get do |f| %>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 名所 </h3>
+      <!-- 店 -->
+      <div class="tab-pane" id="about3">
+        <div class="tab_bottom_form">
+          <div class="navbar-form navbar-left">
+            <%= form_for :search, url: stores_path, method: :get do |f| %>
+              <div class="form-group">
+                <%= f.text_field :name, class: 'form-control', placeholder: '店の名前' %>
+              </div>
+              <%= f.submit '検索', class: 'btn btn-default' %>
+            <% end %>
           </div>
-          <% @resorts.each do |d| %>
-            <%= f.label :name, d.name %>
-            <%= f.radio_button 'resort', d.id, {} %>
-          <% end %>
         </div>
-      </div>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 酒 </h3>
+        <div class="slide_stage">
+          <div id="photo1" class="pic">
+            <%= image_tag 'slide_folder/store1.jpg', alt: '...', width: '100%', height: 'auto' %>
           </div>
-          <% @drinks.each do |d| %>
-            <%= f.label :name, d.name %>
-            <%= f.radio_button 'dirnk', d.id, {} %>
-          <% end %>
-        </div>
-      </div>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 郷土料理 </h3>
+          <div id="photo2" class="pic">
+            <%= image_tag 'slide_folder/store2.jpg', alt: '...', width: '100%', height: 'auto' %>
           </div>
-          <% @dishes.each do |d| %>
-            <%= f.label :name, d.name %>
-            <%= f.radio_button 'dish', d.id, {} %>
-          <% end %>
+          <div id="photo3" class="pic">
+            <%= image_tag 'slide_folder/store3.jpg', alt: '...', width: '100%', height: 'auto' %>
+          </div>
+          <div id="photo4" class="pic">
+            <%= image_tag 'slide_folder/store4.jpg', alt: '...', width: '100%', height: 'auto' %>
+          </div>
+          <div id="photo5" class="pic">
+            <%= image_tag 'slide_folder/store5.jpg', alt: '...', width: '100%', height: 'auto' %>
+          </div>
+          <div style="padding:28%;"></div>
         </div>
+        <div class = "radio_bottan_wrapper">
+          <%= form_for :search, url: stores_path, method: :get do |f| %>
+            <div class="center2">
+              <div class="panel panel-warning">
+                <div class="panel-heading">
+                  <h3 class="panel-title"> 名所 </h3>
+                </div>
+                <% @resorts.each do |d| %>
+                  <%= f.label :name, d.name %>
+                  <%= f.radio_button 'resort', d.id, {} %>
+                <% end %>
+              </div>
+            </div>
+            <div class="center2">
+              <div class="panel panel-warning">
+                <div class="panel-heading">
+                  <h3 class="panel-title"> 酒 </h3>
+                </div>
+                <% @drinks.each do |d| %>
+                  <%= f.label :name, d.name %>
+                  <%= f.radio_button 'dirnk', d.id, {} %>
+                <% end %>
+              </div>
+            </div>
+            <div class="center2">
+              <div class="panel panel-warning">
+                <div class="panel-heading">
+                  <h3 class="panel-title"> 郷土料理 </h3>
+                </div>
+                <% @dishes.each do |d| %>
+                  <%= f.label :name, d.name %>
+                  <%= f.radio_button 'dish', d.id, {} %>
+                <% end %>
+              </div>
+            </div>
+          <%= f.submit '検索', class: 'btn btn-default' %>
+        <% end %>
       </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
     </div>
+    <%= render 'layouts/footer' %>
   </div>
-  <%= render 'layouts/footer' %>
 </div>
