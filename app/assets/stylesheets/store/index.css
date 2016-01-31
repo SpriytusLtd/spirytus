@@ -1,0 +1,35 @@
+.search-results-item {
+  background-color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.search-results-item:hover {
+  background-color: #E4E4E4
+}
+
+.search-results-item__thumbnail {
+  width: 64px;
+  height: 64px;
+}
+
+.search-results-item__link {
+  color: black;
+  text-decoration: none;
+}
+
+.search-results-item__link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.search-results-item__link:active {
+  color: black;
+  text-decoration: none;
+}
+
+.search-results-item__link:visited {
+  color: black;
+  text-decoration: none;
+}

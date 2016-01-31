@@ -78,28 +78,55 @@
     </div>
   </div>
 
-  <% unless @reration_to_drinks.empty? %>
-    <div class="row store-topic">
-      <% main_drink = @reration_to_drinks[0].drink %>
-      <div class="col-md-7">
-        <h2 class="store-topic__title"><%= main_drink.name %></h2>
-        <article class="centering-article">
-          <p> <%= main_drink.detail %> </p>
-        </article>
-      </div>
-      <div class="col-md-5">
-        <%= image_tag 'img2.jpg', class: 'store-topic__image' %>
-      </div>
-    </div>
-    <div class="row store-topic">
-      <div class="col-md-12">
-        <h2 class="store-topic__title white">扱っているお酒</h2>
-      </div>
-      <% @reration_to_drinks.each do |r| %>
-        <div class="col-md-4 store-topic__drink">
-          <%= r.drink.name %>
+  <% unless @contents.empty? %>
+    <div class="store-contents">
+      <% @contents.each do |content| %>
+        <div class="store-content">
+        <div class="row">
+          <div class="col-md-6">
+            <%= image_tag content.image, class: 'store-content__image' %>
+          </div>
+          <div class="col-md-6">
+            <div class="store-content__description">
+              <p><%= content.description %></p>
+            </div>
+          </div>
+        </div>
         </div>
       <% end %>
+    </div>
+  <% end %>
+
+  <% unless @relation_to_drinks.empty? %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="store-topic">
+          <h2 class="store-topic__title">扱っているお酒</h2>
+          <ul class="store-topic__body">
+            <% @relation_to_drinks.each do |r| %>
+              <li class="store-topic__element">
+                <%= link_to r.drink do %>
+                  <%= r.drink.name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="store-topic">
+          <h2 class="store-topic__title">扱っている郷土料理</h2>
+          <ul class="store-topic__body">
+            <% @relation_to_dishes.each do |r| %>
+              <li class="store-topic__element">
+                <%= link_to r.dish do %>
+                  <%= r.dish.name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
   <% end %>
 
