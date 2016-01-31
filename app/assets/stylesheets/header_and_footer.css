@@ -10,6 +10,7 @@ header {
 	opacity: 0.9;
 	top: -8px;
 	right:8px;
+  z-index: 0;
 }
 
 footer {
