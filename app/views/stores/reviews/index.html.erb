@@ -1,3 +1,4 @@
+<%= render 'layouts/header' %>
 
 <div class="container store-show-containt">
   <div class="row">
@@ -46,16 +47,21 @@
     </div>
   </div>
 
-
-  <div class="store-review-form">
-    <%= form_for @new_review, class: 'store-review-form__form' do |r| %>
-      <div class="store-review-form__contents">
-        <%= r.label :body, 'レビュー投稿欄', class: 'store-review-form__title' %>
-        <%= r.text_area :body, maxlength: 1000, class: 'store-review-form__text-area' %>
-        <%= r.submit '投稿する', class: 'store-review-form__submit-button' %>
-      </div>
-    <% end %>
-  </div>
+<% unless store_signed_in? %>
+  <% if user_signed_in? %>
+    <div class="store-review-form">
+      <%= form_for @new_review, class: 'store-review-form__form' do |r| %>
+        <div class="store-review-form__contents">
+          <%= r.label :body, 'レビュー投稿欄', class: 'store-review-form__title' %>
+          <%= r.text_area :body, maxlength: 1000, class: 'store-review-form__text-area' %>
+          <%= r.submit '投稿する', class: 'store-review-form__submit-button' %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+  <p>レビューを投稿するには、サインインする必要があります。</p>
+  <% end %>
+<% end %>
 
   <% @reviews.each do |review| %>
     <div class="media">
@@ -74,3 +80,5 @@
 
   <%= will_paginate @reviews, previous_label: '<前ページ', next_label: '次ページ>' %>
 </div>
+
+<%= render 'layouts/footer' %>
