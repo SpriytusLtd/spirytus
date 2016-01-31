@@ -38,7 +38,7 @@
         <div style="padding:28%;"></div>
       </div>
       <div class = "radio_bottan_wrapper">
-        <%= form_for :search, url: drinks_path, method: :get, class: 'search-form' do |f| %>
+        <%= form_for :search, url: drinks_path, method: :get do |f| %>
           <div class="center">
             <div class="panel panel-warning">
               <div class="panel-heading">
@@ -73,7 +73,7 @@
         <!-- 料理の名前 -->
         <div class="tab_bottom_form">
           <div class="navbar-form navbar-left">
-            <%= form_for :search, url: dishes_path, method: :get, class: 'search-form' do |f| %>
+            <%= form_for :search, url: dishes_path, method: :get do |f| %>
               <div class="form-group">
                 <%= f.text_field :name, class: 'form-control', placeholder: '料理の名前' %>
               </div>
