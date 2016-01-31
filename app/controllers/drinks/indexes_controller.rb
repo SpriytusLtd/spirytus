@@ -70,21 +70,25 @@ class Drinks::IndexesController < ApplicationController
   end
 
   def get_name(info)
-    if info[:name].empty?
+    if info[:name].blank?
       return ''
     else
-      info[:name]
+      if info[:alcoholic].blank? && info[:alcohol].blank?
+        info[:name]
+      else
+        info[:name] + ', '
+      end
     end
   end
 
   def get_alcoholic(info)
-    if info[:alcoholic].empty?
+    if info[:alcoholic].blank?
       return ''
     else
-      if info[:alcohol].empty?
-        Alcoholic.find(info[:alcoholic]).name
+      if info[:alcohol].blank?
+        Alcoholic.find(info[:alcoholic].to_i).name
       else
-        Alcoholic.find(info[:alcoholic]).name + ', '
+        Alcoholic.find(info[:alcoholic].to_i).name + ', '
       end
     end
   end
@@ -97,10 +101,10 @@ class Drinks::IndexesController < ApplicationController
       '39%以下',
       '40%以上'
     ]
-    if info[:alcohol].empty?
+    if info[:alcohol].blank?
       return ''
     else
-      'アルコール度数 : ' + alcohol_list[info[:alcohol]]
+      'アルコール度数 : ' + alcohol_list[info[:alcohol].to_i]
     end
   end
 end
