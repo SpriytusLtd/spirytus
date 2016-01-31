@@ -2,9 +2,19 @@ class Drinks::IndexesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
 
   def index
-    info = params[:search]
-    if info
-      @drinks = Drink.search(info['name'], info['alcohol'], info['alcoholic'], info['brewer']).paginate(page: params[:page], per_page: 5)
+    @info = params[:search]
+    @search_criteria = get_search_criteria(@info)
+    @alcoholics = Alcoholic.all
+    @alcohol = [
+      { text: '4%以下', number: 0 },
+      { text: '9%以下', number: 1 },
+      { text: '19%以下', number: 2 },
+      { text: '39%以下', number: 3 },
+      { text: '40%以上', number: 4 }
+    ]
+    logger.debug(@alcohol[0])
+    if @info
+      @drinks = Drink.search(@info['name'], @info['alcohol'], @info['alcoholic'], @info['brewer']).paginate(page: params[:page], per_page: 5)
     else
       @drinks = Drink.all.paginate(page: params[:page], per_page: 5)
     end
@@ -50,5 +60,51 @@ class Drinks::IndexesController < ApplicationController
 
   def drink_param
     params.require(:drink).permit(:name, :alcohol, :detail, :alcoholic_id, :brewer_id)
+  end
+
+  def get_search_criteria(info)
+    name = get_name(info)
+    alcoholic = get_alcoholic(info)
+    alcohol = get_alcohol(info)
+    '“ ' + name + alcoholic + alcohol + ' ”'
+  end
+
+  def get_name(info)
+    if info[:name].blank?
+      return ''
+    else
+      if info[:alcoholic].blank? && info[:alcohol].blank?
+        info[:name]
+      else
+        info[:name] + ', '
+      end
+    end
+  end
+
+  def get_alcoholic(info)
+    if info[:alcoholic].blank?
+      return ''
+    else
+      if info[:alcohol].blank?
+        Alcoholic.find(info[:alcoholic].to_i).name
+      else
+        Alcoholic.find(info[:alcoholic].to_i).name + ', '
+      end
+    end
+  end
+
+  def get_alcohol(info)
+    alcohol_list = [
+      '4%以下',
+      '9%以下',
+      '19%以下',
+      '39%以下',
+      '40%以上'
+    ]
+    if info[:alcohol].blank?
+      return ''
+    else
+      'アルコール度数 : ' + alcohol_list[info[:alcohol].to_i]
+    end
   end
 end
