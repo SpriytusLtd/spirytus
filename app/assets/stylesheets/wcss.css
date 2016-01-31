@@ -13,7 +13,7 @@ body{
   width:270px;
   float:right;
   text-align: right;
-  margin-bottom:300px;
+  margin-bottom:100px;
 }
 .slide_range{
   margin-left: auto;
@@ -142,6 +142,7 @@ position: relative;
 max-width:1300px;
 margin: 0 auto;
 background:#ddd;
+margin-top:100px;
 }
 .pic {
 position: absolute;
