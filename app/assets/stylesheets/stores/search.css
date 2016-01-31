@@ -1,0 +1,19 @@
+.store-result-list {
+  display: block;
+  text-align: center;
+}
+
+.store-search_criteria {
+  display: block;
+  text-align: center;
+}
+
+.store-index-search-form {
+  display: block;
+  text-align: center;
+}
+
+.store-index-text {
+  font-size: 15px;
+  font-weight: bold;
+}

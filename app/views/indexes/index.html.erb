@@ -209,7 +209,7 @@
           </div>
           <% @drinks.each do |d| %>
             <%= f.label :name, d.name %>
-            <%= f.radio_button 'dirnk', d.id, {} %>
+            <%= f.radio_button 'drink', d.id, {} %>
           <% end %>
         </div>
       </div>
