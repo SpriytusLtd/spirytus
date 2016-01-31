@@ -51,10 +51,14 @@ class Stores::IndexesController < ApplicationController
   end
 
   def get_name(info)
-    if info.key?(:name)
-      info[:name]
-    else
+    if info[:name].blank?
       return ''
+    else
+      if info.key?(:resort) || info.key?(:drink) || info.key?(:dish)
+        info[:name] + ', '
+      else
+        info[:name]
+      end
     end
   end
 

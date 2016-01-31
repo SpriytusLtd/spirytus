@@ -1,6 +1,7 @@
 <%= render 'layouts/header' %>
 
-<div class="store-search_criteria">
+<%= @info %>
+<div class="store-search-criteria">
   <p class="store-index-text"><%= @search_criteria %>で検索した結果</p>
 </div>
 
@@ -19,7 +20,7 @@
     <%= f.text_field :name %>
   </p>
 
-  <p class="store-index-text">名前</p>
+  <p class="store-index-text">観光地</p>
   <p>
     <% @resorts.each do |d| %>
       <%= f.label :name, d.name %>
