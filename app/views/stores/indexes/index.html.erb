@@ -1,47 +1,63 @@
-<h1>お店検索結果一覧</h1>
+<%= render 'layouts/header' %>
+<div class="container">
+  <h1>お店検索結果一覧</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+        <% @stores.each do |store| %>
+          <%= link_to store, class: 'search-results-item__link' do %>
+            <li class="search-results-item media">
+              <div class="media-left media-middle">
+                <%= image_tag store.image, class: 'search-results-item__thumbnail' %>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= store.name %></h4>
+                <p><%= store.detail %></p>
+                <p><span class="glyphicon glyphicon-earphone"></span><%= store.phone_number %></p>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <%= will_paginate @stores, previous_label: '<前ページ', next_label: '次ページ>' %>
 
-<ul>
-  <% @stores.each do |store| %>
-  <li>
-    <%= link_to store.name, store_path(store.id) %>
-  </li>
-  <% end %>
-</ul>
-<%= will_paginate @stores, previous_label: '<前ページ', next_label: '次ページ>' %>
+      <%= form_for :search, method: "get" do |f| %>
+      <p>
+        <%= f.label :name, '名前' %><br>
+        <%= f.text_field :name %>
+      </p>
 
-<%= form_for :search, method: "get" do |f| %>
-<p>
-  <%= f.label :name, '名前' %><br>
-  <%= f.text_field :name %>
-</p>
+      <p>
+        <%= f.label :resort, '観光名所' %><br>
+        <%= f.text_field :resort %>
+      </p>
 
-<p>
-  <%= f.label :resort, '観光名所' %><br>
-  <%= f.text_field :resort %>
-</p>
+      <p>
+        <%= f.label :drink, 'お酒' %><br>
+        <%= f.text_field :drink %>
+      </p>
 
-<p>
-  <%= f.label :drink, 'お酒' %><br>
-  <%= f.text_field :drink %>
-</p>
+      <p>
+        <%= f.label :people, '収容人数' %><br>
+        <%= f.text_field :people %>
+      </p>
 
-<p>
-  <%= f.label :people, '収容人数' %><br>
-  <%= f.text_field :people %>
-</p>
+      <p>
+        <%= f.label :dish, '郷土料理' %><br>
+        <%= f.text_field :dish %>
+      </p>
 
-<p>
-  <%= f.label :dish, '郷土料理' %><br>
-  <%= f.text_field :dish %>
-</p>
+      <p>
+        <%= f.label :budget, '平均予算' %><br>
+        <%= f.text_field :budget %>
+      </P>
 
-<p>
-  <%= f.label :budget, '平均予算' %><br>
-  <%= f.text_field :budget %>
-</P>
+      <p>
+        <%= submit_tag "検索" %>
+      </p>
 
-<p>
-  <%= submit_tag "検索" %>
-</p>
-
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
