@@ -11,7 +11,13 @@
 </head>
 <body>
   <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% unless alert.nil? %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong><p class="alert"><%= alert %></p>
+    </div>
+  <% end %>
 <%= yield %>
 
 </body>

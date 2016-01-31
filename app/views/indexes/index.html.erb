@@ -1,3 +1,13 @@
+<% @resorts.each do |resort| %>
+  <div id="my-modal-content-0<%=resort.id%>" class="my-modal-content">
+    <!-- モーダルウィンドウのコンテンツ開始 -->
+    <h4><%= resort.name %></h4>
+    <p><%= resort.detail %></p>
+    <p><%=resort.address %></p>
+    <p><a id="my-modal-close" class="my-button-link">閉じる</a></p>
+    <!-- モーダルウィンドウのコンテンツ終了 -->
+  </div>
+<% end %>
 <div class="container" style="padding: 10px 0px 10px 0px">
   <%= render 'layouts/header' %>
   <nav>
@@ -19,21 +29,26 @@
           <% end %>
         </div>
       </div>
-      <div class="slide_stage">
-        <div id="photo1" class="pic">
-          <%= image_tag 'slide_folder/drink1.jpg', alt: '...', width: '100%', height: 'auto' %>
-        </div>
-        <div id="photo2" class="pic">
-          <%= image_tag 'slide_folder/drink2.jpg', alt: '...', width: '100%', height: 'auto' %>
-        </div>
-        <div id="photo3" class="pic">
-          <%= image_tag 'slide_folder/drink3.jpg', alt: '...', width: '100%', height: 'auto' %>
-        </div>
-        <div id="photo4" class="pic">
-          <%= image_tag 'slide_folder/drink4.jpg', alt: '...', width: '100%', height: 'auto' %>
-        </div>
-        <div id="photo5" class="pic">
-          <%= image_tag 'slide_folder/drink5.jpg', alt: '...', width: '100%', height: 'auto' %>
+
+    </div>
+   <div id = "radio_bottan_wrapper">
+    <%= form_for :search, url: drinks_path, method: :get do |f| %>
+      <div class="center">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title">お酒の種類</h3>
+          </div>
+          <%= f.hidden_field 'name' %>
+          <ul>
+            <% @alcoholics.each do |a| %>
+              <li>
+                <%= f.radio_button 'alcoholic', a.id, {} %>
+                <%= f.label :alcoholics, a.name %>
+              </li>
+            <% end %>
+          </ul>
+          <%= f.hidden_field 'brewer' %>
+
         </div>
         <div style="padding:28%;"></div>
       </div>
@@ -66,7 +81,16 @@
           <div id="sake_bottan">
             <%= f.submit '検索', class: 'btn btn-default' %>
           </div>
-          <% end %>
+
+          <ul>
+            <% @alcohol.each do |a| %>
+              <li>
+                <%= f.radio_button 'alcohol', a[:number], {} %>
+                <%= f.label :alcohol, a[:text] %>
+              </li>
+            <% end %>
+          </ul>
+
         </div>
       </div>
       <div class="tab-pane" id="about">
@@ -154,6 +178,9 @@
           </div>
           <div style="padding:28%;"></div>
         </div>
+
+    
+
         <div class = "radio_bottan_wrapper">
           <%= form_for :search, url: stores_path, method: :get do |f| %>
             <div class="center2">
@@ -193,6 +220,58 @@
         <% end %>
       </div>
     </div>
-    <%= render 'layouts/footer' %>
+
+    <%= form_for :search, url: stores_path, method: :get do |f| %>
+      <div class="center2">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title"> 名所 </h3>
+          </div>
+          <ul>
+            <% @resorts.each do |d| %>
+              <li>
+                <%= f.radio_button 'resort', d.id, {} %>
+                <%= f.label :name, d.name %>
+                <a class="my-modal-syncer my-button-link" data-target="my-modal-content-0<%=d.id%>">詳細を見る</a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="center2">
+        <div class="panel panel-warning">
+          <div class="panel-heading"> </h3>
+          </div>
+          <ul>
+            <% @drinks.each do |d| %>
+              <li>
+                <%= f.radio_button 'dirnk', d.id, {} %>
+                <%= f.label :name, d.name %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="center2">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            <h3 class="panel-title"> 郷土料理 </h3>
+          </div>
+          <ul>
+            <% @dishes.each do |d| %>
+              <li>
+                <%= f.radio_button 'dish', d.id, {} %>
+                <%= f.label :name, d.name %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <%= f.submit '検索', class: 'btn btn-default' %>
+    <% end %>
   </div>
 </div>
+<%= render 'layouts/footer' %>
+</div>
+<%= javascript_include_tag '/javascripts/jquery-2.1.4.min.js' %>
+<%= javascript_include_tag '/javascripts/modal-multi.js' %>
