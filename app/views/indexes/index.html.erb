@@ -1,3 +1,13 @@
+<% @resorts.each do |resort| %>
+  <div id="my-modal-content-0<%=resort.id%>" class="my-modal-content">
+    <!-- モーダルウィンドウのコンテンツ開始 -->
+    <h4><%= resort.name %></h4>
+    <p><%= resort.detail %></p>
+    <p><%=resort.address %></p>
+    <p><a id="my-modal-close" class="my-button-link">閉じる</a></p>
+    <!-- モーダルウィンドウのコンテンツ終了 -->
+  </div>
+<% end %>
 <div class="container" style="padding: 10px 0px 10px 0px">
 <%= render 'layouts/header' %>
 <nav>
@@ -209,6 +219,7 @@
               <li>
                 <%= f.radio_button 'resort', d.id, {} %>
                 <%= f.label :name, d.name %>
+                <a class="my-modal-syncer my-button-link" data-target="my-modal-content-0<%=d.id%>">詳細を見る</a>
               </li>
             <% end %>
           </ul>
@@ -250,3 +261,5 @@
 </div>
 <%= render 'layouts/footer' %>
 </div>
+<%= javascript_include_tag '/javascripts/jquery-2.1.4.min.js' %>
+<%= javascript_include_tag '/javascripts/modal-multi.js' %>
