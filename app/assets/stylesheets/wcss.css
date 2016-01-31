@@ -3,7 +3,7 @@ body{
   height:100%;
   color:#555;
   /*background :url(img/tosa.png),url(img/2haikei.jpg);*/
-  background : url(tosa.png),url(S_haikei.jpg);
+  background : url(/images/tosa.png),url(/images/S_haikei.jpg);
   background-attachment: fixed;
   background-size: cover;
 }
