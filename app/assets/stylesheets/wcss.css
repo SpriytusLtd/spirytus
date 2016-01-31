@@ -9,9 +9,11 @@ body{
 }
 
 #header_login{
+  position:absolute;
   width:270px;
   float:right;
   text-align: right;
+  margin-bottom:300px;
 }
 .slide_range{
   margin-left: auto;
