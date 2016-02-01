@@ -21,27 +21,23 @@
   bottom: 16px;
 }
 
-.event {
-  clear: both;
-  width: 100%;
+/*.move-page-top
+{
+  display: block;
+  background: #D36015;
+  width: 50px;
   height: 50px;
-}
+  cursor: pointer;
 
-.event-info {
-  background-color: white;
-  margin: 50px;
+  /*color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s
 }
-
-.news-box-img {
-  margin-top: 25px;
-  float: left;
-}
-
-.news-box-text {
-  width: 350px;
-  margin: 10px;
-  float: right;
-}
+*/
 
 @media screen and (min-width:1130px) {
   .move-page-top:hover{
