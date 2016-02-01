@@ -163,10 +163,6 @@ position: absolute;
 .pic img {
 width: 100%;
 height: 675px;
-opacity:0;
--moz-animation: imgTrans 40s infinite;
--webkit-animation: imgTrans 40s ease-in infinite;
-animation: imgTrans 40s infinite;
 }
 #photo1 img {
 -moz-animation-delay: 0s;
