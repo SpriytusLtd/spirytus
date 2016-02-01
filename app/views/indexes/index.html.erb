@@ -88,61 +88,6 @@
     <% end %>
     </div>
   </div>
-  <div class="tab-pane" id="about">
-    <!-- 料理の名前 -->
-    <div class="tab_bottom_form">
-      <div class="navbar-form navbar-left">
-        <%= form_for :search, url: dishes_path, method: :get do |f| %>
-          <div class="form-group">
-            <%= f.text_field :name, class: 'form-control', placeholder: '料理の名前' %>
-          </div>
-          <%= f.submit '検索', class: 'btn btn-default' %>
-        <% end %>
-      </div>
-    </div>
-    <%= form_for :search, url: stores_path, method: :get do |f| %>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 高知の郷土料理 </h3>
-          </div>
-          <% @dishes.each do |d| %>
-            <%= f.label :name, d.name %>
-            <%= f.radio_button 'dish', d.id, {} %>
-          <% end %>
-        </div>
-      </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-  </div>
-  <!-- 観光地 -->
-  <div class="tab-pane" id="about2">
-    <div class="tab_bottom_form">
-      <div class="navbar-form navbar-left">
-        <%= form_for :search, url: stores_path, method: :get do |f| %>
-          <div class="form-group">
-            <%= f.text_field :name, class: 'form-control', placeholder: '観光地の名前で近くの店を' %>
-          </div>
-          <%= f.submit '検索', class: 'btn btn-default' %>
-        <% end %>
-      </div>
-    </div>
-    <%= form_for :search, url: stores_path, method: :get do |f| %>
-      <div class="center2">
-        <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title"> 観光地 </h3>
-            <p> 観光地を指定して、その近くのお店を調べましょう </p>
-          </div>
-          <% @resorts.each do |r| %>
-            <%= f.label :name, r.name %>
-            <%= f.radio_button 'resort', r.id, {} %>
-          <% end %>
-        </div>
-      </div>
-      <%= f.submit '検索', class: 'btn btn-default' %>
-    <% end %>
-  </div>
   <!-- 店 -->
   <div class="tab-pane" id="about3">
     <div class="tab_bottom_form">
@@ -226,6 +171,38 @@
       <%= f.submit '検索', class: 'btn btn-default' %>
       </div>
     <% end %>
+  </div>
+</div>
+<div class="event">
+  <div class="row">
+    <div class="col-md-5 event-info">
+      <div class="news-box-img">
+        <%= image_tag 'marimekko.png', alt: '...', width: '100', height: '160' %>
+      </div>
+      <div class="news-box-text">
+        <p>高知県高知市</p>
+        <p>マリメッコ展-デザイン、ファブリック、ライフスタイル 布から始まる 北欧の暮らし</p>
+        <hr>
+        <span style="color:green">【開催日・期間】1/23(土)～3/27(日)※入場は16:30まで(会期中無休)</span>
+        <p>マリメッコの大規模展を高知県美で開催！</p>
+        <hr>
+        <span style="color:red">【開催場所】高知県立美術館</span>
+      </div>
+    </div>
+    <div class="col-md-5 event-info">
+      <div class="news-box-img">
+        <%= image_tag 'osaru.png', alt: '...', width: '100', height: '160' %>
+      </div>
+      <div class="news-box-text">
+        <p>高知県南国市</p>
+        <p>さるの楽園</p>
+        <hr>
+        <span style="color:green">【開催日・期間】/2(土)～3/21(月)</span>
+        <p>干支の申(さる)にちなんで、猿の玩具を、(故)山崎茂さんの郷土玩具コレクションを高知県内作家による猿をモチーフにした作品などを紹介します。</p>
+        <hr>
+        <span style="color:red">【開催場所】高知県立歴史民俗資料館</span>
+      </div>
+    </div>
   </div>
 </div>
 </div>
