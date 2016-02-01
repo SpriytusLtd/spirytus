@@ -39,6 +39,11 @@ class Drinks::IndexesController < ApplicationController
 
   def show
     @drink = Drink.find(params[:id])
+    logger.debug 'debugggggggg'
+    @drink.belong_stores.each do |r|
+      logger.debug 'ggg'
+      logger.debug r.name
+    end
   end
 
   def update

@@ -1,3 +1,13 @@
+.search-results {
+  margin-top: 44px;
+  margin-bottom: 44px;
+}
+
+.search-results__title {
+  font-size: 22px;
+  text-align: center;
+}
+
 .search-results-item {
   background-color: white;
   padding: 10px 20px;
