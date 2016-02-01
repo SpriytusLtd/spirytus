@@ -2,7 +2,7 @@ body{
   width:100%;
   height:100%;
   color:#555;
-  background-image : url(tosa.png),url(sakura_haikei.jpg);
+  background-image : url("/assets/tosa.png"),url("/assets/S_haikei.jpg");
   background-attachment: fixed;
   background-size: cover;
 }
