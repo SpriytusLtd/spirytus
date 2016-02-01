@@ -48,7 +48,7 @@
 　　　<div style="padding:28%;"></div>
     </div>
 
-   <div class = "radio_bottan_wrapper">
+   <div class = "drink_radio_bottan_wrapper">
     <%= form_for :search, url: drinks_path, method: :get do |f| %>
       <div class="center">
         <div class="panel panel-warning">
@@ -174,7 +174,7 @@
 　　　<div style="padding:28%;"></div>
     </div>
 
-<div class = "radio_bottan_wrapper">
+<div class = "store_radio_bottan_wrapper">
 <%= form_for :search, url: stores_path, method: :get do |f| %>
       <div class="center2">
         <div class="panel panel-warning">
@@ -222,7 +222,9 @@
           </ul>
         </div>
       </div>
+      <div id="store_bottan">
       <%= f.submit '検索', class: 'btn btn-default' %>
+      </div>
     <% end %>
   </div>
 </div>
