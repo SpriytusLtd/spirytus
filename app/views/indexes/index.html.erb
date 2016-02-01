@@ -8,8 +8,8 @@
     <!-- モーダルウィンドウのコンテンツ終了 -->
   </div>
 <% end %>
-<div class="container" style="padding: 10px 0px 10px 0px">
 <%= render 'layouts/header' %>
+<div class="container" style="padding: 10px 0px 10px 0px">
 <nav>
   <ul class="nav nav-tabs nav-justified">
     <li class="active"><a href="#home" data-toggle="tab"><span class="text-muted"><strong>お酒</strong></span></a></li>
@@ -48,7 +48,7 @@
 　　　<div style="padding:28%;"></div>
     </div>
 
-   <div class = "radio_bottan_wrapper">
+   <div class = "drink_radio_bottan_wrapper">
     <%= form_for :search, url: drinks_path, method: :get do |f| %>
       <div class="center">
         <div class="panel panel-warning">
@@ -174,7 +174,7 @@
 　　　<div style="padding:28%;"></div>
     </div>
 
-<div class = "radio_bottan_wrapper">
+<div class = "store_radio_bottan_wrapper">
 <%= form_for :search, url: stores_path, method: :get do |f| %>
       <div class="center2">
         <div class="panel panel-warning">
@@ -222,11 +222,13 @@
           </ul>
         </div>
       </div>
+      <div id="store_bottan">
       <%= f.submit '検索', class: 'btn btn-default' %>
+      </div>
     <% end %>
   </div>
 </div>
-<%= render 'layouts/footer' %>
 </div>
+<%= render 'layouts/footer' %>
 <%= javascript_include_tag '/javascripts/jquery-2.1.4.min.js' %>
 <%= javascript_include_tag '/javascripts/modal-multi.js' %>

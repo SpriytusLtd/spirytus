@@ -75,11 +75,19 @@ img.item{
 }
 
 #sake_bottan{
-  float:left;
-  padding-top:70px;
-}
-#kankouti_bottan{
   float:right;
+  width:50px;
+  height:50px;
+  margin-top:-180px;
+  margin-right:310px;
+  clear:both;
+}
+#store_bottan{
+  float:right;
+  width:50px;
+  height:50px;
+  margin-right:70px;
+  margin-top:-250px;
 }
 
 #event_all{
@@ -98,7 +106,13 @@ img.item{
   height:510px;
   float:right;
 }
-.radio_bottan_wrapper{
+.store_radio_bottan_wrapper{
+  width:100%;
+  height:300px;
+  padding-left:0%;
+  padding-top:10%;
+}
+.drink_radio_bottan_wrapper{
   width:100%;
   height:300px;
   padding-left:25%;
