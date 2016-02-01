@@ -47,20 +47,20 @@
   <div class="row">
     <div class="col-md-12">
       <ul>
-        <% @drink.store_drinks.each do |store| %>
-          <%= link_to store, class: 'search-results-item__link' do %>
+        <% @drink.store_drinks.each do |r| %>
+          <%= link_to r.store, class: 'search-results-item__link' do %>
             <li class="search-results-item media">
               <div class="media-left media-middle">
-                <% if store.image? %>
-                  <%= image_tag store.image.url, class: 'search-results-item__thumbnail' %>
+                <% if r.store.image? %>
+                  <%= image_tag r.store.image.url, class: 'search-results-item__thumbnail' %>
                 <% else %>
                   <%= image_tag '#', class: 'search-results-item__thumbnail' %>
                 <% end %>
               </div>
               <div class="media-body">
-                <h4 class="media-heading"><%= store.name %></h4>
-                <p><%= store.detail %></p>
-                <p><span class="glyphicon glyphicon-earphone"></span><%= store.phone_number %></p>
+                <h4 class="media-heading"><%= r.store.name %></h4>
+                <p><%= r.store.detail %></p>
+                <p><span class="glyphicon glyphicon-earphone"></span><%= r.store.phone_number %></p>
               </div>
             </li>
           <% end %>
