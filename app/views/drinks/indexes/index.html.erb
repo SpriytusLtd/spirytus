@@ -17,35 +17,6 @@
 <%= will_paginate @drinks, previous_label: '<前ページ', next_label: '次ページ>' %>
 </div>
 
-<div class="drink-index-search-form">
-  <%= form_for :search, method: "get" do |f| %>
-    <p>
-      <%= f.label :name, '名前' %><br>
-      <%= f.text_field :name %>
-    </p>
-
-    <p class="drink-index-text">酒類</p>
-    <p>
-      <% @alcoholics.each do |a| %>
-        <%= f.label :alcoholics, a.name %>
-        <%= f.radio_button 'alcoholic', a.id, {} %>
-      <% end %>
-    </p>
-
-    <p class="drink-index-text">アルコール度数</p>
-    <p>
-      <% @alcohol.each do |a| %>
-        <%= f.label :alcohol, a[:text] %>
-        <%= f.radio_button 'alcohol', a[:number], {} %>
-      <% end %>
-    </p>
-
-    <p>
-      <%= submit_tag "検索" %>
-    </p>
-  <% end %>
-</div>
-
 <% if store_signed_in? %>
   <p><%= link_to "新規追加", new_drink_path %></p>
 <% end %>
