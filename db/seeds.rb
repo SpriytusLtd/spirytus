@@ -87,6 +87,26 @@ s_bunzo   = Store.create({
   municipality_id: m_kami_tosayamada.id
 })
 
+s_roberuto   = Store.create({
+  name: 'ロベルト食堂',
+  address: '高知県香美市土佐山田町東本町1-1-3',
+  email: 'roberuto@example.com',
+  password: 'roberutopass',
+  phone_number: '0887-53-0014',
+  budget: 3500,
+  detail: '旬の食材をお届けします',
+  business_day: '月-火, 木-日',
+  business_time: '18:00～0:00',
+  transportation: '土佐山田駅から300m',
+  seat: 25,
+  room: 2,
+  banquet_hall: true,
+  banquet_hall_capacity: 25,
+  smoking: 25,
+  hp: 'https://ja-jp.facebook.com/tosahanshi',
+  municipality_id: m_kami_tosayamada.id
+})
+
 u_testuser1 = User.create({ name: 'tester1', email: 'tester1@email.com', password: 'tester1pass' })
 u_testuser2 = User.create({ name: 'tester2', email: 'tester2@email.com', password: 'tester2pass' })
 
@@ -94,9 +114,19 @@ r_katsura   = Resort.create({ name: '桂浜', address: '高知県高知市浦戸
 r_ryugado   = Resort.create({ name: '龍河洞', address: '高知県香美市土佐山田町逆川1424', detail: '日本の代表的観光鍾乳洞。幻想的で神秘的な世界を体感できる。' })
 r_wakamiya  = Resort.create({ name: '若宮八幡宮', address: '高知長浜6600', detail: '長宗我部元親公出陣祈願の社。高知市港南区の総氏神、また厄除け開運の神などとして近郷近在の里人から広く信仰を集めている。' })
 r_muroto    = Resort.create({ name: '室戸岬', address: '高知県室戸市室戸岬町', detail: '壮大な岩、荒々しい海、空海が残した数々の伝説、パワースポットなど盛りだくさん！'} )
+r_yanase    = Resort.create({ name: 'やなせたかし記念館', detail: '香美市立やなせたかし記念館は、アンパンマンミュージアムと詩とメルヘン絵本館から構成されます。'})
 
 # StoreDrink.create(store: s_ippu, drink: dr_tosazuru)
 # StoreDrink.create(store: s_ippu, drink: dr_keigetsu)
 
-dr_tosazuru.belong_stores << s_ippu
-dr_keigetsu.belong_stores << s_ippu
+dr_tosazuru.belong_stores << s_ippu << s_roberuto
+dr_keigetsu.belong_stores << s_ippu << s_roberuto
+dr_kurokiri.belong_stores << s_roberuto
+dr_kasiore.belong_stores << s_roberuto
+
+di_utsubo_k.belong_stores << s_roberuto
+di_katsuo_t.belong_stores << s_roberuto
+di_sabasushi.belong_stores << s_roberuto
+
+r_ryugado.close_stores << s_roberuto
+r_yanase.close_stores << s_roberuto
