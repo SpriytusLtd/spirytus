@@ -18,3 +18,4 @@ deployment:
       - git push git@heroku.com:dry-earth-37897.git $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate --app dry-earth-37897:
           timeout: 400 # if your deploys take a long time
+      - heroku run rake db:seed --app dry-earth-37897

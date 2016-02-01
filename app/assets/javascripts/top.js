@@ -27,8 +27,7 @@ $(function()
   $('#move-page-top').click(
     function()
     {
-      console.log('clicked');
-      console.log($('html,body'));
+
       //スムーズにスクロールする
       $('html,body').animate({scrollTop:0}, 'slow');
     }

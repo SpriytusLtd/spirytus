@@ -19,16 +19,12 @@ color:white;
 .center{
   width:30%;
   float:left;
-  margin: 15px;
-  text-align: left;
-  height:450px;
+  margin: 15px;;
 }
 .center2{
-  width:30%;
+  width:20%;
   float:left;
-  text-align: left;
-  margin: 10px;
-  height:450px;
+  margin: 25px;;
 }
 
 .top-content__title {
