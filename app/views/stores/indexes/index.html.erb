@@ -28,44 +28,6 @@
       </ul>
       <%= will_paginate @stores, previous_label: '<前ページ', next_label: '次ページ>' %>
 
-      <div class="store-index-search-form">
-        <p class="store-index-text">再検索フォーム</p>
-        <%= form_for :search, method: "get" do |f| %>
-          <p>
-            <%= f.label :name, '名前' %><br>
-            <%= f.text_field :name %>
-          </p>
-
-          <p class="store-index-text">観光地</p>
-          <p>
-            <% @resorts.each do |d| %>
-              <%= f.label :name, d.name %>
-              <%= f.radio_button 'resort', d.id, {} %>
-            <% end %>
-          </p>
-
-          <p class="store-index-text">お酒</p>
-          <p>
-            <% @drinks.each do |d| %>
-              <%= f.label :name, d.name %>
-              <%= f.radio_button 'drink', d.id, {} %>
-            <% end %>
-          </p>
-
-          <p class="store-index-text">郷土料理</p>
-          <p>
-            <% @dishes.each do |d| %>
-              <%= f.label :name, d.name %>
-              <%= f.radio_button 'dish', d.id, {} %>
-            <% end %>
-          </p>
-
-          <p>
-            <%= submit_tag "検索" %>
-          </p>
-
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
